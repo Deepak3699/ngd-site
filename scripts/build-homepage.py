@@ -339,7 +339,7 @@ must(html, hero_tail, 'hero buttons')
 hero_new = f"""                  <path d="M7 17L17 7M9 7h8v8" />
                 </svg>
               </a>
-              <a href="#" data-ngd="whatsapp" class="wa-orb" title="Chat on WhatsApp"
+              <a href="#" data-ngd="whatsapp" class="wa-orb hidden sm:inline-grid" title="Chat on WhatsApp"
                 aria-label="Chat with us on WhatsApp">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="{WA_GLYPH}" />

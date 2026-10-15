@@ -536,3 +536,25 @@
         transition: none;
       }
     }
+
+    /* ---------- Strict Mobile Viewport & Overflow Lock ---------- */
+    html,
+    body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      position: relative;
+    }
+
+    main,
+    section,
+    header,
+    footer {
+      overflow-x: clip !important;
+      max-width: 100vw !important;
+    }
+
+    .blob {
+      max-width: 100vw !important;
+    }
+
