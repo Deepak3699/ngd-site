@@ -88,10 +88,12 @@ function serveStatic(req, res, pathname) {
       return notFound(res);
     }
     if (rel === ADMIN_PATH || rel === ADMIN_PATH + '/' || rel.startsWith(ADMIN_PATH + '/')) {
-      // "/secret" → "/secret/" so the relative ?css/?js links resolve
       if (rel === ADMIN_PATH) return redirect(res, ADMIN_PATH + '/');
-      rel = '/admin' + rel.slice(ADMIN_PATH.length);
-      if (rel === '/admin' || rel === '/admin/') rel = '/admin/index.html';
+      const directTarget = path.join(PUBLIC_DIR, rel);
+      if (!fs.existsSync(directTarget)) {
+        rel = '/admin' + rel.slice(ADMIN_PATH.length);
+        if (rel === '/admin' || rel === '/admin/') rel = '/admin/index.html';
+      }
     }
   } else if (rel === '/admin') {
     return redirect(res, '/admin/');

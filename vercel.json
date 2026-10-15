@@ -2,49 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "public",
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/ngd-control-8421",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/ngd-control-8421/",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/ngd-control-8421/:path*",
-      "destination": "/admin/:path*"
-    },
-    {
-      "source": "/ngd-control-8241",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/ngd-control-8241/",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/ngd-control-8241/:path*",
-      "destination": "/admin/:path*"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/admin",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/admin/",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/admin/:path*",
-      "destination": "/",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -65,19 +22,6 @@
     },
     {
       "source": "/ngd-control-(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
-    },
-    {
-      "source": "/admin/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
