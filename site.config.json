@@ -1,0 +1,23 @@
+{
+  "_readme": "EDIT THIS FILE — it is the single source of truth for every contact detail on the site and for notifications. Run `npm run build` afterwards. Leave a value as an empty string (\"\") to hide that element automatically.",
+
+  "brand": "NGD — NextGenDev Solutions",
+
+  "email": "hello@ngdsolutions.com",
+  "phone": "+91 99999 99999",
+  "whatsapp": "919999999999",
+  "whatsappDisplay": "+91 99999 99999",
+  "whatsappMessage": "Hi NGD! I came from your website and I'd like to talk about a project.",
+  "hours": "Mon–Fri, 9am–6pm IST",
+  "location": "Remote-first, worldwide",
+
+  "instagram": "https://instagram.com/",
+  "linkedin": "https://linkedin.com/company/",
+  "x": "https://x.com/",
+  "github": "",
+
+  "notifications": {
+    "whatsappTo": "919999999999",
+    "emailTo": "hello@ngdsolutions.com"
+  }
+}

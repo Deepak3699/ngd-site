@@ -1,0 +1,538 @@
+    /* ---------- Missing pieces the old stylesheet referenced ---------- */
+    .gradient-border {
+      position: relative;
+      padding: 1px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(79, 124, 255, .55), rgba(139, 92, 246, .35) 45%, rgba(34, 211, 238, .45));
+    }
+
+    .glow-input {
+      width: 100%;
+      background: rgba(0, 0, 0, .42);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 14px;
+      padding: .85rem 1rem;
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+      transition: border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+    }
+
+    .glow-input::placeholder {
+      color: rgba(232, 232, 239, .26);
+    }
+
+    .glow-input:focus {
+      border-color: rgba(139, 92, 246, .65);
+      background: rgba(0, 0, 0, .55);
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, .13);
+    }
+
+    .glow-input.is-invalid {
+      border-color: rgba(255, 122, 138, .7);
+      box-shadow: 0 0 0 4px rgba(255, 122, 138, .12);
+    }
+
+    select.glow-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A9A9BC' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .9rem center;
+      padding-right: 2.4rem;
+      cursor: pointer;
+    }
+
+    select.glow-input option {
+      background: #101014;
+      color: #fff;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(.965) translateY(14px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+    }
+
+    .reveal-scale.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .magnetic {
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .magnetic:hover {
+      transform: translateY(-2px) scale(1.012);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ---------- Pricing ---------- */
+    .seg {
+      display: inline-flex;
+      gap: .25rem;
+      padding: .3rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .42);
+      border: 1px solid rgba(255, 255, 255, .1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .seg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.05rem;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: rgba(232, 232, 239, .62);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .35s var(--ease);
+      white-space: nowrap;
+    }
+
+    .seg-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .seg-btn.is-active {
+      color: #fff;
+      background: linear-gradient(100deg, rgba(79, 124, 255, .92), rgba(139, 92, 246, .92));
+      box-shadow: 0 10px 26px -14px rgba(139, 92, 246, .95);
+    }
+
+    .seg-btn .seg-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: currentColor;
+      opacity: .7;
+    }
+
+    .plan-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, .09);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .012));
+      padding: 1.6rem;
+      transition: transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
+    }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, .2);
+      box-shadow: 0 34px 70px -40px rgba(79, 124, 255, .55);
+    }
+
+    .plan-card.is-featured {
+      border-color: rgba(139, 92, 246, .45);
+      background: linear-gradient(180deg, rgba(139, 92, 246, .14), rgba(79, 124, 255, .05));
+      box-shadow: 0 40px 90px -50px rgba(139, 92, 246, .95);
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: .4rem;
+      margin-top: 1.1rem;
+    }
+
+    .plan-price .amount {
+      font-size: 2.15rem;
+      font-weight: 700;
+      letter-spacing: -.035em;
+      color: #fff;
+    }
+
+    .plan-price .unit {
+      font-size: .8rem;
+      color: rgba(232, 232, 239, .45);
+    }
+
+    .plan-list {
+      margin: 1.1rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .6rem;
+      font-size: 13.5px;
+      color: rgba(232, 232, 239, .62);
+      line-height: 1.5;
+    }
+
+    .plan-list li {
+      display: flex;
+      gap: .55rem;
+      align-items: flex-start;
+    }
+
+    .plan-list svg {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: #34D399;
+    }
+
+    /* ---------- Enquiry form ---------- */
+    .field-label {
+      display: block;
+      margin-bottom: .45rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(232, 232, 239, .5);
+    }
+
+    .field-label .req {
+      color: #FF9AA2;
+    }
+
+    .field-error {
+      margin: .4rem 0 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #FF9AA2;
+    }
+
+    .field-hint {
+      margin: .4rem 0 0;
+      font-size: 12px;
+      color: rgba(232, 232, 239, .42);
+    }
+
+    .field-hint button {
+      color: #8FB6FF;
+      text-decoration: underline;
+      background: none;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .pane {
+      display: none;
+    }
+
+    .pane.is-active {
+      display: block;
+      animation: paneIn .45s var(--ease);
+    }
+
+    @keyframes paneIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .52rem .85rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: rgba(232, 232, 239, .68);
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      cursor: pointer;
+      transition: all .3s var(--ease);
+    }
+
+    .pill:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .pill.is-active {
+      color: #fff;
+      border-color: rgba(139, 92, 246, .6);
+      background: linear-gradient(100deg, rgba(79, 124, 255, .22), rgba(139, 92, 246, .22));
+      box-shadow: 0 10px 26px -14px rgba(139, 92, 246, .9);
+    }
+
+    .form-status {
+      display: none;
+      align-items: flex-start;
+      gap: .6rem;
+      margin-top: 1rem;
+      padding: .8rem 1rem;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-status.is-visible {
+      display: flex;
+    }
+
+    .form-status.is-error {
+      color: #FFC4CB;
+      background: rgba(255, 122, 138, .1);
+      border: 1px solid rgba(255, 122, 138, .3);
+    }
+
+    .form-status.is-success {
+      color: #B7F5DC;
+      background: rgba(52, 211, 153, .1);
+      border: 1px solid rgba(52, 211, 153, .3);
+    }
+
+    .form-status.is-info {
+      color: #C9D8FF;
+      background: rgba(79, 124, 255, .1);
+      border: 1px solid rgba(79, 124, 255, .3);
+    }
+
+    .spinner {
+      width: 15px;
+      height: 15px;
+      border-radius: 99px;
+      border: 2px solid rgba(255, 255, 255, .35);
+      border-top-color: #fff;
+      animation: spin .7s linear infinite;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 2.4rem;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(232, 232, 239, .55);
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 1.7rem;
+      height: 1.7rem;
+      display: grid;
+      place-items: center;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #DCE6FF;
+      background: linear-gradient(100deg, rgba(79, 124, 255, .3), rgba(139, 92, 246, .3));
+      border: 1px solid rgba(139, 92, 246, .4);
+    }
+
+    .steps li strong {
+      display: block;
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 1rem .5rem 1.5rem;
+    }
+
+    .success-card.is-visible {
+      display: block;
+      animation: paneIn .5s var(--ease);
+    }
+
+    .ref-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: .35rem;
+      padding: .45rem .8rem;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12.5px;
+      color: #DCE6FF;
+      background: rgba(79, 124, 255, .12);
+      border: 1px dashed rgba(79, 124, 255, .45);
+      cursor: pointer;
+    }
+
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* ---------- Floating WhatsApp button ---------- */
+    /* ============================================================
+       Premium icon-only WhatsApp button (logo only, no label)
+       Two flavours: the hero orb and the floating one.
+       ============================================================ */
+    .wa-orb {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      color: #fff;
+      background:
+        radial-gradient(125% 125% at 32% 16%, #7CF0AC 0%, #35D67F 34%, #15A65C 70%, #0A6F42 100%);
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow:
+        0 20px 44px -20px rgba(34, 197, 94, .95),
+        0 8px 22px -12px rgba(0, 0, 0, .7),
+        inset 0 1px 0 rgba(255, 255, 255, .5),
+        inset 0 -10px 18px -12px rgba(0, 0, 0, .5);
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* glass sheen */
+    .wa-orb::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .38), rgba(255, 255, 255, .07) 42%,
+          rgba(255, 255, 255, 0) 64%);
+      pointer-events: none;
+    }
+
+    /* thin halo ring */
+    .wa-orb::after {
+      content: '';
+      position: absolute;
+      inset: -7px;
+      border-radius: inherit;
+      border: 1px solid rgba(74, 222, 128, .4);
+      opacity: .5;
+      pointer-events: none;
+      transition: opacity .45s var(--ease), transform .45s var(--ease);
+    }
+
+    .wa-orb svg {
+      position: relative;
+      width: 27px;
+      height: 27px;
+      filter: drop-shadow(0 1px 1px rgba(4, 40, 24, .35));
+    }
+
+    .wa-orb:hover {
+      transform: translateY(-3px) scale(1.045);
+      box-shadow:
+        0 28px 58px -22px rgba(34, 197, 94, 1),
+        0 10px 26px -12px rgba(0, 0, 0, .7),
+        inset 0 1px 0 rgba(255, 255, 255, .6),
+        inset 0 -10px 18px -12px rgba(0, 0, 0, .5);
+    }
+
+    .wa-orb:hover::after {
+      opacity: .95;
+      transform: scale(1.045);
+    }
+
+    .wa-orb:focus-visible {
+      outline: 2px solid #7CF0AC;
+      outline-offset: 4px;
+    }
+
+    /* floating one — same orb, pinned bottom-right, slowly breathing */
+    .wa-fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 85;
+    }
+
+    .wa-fab::after {
+      animation: waPulse 3s ease-out infinite;
+    }
+
+    .wa-fab:active {
+      transform: scale(.97);
+    }
+
+    /* little "we're around" dot */
+    .wa-orb .wa-dot {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #4ADE80;
+      box-shadow: 0 0 0 2.5px #0A0A0F, 0 0 12px 2px rgba(74, 222, 128, .65);
+    }
+
+    @keyframes waPulse {
+      0% {
+        transform: scale(.94);
+        opacity: .85;
+      }
+
+      70% {
+        transform: scale(1.18);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wa-fab {
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .wa-orb {
+        width: 50px;
+        height: 50px;
+      }
+
+      .wa-orb svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wa-fab::after {
+        animation: none;
+      }
+
+      .wa-orb {
+        transition: none;
+      }
+    }

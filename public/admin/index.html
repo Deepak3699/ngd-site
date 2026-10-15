@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Responses · NGD Admin</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <!-- relative paths on purpose: the whole dashboard can be served from a secret path -->
+  <link rel="stylesheet" href="admin.css" />
+  <script>
+    // set the theme before first paint so there is no flash
+    (function () {
+      try {
+        var saved = localStorage.getItem('ngd.theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- ============================ LOGIN ============================ -->
+  <div class="login-screen hidden" id="loginScreen">
+    <form class="login-card" id="loginForm" novalidate>
+      <div class="brand">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">
+          <strong>NGD Admin</strong>
+          <span>Responses</span>
+        </span>
+      </div>
+      <h1>Sign in to continue</h1>
+      <p>Use your own team login. Access is rate-limited and sessions expire after 7 days.</p>
+
+      <div class="field">
+        <label for="loginUser">Username</label>
+        <input class="input" id="loginUser" type="text" autocomplete="username" placeholder="your username" />
+      </div>
+      <div class="field">
+        <label for="loginPass">Password</label>
+        <input class="input" id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••"
+          required />
+      </div>
+
+      <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
+      <p class="hidden" id="loginError" style="color:#FFC4AB;margin-top:12px"></p>
+      <p style="margin-top:16px;font-size:12px">Team logins come from the <code>TEAM_MEMBERS</code> environment
+        variable.</p>
+    </form>
+  </div>
+
+  <!-- ============================ APP ============================ -->
+  <div class="hidden" id="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-mark">N</span>
+          <span class="brand-text">
+            <strong>Responses</strong>
+            <span>NextGenDev Solutions</span>
+          </span>
+        </a>
+
+        <span class="topbar-spacer"></span>
+
+        <span class="pill-badge" id="dbBadge" title="Database"><span class="dot"></span><span id="dbBadgeText">db</span></span>
+        <span class="pill-badge" id="alertBadge" title="New-enquiry alerts"></span>
+
+        <button class="btn btn-ghost btn-sm theme-toggle" id="themeBtn" aria-label="Switch between dark and light theme">
+          <span class="swatch" aria-hidden="true"></span>
+          <span id="themeLabel">Light</span>
+        </button>
+
+        <span class="pill-badge" id="userBadge" title="Signed in as">
+          <span class="owner"><span class="avatar" id="userAvatar">··</span><span id="userName">…</span></span>
+        </span>
+
+        <button class="btn btn-ghost btn-sm hidden" id="logoutBtn">Log out</button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="notice notice-warn hidden" id="openNotice">
+        <span>⚠️</span>
+        <span><strong>Login is OFF — anyone with this link can read every response.</strong>
+          Set <code>ADMIN_PASSWORD</code> (single owner) or <code>TEAM_MEMBERS</code> (a login per person) and the
+          login screen turns on automatically.</span>
+      </div>
+
+      <div class="notice notice-info hidden" id="dbNotice"><span>🗄️</span><span id="dbNoticeText"></span></div>
+
+      <!-- stats -->
+      <section class="stat-grid" id="statGrid" aria-label="Summary"></section>
+
+      <!-- charts + alerts -->
+      <section class="dash-grid">
+        <div class="panel">
+          <div class="panel-title">
+            <h2>Submissions · last 14 days</h2>
+            <div class="legend">
+              <span><i style="background:linear-gradient(180deg,#22D3EE,#4F7CFF)"></i>Students</span>
+              <span><i style="background:linear-gradient(180deg,#C084FC,#8B5CF6)"></i>Business / other</span>
+            </div>
+          </div>
+          <div class="chart" id="chart"></div>
+          <div class="chart-x" id="chartX"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">
+            <h2>New-enquiry alerts</h2>
+          </div>
+          <div class="channels" id="channels"></div>
+          <p class="muted" style="margin:10px 0 0;font-size:12px;line-height:1.6" id="channelHint"></p>
+
+          <div class="panel-title" style="margin-top:18px">
+            <h2>What people ask for</h2>
+          </div>
+          <div class="breakdown" id="breakdownNeeds"></div>
+        </div>
+      </section>
+
+      <!-- team worklog -->
+      <section class="panel" style="margin-bottom:14px">
+        <div class="panel-title">
+          <h2>Team activity</h2>
+          <button class="btn btn-ghost btn-sm" id="activityRefresh">↻ Refresh</button>
+        </div>
+        <div id="activityPanel"><div class="empty">Loading activity…</div></div>
+      </section>
+
+      <!-- toolbar -->
+      <div class="toolbar">
+        <div class="tabs" role="tablist" aria-label="Filter by audience">
+          <button class="tab is-active" data-category="all" role="tab">
+            Everyone <span class="count" id="countAll">0</span>
+          </button>
+          <button class="tab" data-category="student" role="tab">
+            🎓 Students <span class="count" id="countStudents">0</span>
+          </button>
+          <button class="tab" data-category="client" role="tab">
+            🏢 Business / Other <span class="count" id="countClients">0</span>
+          </button>
+        </div>
+
+        <span class="topbar-spacer"></span>
+
+        <div class="filters">
+          <div class="search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input class="input" id="searchInput" type="search" placeholder="Name, email, college, company, message…"
+              autocomplete="off" />
+          </div>
+          <select class="input" id="assigneeFilter" aria-label="Filter by owner">
+            <option value="all">Anyone</option>
+            <option value="me">Assigned to me</option>
+            <option value="unassigned">Nobody yet</option>
+          </select>
+          <select class="input" id="statusFilter" aria-label="Filter by status">
+            <option value="all">All statuses</option>
+            <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="won">Won</option>
+            <option value="lost">Lost</option>
+            <option value="archived">Archived</option>
+          </select>
+          <select class="input" id="sourceFilter" aria-label="Filter by source">
+            <option value="all">All sources</option>
+            <option value="contact-form">Contact form</option>
+            <option value="footer-quick">Footer quick form</option>
+          </select>
+          <select class="input" id="sortFilter" aria-label="Sort">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" id="autoBtn" aria-pressed="false">Auto-refresh: off</button>
+          <button class="btn btn-ghost btn-sm" id="exportBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+            </svg>
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- bulk bar -->
+      <div class="panel hidden" id="bulkBar" style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <strong id="bulkCount" style="font-size:13.5px">0 selected</strong>
+        <span class="topbar-spacer"></span>
+        <button class="btn btn-ghost btn-sm" data-bulk="assign-me">Assign to me</button>
+        <button class="btn btn-ghost btn-sm" data-bulk="contacted">Mark contacted</button>
+        <button class="btn btn-ghost btn-sm" data-bulk="won">Mark won</button>
+        <button class="btn btn-ghost btn-sm" data-bulk="archived">Archive</button>
+        <button class="btn btn-danger btn-sm" data-bulk="delete">Delete</button>
+      </div>
+
+      <!-- results -->
+      <div class="table-card">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:34px"><input type="checkbox" id="checkAll" aria-label="Select all on this page" /></th>
+                <th>Received</th>
+                <th>Who</th>
+                <th>Type</th>
+                <th>Asking for</th>
+                <th>Owner</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th style="width:150px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="cards" id="cardList"></div>
+
+        <div class="pager">
+          <div class="pager-info" id="pagerInfo">Loading…</div>
+          <div class="pager-btns">
+            <button class="btn btn-ghost btn-sm" id="prevBtn">← Prev</button>
+            <button class="btn btn-ghost btn-sm" id="nextBtn">Next →</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============================ DRAWER ============================ -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Response detail">
+    <div class="drawer-head">
+      <div style="flex:1;min-width:0">
+        <h2 id="drawerName">—</h2>
+        <p id="drawerMeta">—</p>
+      </div>
+      <button class="icon-btn" id="drawerClose" aria-label="Close details">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>

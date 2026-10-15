@@ -1,0 +1,23 @@
+{
+  "name": "ngd-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NGD \u2014 NextGenDev Solutions website + Neon-backed lead capture API + separate admin dashboard.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "init-db": "node scripts/init-db.js",
+    "css": "tailwindcss -c tailwind.config.js -i src/input.css -o public/assets/tailwind.css --minify",
+    "build": "python3 scripts/build-homepage.py && npm run css && node scripts/inline-tailwind.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

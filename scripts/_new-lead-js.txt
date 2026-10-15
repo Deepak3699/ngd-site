@@ -1,0 +1,613 @@
+      /* ================================================================
+         CONTACT CONFIG  (WhatsApp / email / phone / hours / socials)
+         Values come from site.config.json → injected as window.NGD_CONFIG
+         by `npm run build`. Everything marked data-ngd="…" on the page is
+         filled in here, and hidden automatically when a value is blank.
+         ================================================================ */
+
+      var CFG = window.NGD_CONFIG || {};
+      var digits = function (v) { return String(v || '').replace(/\D/g, ''); };
+      var EMAIL_FALLBACK = 'hello@ngdsolutions.com';
+
+      function waLink(message) {
+        var num = digits(CFG.whatsapp);
+        if (!num) return '';
+        var text = message || CFG.whatsappMessage || '';
+        return 'https://wa.me/' + num + (text ? '?text=' + encodeURIComponent(text) : '');
+      }
+
+      function linkFor(kind, el) {
+        switch (kind) {
+          case 'whatsapp':
+            return waLink(el && el.getAttribute('data-ngd-msg'));
+          case 'email':
+            return CFG.email ? 'mailto:' + CFG.email : '';
+          case 'phone':
+            return CFG.phone ? 'tel:' + String(CFG.phone).replace(/[^\d+]/g, '') : '';
+          case 'instagram':
+          case 'linkedin':
+          case 'x':
+          case 'github':
+            return CFG[kind] || '';
+          default:
+            return '';
+        }
+      }
+
+      function textFor(kind) {
+        switch (kind) {
+          case 'email': return CFG.email || '';
+          case 'phone': return CFG.phone || '';
+          case 'hours': return CFG.hours || '';
+          case 'location': return CFG.location || '';
+          case 'whatsapp': return CFG.whatsappDisplay || CFG.whatsapp || '';
+          default: return '';
+        }
+      }
+
+      function hide(el) {
+        // hide just the element, or the whole row if it is marked as one unit
+        var row = (el.closest && el.closest('[data-ngd-row]')) || el;
+        row.style.display = 'none';
+      }
+
+      function applySiteConfig() {
+        document.querySelectorAll('[data-ngd]').forEach(function (el) {
+          var kind = el.getAttribute('data-ngd');
+          var href = linkFor(kind, el);
+          if (!href) return hide(el);
+          el.setAttribute('href', href);
+          if (kind !== 'email' && kind !== 'phone') {
+            el.setAttribute('target', '_blank');
+            el.setAttribute('rel', 'noopener noreferrer');
+          }
+        });
+
+        document.querySelectorAll('[data-ngd-text]').forEach(function (el) {
+          var value = textFor(el.getAttribute('data-ngd-text'));
+          if (!value) return hide(el);
+          el.textContent = value;
+        });
+
+        // make sure any inline mention of the support email matches the config
+        document.querySelectorAll('[data-ngd-inline-email]').forEach(function (el) {
+          el.textContent = CFG.email || EMAIL_FALLBACK;
+        });
+
+        buildWhatsAppFab();
+      }
+
+      /* ---------- floating WhatsApp button ---------- */
+      function buildWhatsAppFab() {
+        var href = waLink();
+        var existing = document.getElementById('waFab');
+        if (!href) {
+          if (existing) existing.remove();
+          return;
+        }
+        if (existing) {
+          existing.setAttribute('href', href);
+          return;
+        }
+
+        var a = document.createElement('a');
+        a.id = 'waFab';
+        a.className = 'wa-orb wa-fab';   // premium icon-only button, WhatsApp logo only
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.title = 'Chat on WhatsApp';
+        a.setAttribute('aria-label', 'Chat with us on WhatsApp');
+        a.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+          '<path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.3-.4.3-.7.2a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.6 5 3.3 1.3 3.8 1.1 4.5 1 .7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.7-.1-.2-.3-.3-.6-.4zM12 21.5c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.5.9.9-3.4-.2-.4A9.4 9.4 0 0 1 2.6 12 9.4 9.4 0 0 1 12 2.6 9.4 9.4 0 0 1 21.4 12 9.4 9.4 0 0 1 12 21.5zM12 .8A11.2 11.2 0 0 0 .8 12c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6a11.2 11.2 0 0 0 5.4 1.4A11.2 11.2 0 0 0 23.2 12 11.2 11.2 0 0 0 12 .8z"/>' +
+          '</svg>' +
+          '<span class="wa-dot" aria-hidden="true"></span>';
+        document.body.appendChild(a);
+      }
+
+      applySiteConfig();
+      window.ngdApplySiteConfig = applySiteConfig;
+
+      /* ================================================================
+         ENQUIRY SYSTEM  (student track vs business/other track)
+         Every form on this page posts to POST /api/leads, which stores the
+         response in Neon Postgres. The admin dashboard reads it back.
+         ================================================================ */
+
+      var APIS = {
+        leads: '/api/leads'
+      };
+
+      var leadForm = document.getElementById('leadForm');
+      var leadStatus = document.getElementById('leadStatus');
+      var leadSuccess = document.getElementById('leadSuccess');
+      var leadSubmit = document.getElementById('leadSubmit');
+      var leadSpinner = document.getElementById('leadSpinner');
+      var leadSubmitLabel = document.getElementById('leadSubmitLabel');
+      var categoryButtons = document.querySelectorAll('[data-category-btn]');
+      var panes = document.querySelectorAll('[data-pane]');
+
+      var state = {
+        category: null,
+        needs: {},          // { studentNeed: '...', clientNeed: '...', budget: '...', timeline: '...' }
+        plan: null,
+        startedAt: Date.now(),
+        sending: false
+      };
+
+      function postJSON(url, payload) {
+        return fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            return { ok: res.ok && data.ok !== false, status: res.status, data: data };
+          });
+        });
+      }
+
+      /* ---------- category switching ---------- */
+      function setCategory(category, opts) {
+        opts = opts || {};
+        state.category = category;
+        state.plan = opts.plan || null;
+
+        categoryButtons.forEach(function (btn) {
+          var on = btn.getAttribute('data-category-btn') === category;
+          btn.classList.toggle('is-active', on);
+          btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+
+        panes.forEach(function (pane) {
+          pane.classList.toggle('is-active', pane.getAttribute('data-pane') === category);
+        });
+
+        var messageLabel = document.querySelector('[data-message-label]');
+        if (messageLabel) {
+          messageLabel.innerHTML = category === 'student'
+            ? 'Anything else we should know? <span class="text-white/30">(deadline, branch, dream role…)</span>'
+            : 'Anything else we should know? <span class="text-white/30">(one line is fine)</span>';
+        }
+
+        if (leadSubmitLabel) {
+          leadSubmitLabel.textContent = category === 'student'
+            ? 'Send my student enquiry'
+            : 'Send my business enquiry';
+        }
+      }
+
+      categoryButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setCategory(btn.getAttribute('data-category-btn'));
+        });
+      });
+
+      /* ---------- pill groups (single select each) ---------- */
+      document.querySelectorAll('[data-pill-group]').forEach(function (group) {
+        var key = group.getAttribute('data-pill-group');
+        group.querySelectorAll('.pill').forEach(function (pill) {
+          pill.addEventListener('click', function () {
+            var value = pill.getAttribute('data-pill-value');
+            var already = state.needs[key] === value;
+            group.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('is-active'); });
+            if (already) {
+              delete state.needs[key];
+            } else {
+              state.needs[key] = value;
+              pill.classList.add('is-active');
+            }
+          });
+        });
+      });
+
+      function applyNeedSelection(groupKey, value) {
+        var group = document.querySelector('[data-pill-group="' + groupKey + '"]');
+        if (!group) return;
+        var matched = false;
+        group.querySelectorAll('.pill').forEach(function (p) {
+          var on = p.getAttribute('data-pill-value') === value;
+          p.classList.toggle('is-active', on);
+          if (on) matched = true;
+        });
+        if (matched) state.needs[groupKey] = value;
+      }
+      window.__ngdApplyNeed = applyNeedSelection;
+
+      /* ---------- preset links: "Enquire about this", pricing cards, student cards ---------- */
+      function goToEnquiry(category, need, plan) {
+        if (!leadForm) return;
+        setCategory(category);
+        if (need) {
+          applyNeedSelection(category === 'student' ? 'studentNeed' : 'clientNeed', need);
+        } else {
+          document.querySelectorAll('[data-pill-group]').forEach(function (g) {
+            if (g.getAttribute('data-pill-group') === (category === 'student' ? 'studentNeed' : 'clientNeed')) {
+              g.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('is-active'); });
+            }
+          });
+          if (category === 'student') delete state.needs.studentNeed;
+          else delete state.needs.clientNeed;
+        }
+        state.plan = plan || null;
+      }
+      window.ngdGoToEnquiry = goToEnquiry;
+
+      document.querySelectorAll('a[data-preset]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          goToEnquiry(
+            link.getAttribute('data-preset'),
+            link.getAttribute('data-preset-need'),
+            link.getAttribute('data-preset-plan')
+          );
+        });
+      });
+
+      /* ---------- form defaults, saved details, deep links ---------- */
+      var STORE_KEY = 'ngd.enquiry.v1';
+
+      function loadSaved() {
+        try {
+          var saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+          if (!saved || typeof saved !== 'object') return;
+          if (saved.name) setValue('lfName', saved.name);
+          if (saved.email) setValue('lfEmail', saved.email);
+          if (saved.phone) setValue('lfPhone', saved.phone);
+          if (saved.college) setValue('lfCollege', saved.college);
+          if (saved.category) goToEnquiry(saved.category, null, null);
+        } catch (e) { /* private mode, ignore */ }
+      }
+
+      function setValue(id, value) {
+        var el = document.getElementById(id);
+        if (el && !el.value) el.value = value;
+      }
+
+      function saveDetails(payload) {
+        try {
+          localStorage.setItem(STORE_KEY, JSON.stringify({
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone,
+            college: payload.college,
+            category: payload.category
+          }));
+        } catch (e) { /* ignore */ }
+      }
+
+      function applyDeepLink() {
+        var params = new URLSearchParams(location.search);
+        var type = (params.get('type') || '').toLowerCase();
+        var hashType = /student/i.test(location.hash) ? 'student' : /client|business/i.test(location.hash) ? 'client' : '';
+        var preset = type || hashType;
+        if (preset === 'student' || preset === 'client') goToEnquiry(preset, null, null);
+      }
+
+      if (leadForm) {
+        loadSaved();
+        applyDeepLink();
+      }
+
+      /* ---------- validation ---------- */
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+      function showError(field, message) {
+        var el = document.querySelector('[data-error-for="' + field + '"]');
+        if (el) {
+          el.textContent = message;
+          el.hidden = false;
+        }
+        var input = document.getElementById('lf' + field.charAt(0).toUpperCase() + field.slice(1));
+        if (input) input.classList.add('is-invalid');
+      }
+
+      function clearErrors() {
+        document.querySelectorAll('[data-error-for]').forEach(function (el) {
+          el.hidden = true;
+          el.textContent = '';
+        });
+        document.querySelectorAll('.glow-input.is-invalid').forEach(function (el) {
+          el.classList.remove('is-invalid');
+        });
+      }
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? String(el.value || '').trim() : '';
+      }
+
+      function collect() {
+        var isStudent = state.category === 'student';
+        return {
+          category: state.category,
+          name: val('lfName'),
+          email: val('lfEmail'),
+          phone: val('lfPhone'),
+          college: isStudent ? val('lfCollege') : '',
+          course: isStudent ? val('lfCourse') : '',
+          studyYear: isStudent ? val('lfStudyYear') : '',
+          studentNeed: isStudent ? (state.needs.studentNeed || '') : '',
+          company: isStudent ? '' : val('lfCompany'),
+          role: isStudent ? '' : val('lfRole'),
+          companyWebsite: isStudent ? '' : val('lfWebsite'),
+          clientNeed: isStudent ? '' : (state.needs.clientNeed || ''),
+          budget: isStudent ? '' : (state.needs.budget || ''),
+          timeline: isStudent ? '' : (state.needs.timeline || ''),
+          message: val('lfMessage'),
+          sourceSection: 'contact-form',
+          pageUrl: location.pathname + location.search,
+          referrer: document.referrer || '',
+          elapsedMs: Date.now() - state.startedAt,
+          meta: state.plan ? { plan: state.plan } : {}
+        };
+      }
+
+      function validate(payload) {
+        var errors = {};
+        if (!state.category) {
+          errors.category = 'Pick Student or Business / Other so we can help properly.';
+        }
+        if (payload.name.length < 2) errors.name = 'Please enter your name.';
+        if (!EMAIL_RE.test(payload.email)) errors.email = 'Please enter a valid email address.';
+        var digits = payload.phone.replace(/\D/g, '');
+        if (payload.phone && (digits.length < 7 || digits.length > 15)) {
+          errors.phone = 'That phone number looks incomplete.';
+        }
+        if (payload.message.length > 2000) errors.message = 'Message is a bit long — keep it under 2000 characters.';
+        return errors;
+      }
+
+      /* ---------- email typo nudge ---------- */
+      var COMMON_DOMAINS = {
+        'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmail.con': 'gmail.com',
+        'gnaill.com': 'gmail.com', 'gnail.com': 'gmail.com', 'hotmial.com': 'hotmail.com', 'hotmai.com': 'hotmail.com',
+        'yaho.com': 'yahoo.com', 'yahoo.co': 'yahoo.com', 'outlok.com': 'outlook.com', 'outlook.co': 'outlook.com',
+        'icloud.co': 'icloud.com', 'protonmai.com': 'proton.me', 'rediffmai.com': 'rediffmail.com'
+      };
+
+      var emailInput = document.getElementById('lfEmail');
+      if (emailInput) {
+        emailInput.addEventListener('blur', function () {
+          var value = String(emailInput.value || '').trim().toLowerCase();
+          var hint = document.querySelector('[data-hint-for="email"]');
+          if (!hint) return;
+          var at = value.lastIndexOf('@');
+          if (at === -1) { hint.hidden = true; return; }
+          var fixed = COMMON_DOMAINS[value.slice(at + 1)];
+          if (!fixed) { hint.hidden = true; return; }
+          var suggestion = value.slice(0, at + 1) + fixed;
+          hint.innerHTML = 'Did you mean <button type="button" id="fixEmail">' + suggestion + '</button>?';
+          hint.hidden = false;
+          var fixBtn = document.getElementById('fixEmail');
+          if (fixBtn) {
+            fixBtn.addEventListener('click', function () {
+              emailInput.value = suggestion;
+              hint.hidden = true;
+              emailInput.focus();
+            });
+          }
+        });
+      }
+
+      /* ---------- status helper ---------- */
+      function setStatus(kind, message) {
+        if (!leadStatus) return;
+        leadStatus.className = 'form-status is-visible is-' + kind;
+        leadStatus.innerHTML = message || '';
+      }
+
+      function clearStatus() {
+        if (!leadStatus) return;
+        leadStatus.className = 'form-status';
+        leadStatus.innerHTML = '';
+      }
+
+      function busy(isBusy) {
+        state.sending = isBusy;
+        if (leadSubmit) leadSubmit.disabled = isBusy;
+        if (leadSpinner) leadSpinner.classList.toggle('hidden', !isBusy);
+        if (leadSubmitLabel) {
+          leadSubmitLabel.textContent = isBusy
+            ? 'Sending…'
+            : state.category === 'student' ? 'Send my student enquiry'
+              : state.category === 'client' ? 'Send my business enquiry'
+                : 'Send my enquiry';
+        }
+      }
+
+      /* ---------- submit ---------- */
+      if (leadForm) {
+        leadForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (state.sending) return;
+          clearErrors();
+          clearStatus();
+
+          var payload = collect();
+          var errors = validate(payload);
+
+          if (errors.category) {
+            setStatus('error', 'Please choose <strong>Student</strong> or <strong>Business / Other</strong> at the top of the form.');
+            var seg = document.getElementById('categorySeg');
+            if (seg) seg.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+            return;
+          }
+
+          var errorKeys = Object.keys(errors);
+          if (errorKeys.length) {
+            errorKeys.forEach(function (key) { showError(key, errors[key]); });
+            setStatus('error', 'Almost there — please fix ' + (errorKeys.length === 1 ? 'the highlighted field' : 'the highlighted fields') + ' above.');
+            var first = document.querySelector('.glow-input.is-invalid');
+            if (first) {
+              first.focus();
+              first.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+            }
+            return;
+          }
+
+          busy(true);
+          setStatus('info', 'Sending your enquiry…');
+
+          postJSON(APIS.leads, payload)
+            .then(function (result) {
+              if (!result.ok) {
+                var err = (result.data && result.data.error) || {};
+                if (err.fields) {
+                  Object.keys(err.fields).forEach(function (k) { showError(k, err.fields[k]); });
+                }
+                setStatus('error', err.message || 'We could not send that. Please try again or email ' + (CFG.email || EMAIL_FALLBACK) + '.');
+                return;
+              }
+
+              saveDetails(payload);
+              var ref = result.data.ref || 'NGD-——';
+              var refValue = document.getElementById('refValue');
+              var copy = document.getElementById('leadSuccessCopy');
+              if (refValue) refValue.textContent = ref;
+              if (copy) {
+                copy.textContent = payload.category === 'student'
+                  ? 'Your student enquiry is with the student team. Expect a reply within 24 hours with next steps, pricing and (if you asked) the internship cohort details.'
+                  : "Your enquiry is with the projects team. You'll get a scoped reply within 24 hours — fixed price, timeline and a prototype date.";
+              }
+              if (leadForm) leadForm.style.display = 'none';
+              if (leadSuccess) leadSuccess.classList.add('is-visible');
+              toast('Enquiry sent', 'Reference ' + ref + ' · we reply within 24 hours.', 'success');
+            })
+            .catch(function () {
+              setStatus('error', 'Network hiccup — please check your connection and try again.');
+            })
+            .finally(function () { busy(false); });
+        });
+      }
+
+      /* copy the reference id */
+      var refChip = document.getElementById('refChip');
+      if (refChip) {
+        refChip.addEventListener('click', function () {
+          var value = document.getElementById('refValue');
+          if (!value) return;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(value.textContent).then(function () {
+              toast('Copied', 'Reference ' + value.textContent + ' copied to your clipboard.', 'success');
+            });
+          } else {
+            toast('Reference ID', value.textContent, 'info');
+          }
+        });
+      }
+
+      /* send another */
+      var sendAnother = document.getElementById('sendAnother');
+      if (sendAnother) {
+        sendAnother.addEventListener('click', function () {
+          if (leadSuccess) leadSuccess.classList.remove('is-visible');
+          if (leadForm) {
+            leadForm.style.display = '';
+            leadForm.reset();
+          }
+          state.needs = {};
+          state.plan = null;
+          clearErrors();
+          clearStatus();
+          document.querySelectorAll('.pill.is-active').forEach(function (p) { p.classList.remove('is-active'); });
+          state.startedAt = Date.now();
+          var nameField = document.getElementById('lfName');
+          if (nameField) nameField.focus();
+        });
+      }
+
+      /* ---------- quick email form (final CTA) ---------- */
+      var quickForm = document.getElementById('quickForm');
+      var ctaMsg = document.getElementById('ctaMsg');
+      var qfLabel = document.getElementById('qfLabel');
+
+      if (quickForm) {
+        var quickStartedAt = Date.now();
+        quickForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailEl = document.getElementById('qfEmail');
+          var typeEl = document.getElementById('qfType');
+          var email = String(emailEl && emailEl.value || '').trim();
+          var category = typeEl ? typeEl.value : 'client';
+
+          if (!EMAIL_RE.test(email)) {
+            if (ctaMsg) {
+              ctaMsg.textContent = 'Please enter a valid email address so we can reply.';
+              ctaMsg.style.color = '#FF9AA2';
+              ctaMsg.classList.remove('hidden');
+            }
+            if (emailEl) emailEl.focus();
+            return;
+          }
+
+          if (ctaMsg) {
+            ctaMsg.textContent = 'Sending…';
+            ctaMsg.style.color = '#C9D8FF';
+            ctaMsg.classList.remove('hidden');
+          }
+          if (qfLabel) qfLabel.textContent = 'Sending…';
+
+          postJSON(APIS.leads, {
+            category: category,
+            email: email,
+            name: email.split('@')[0].replace(/[._-]+/g, ' '),
+            sourceSection: 'footer-quick',
+            pageUrl: location.pathname + location.search,
+            elapsedMs: Date.now() - quickStartedAt,
+            meta: { quick: true }
+          })
+            .then(function (result) {
+              if (!result.ok) {
+                var message = (result.data && result.data.error && result.data.error.message) ||
+                  ('Could not send that. Please email ' + (CFG.email || EMAIL_FALLBACK) + '.');
+                if (ctaMsg) {
+                  ctaMsg.textContent = message;
+                  ctaMsg.style.color = '#FF9AA2';
+                }
+                return;
+              }
+              if (ctaMsg) {
+                ctaMsg.textContent = 'Thanks — got it (ref ' + result.data.ref + '). Check your inbox within 4 working hours.';
+                ctaMsg.style.color = '#7FE3F5';
+              }
+              if (emailEl) emailEl.value = '';
+              toast('Request received', 'Reference ' + result.data.ref + ' · we reply within 4 working hours.', 'success');
+            })
+            .catch(function () {
+              if (ctaMsg) {
+                ctaMsg.textContent = 'Network hiccup — please try again in a moment.';
+                ctaMsg.style.color = '#FF9AA2';
+              }
+            })
+            .finally(function () {
+              if (qfLabel) qfLabel.textContent = 'Get a free call';
+            });
+        });
+      }
+
+      /* ---------- pricing audience toggle ---------- */
+      var pricingTabs = document.querySelectorAll('[data-audience]');
+      var pricingGroups = document.querySelectorAll('[data-group]');
+
+      function showPricing(audience) {
+        pricingTabs.forEach(function (tab) {
+          var on = tab.getAttribute('data-audience') === audience;
+          tab.classList.toggle('is-active', on);
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        pricingGroups.forEach(function (group) {
+          group.classList.toggle('hidden', group.getAttribute('data-group') !== audience);
+        });
+        try { localStorage.setItem('ngd.pricing.v1', audience); } catch (e) { /* ignore */ }
+      }
+
+      pricingTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () { showPricing(tab.getAttribute('data-audience')); });
+      });
+
+      if (pricingTabs.length) {
+        var savedAudience = null;
+        try { savedAudience = localStorage.getItem('ngd.pricing.v1'); } catch (e) { /* ignore */ }
+        showPricing(savedAudience === 'client' ? 'client' : 'student');
+      }

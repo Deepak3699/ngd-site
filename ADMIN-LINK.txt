@@ -1,0 +1,37 @@
+# NGD ADMIN PANEL — kahan hai / link kya hai
+# (yeh file sirf tumhare liye hai — site par kahin link nahi hai, yeh jaan-boojh kar hai)
+
+## 1) Abhi, is sandbox ka live preview (server chal raha hai)
+   Live preview link (port 3000) ke aage yeh path lagao:
+
+       /ngd-control-8241/
+
+   Jaise:  https://3000-xxxxxxxx.e2b.app/ngd-control-8241/
+
+   Logins (local test ke liye, .env.local mein hain — asli nahi):
+       owner   →  aman    /  local-dev-pass      (admin: delete + CSV export)
+       team    →  simran  /  local-dev-pass-2    (member: baaki sab, delete nahi)
+
+## 2) Apne computer par (npm run dev ke baad)
+       http://localhost:3000/ngd-control-8241/
+
+## 3) Vercel par deploy hone ke baad
+   Agar ADMIN_PATH env set hai  →  https://tumhari-site.vercel.app/ngd-control-8241/
+   Agar ADMIN_PATH set nahi hai →  https://tumhari-site.vercel.app/admin
+   (login dono jagah lagega — TEAM_MEMBERS ya ADMIN_PASSWORD set hone par)
+
+   ZAROORI: yeh link kahin public mat likho. Bookmark kar lo.
+   Path badalna ho to Vercel → Settings → Environment Variables → ADMIN_PATH,
+   ya locally .env.local mein ADMIN_PATH ki value badal do.
+
+## Not working? yeh check karo
+   * /admin (bina path) jaan-boojh kar 404 deta hai — sirf /ngd-control-8241/ chalega.
+   * 308 aaye to trailing slash ke saath URL kholo — /ngd-control-8241/
+   * Login screen aaye to .env.local ke credentials use karo (upar diye hain).
+   * "API not reachable" toast aaye to server band hai → npm run dev chalao.
+
+## Files (workspace mein)
+   ngd-site/public/admin/index.html   ← dashboard ka page
+   ngd-site/public/admin/admin.js     ← saara logic (theme, team, assign, worklog)
+   ngd-site/public/admin/admin.css    ← dark + light theme
+   ngd-site/.env.local                ← ADMIN_PATH + test logins (local only)
