@@ -609,5 +609,5 @@
       if (pricingTabs.length) {
         var savedAudience = null;
         try { savedAudience = localStorage.getItem('ngd.pricing.v1'); } catch (e) { /* ignore */ }
-        showPricing(savedAudience === 'client' ? 'client' : 'student');
+        showPricing(savedAudience === 'student' ? 'student' : 'client');
       }

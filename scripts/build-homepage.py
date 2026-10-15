@@ -130,7 +130,7 @@ head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Auto
         "description": "NextGenDev Solutions is a premier digital engineering and creative technology agency providing bespoke web development, AI workflow automation, mobile app creation, UI/UX design, and student capstone mentorship.",
         "telephone": "+91 94659 38126",
         "email": "hello@ngdsolutions.com",
-        "priceRange": "$$",
+        "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",
           "addressCountry": "IN",
