@@ -4,19 +4,19 @@
 ## 1) Abhi, is sandbox ka live preview (server chal raha hai)
    Live preview link (port 3000) ke aage yeh path lagao:
 
-       /ngd-control-8241/
+       /ngd-control-8421/
 
-   Jaise:  https://3000-xxxxxxxx.e2b.app/ngd-control-8241/
+   Jaise:  https://3000-xxxxxxxx.e2b.app/ngd-control-8421/
 
    Logins (local test ke liye, .env.local mein hain — asli nahi):
        owner   →  aman    /  local-dev-pass      (admin: delete + CSV export)
        team    →  simran  /  local-dev-pass-2    (member: baaki sab, delete nahi)
 
 ## 2) Apne computer par (npm run dev ke baad)
-       http://localhost:3000/ngd-control-8241/
+       http://localhost:3000/ngd-control-8421/
 
 ## 3) Vercel par deploy hone ke baad
-   Agar ADMIN_PATH env set hai  →  https://tumhari-site.vercel.app/ngd-control-8241/
+   Agar ADMIN_PATH env set hai  →  https://tumhari-site.vercel.app/ngd-control-8421/
    Agar ADMIN_PATH set nahi hai →  https://tumhari-site.vercel.app/admin
    (login dono jagah lagega — TEAM_MEMBERS ya ADMIN_PASSWORD set hone par)
 
