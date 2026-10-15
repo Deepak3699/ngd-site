@@ -13,6 +13,17 @@ import sys
 from html import escape, unescape
 from urllib.parse import quote
 
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+if hasattr(sys.stderr, 'reconfigure'):
+    try:
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 S = ROOT / 'scripts'
 
@@ -45,31 +56,199 @@ html = '<!doctype html>\n' + html
 title_anchor = ('  <title>NGD — NextGenDev Solutions | Build, Launch, Market & '
                 'Automate Your Digital Presence</title>')
 must(html, title_anchor, 'title')
-head_extras = title_anchor + """
+old_desc = ('  <meta name="description"\n'
+            '    content="NextGenDev Solutions is a digital agency that helps businesses build, launch, market, and automate their digital presence — from branding and websites to apps, marketing, SEO, and AI solutions." />')
+must(html, old_desc, 'old_desc')
+
+head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Automation & App Agency</title>
+  <meta name="description"
+    content="NextGenDev Solutions (NGD) is a premier digital engineering and creative technology agency. We build high-performance web applications, mobile apps, AI workflow automations, and provide expert student capstone mentorship." />
+  <meta name="keywords"
+    content="NextGenDev Solutions, NGD, web development agency, AI automation agency, full stack development, mobile app development, React, Next.js, Node.js, Python, PostgreSQL, Neon DB, UI/UX design, branding agency, final year student projects, engineering capstone mentorship" />
+  <meta name="author" content="NextGenDev Solutions" />
+  <meta name="publisher" content="NextGenDev Solutions" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#0A0A0F" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/favicon.svg" />
   <link rel="canonical" href="https://ngdsolutions.com/" />
+
+  <!-- Geo & Local Search Optimization (GEO) -->
+  <meta name="geo.region" content="IN" />
+  <meta name="geo.placename" content="Global / India" />
+  <meta name="geo.position" content="28.6139;77.2090" />
+  <meta name="ICBM" content="28.6139, 77.2090" />
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp Social Card -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NGD — NextGenDev Solutions" />
-  <meta property="og:title" content="NGD — Build, Launch, Market & Automate Your Digital Presence" />
+  <meta property="og:title" content="NGD — NextGenDev Solutions | Web Development, AI Automation & App Agency" />
   <meta property="og:description"
-    content="A digital solutions agency for businesses and students: branding, websites, apps, marketing, SEO and AI — with fixed pricing and student rates." />
+    content="Build, launch, market, and automate your digital presence with NGD. Custom web applications, AI automations, mobile apps, and student capstone mentorship." />
   <meta property="og:url" content="https://ngdsolutions.com/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://ngdsolutions.com/img/ngd-logo-white-on-black-1080.png" />
+  <meta property="og:image:secure_url" content="https://ngdsolutions.com/img/ngd-logo-white-on-black-1080.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="NGD — NextGenDev Solutions" />
+
+  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ngdsolutions" />
+  <meta name="twitter:creator" content="@ngdsolutions" />
+  <meta name="twitter:title" content="NGD — NextGenDev Solutions | Web Development, AI Automation & App Agency" />
+  <meta name="twitter:description"
+    content="Build, launch, market, and automate your digital presence with NGD. Custom web applications, AI automations, mobile apps, and student mentorship." />
+  <meta name="twitter:image" content="https://ngdsolutions.com/img/ngd-logo-white-on-black-1080.png" />
+  <meta name="twitter:image:alt" content="NGD — NextGenDev Solutions" />
+
+  <!-- Structured Data (JSON-LD) for SEO, GEO & AEO (Generative & Answer Engines) -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "NGD — NextGenDev Solutions",
-      "description": "Digital solutions agency: branding, websites, apps, marketing, SEO and AI automation.",
-      "email": "hello@ngdsolutions.com",
-      "areaServed": "Worldwide",
-      "priceRange": "$$",
-      "url": "https://ngdsolutions.com/"
-    }
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ngdsolutions.com/#website",
+        "url": "https://ngdsolutions.com/",
+        "name": "NextGenDev Solutions",
+        "alternateName": ["NGD", "NextGenDev"],
+        "description": "Digital solutions agency for businesses and students: web development, apps, marketing, SEO, and AI automation.",
+        "publisher": { "@id": "https://ngdsolutions.com/#organization" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://ngdsolutions.com/#organization",
+        "name": "NGD — NextGenDev Solutions",
+        "alternateName": ["NextGenDev Solutions", "NGD", "NextGenDev"],
+        "url": "https://ngdsolutions.com/",
+        "logo": "https://ngdsolutions.com/img/ngd-mark-white-transparent.svg",
+        "image": "https://ngdsolutions.com/img/ngd-logo-white-on-black-1080.png",
+        "description": "NextGenDev Solutions is a premier digital engineering and creative technology agency providing bespoke web development, AI workflow automation, mobile app creation, UI/UX design, and student capstone mentorship.",
+        "telephone": "+91 99999 99999",
+        "email": "hello@ngdsolutions.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN",
+          "addressLocality": "Remote-first, Worldwide"
+        },
+        "areaServed": ["Worldwide", "India", "United States", "United Kingdom", "Canada", "Australia", "United Arab Emirates"],
+        "knowsAbout": [
+          "Web Development",
+          "Full Stack Web Applications",
+          "Next.js and React Development",
+          "Node.js and Python Backend Architecture",
+          "Neon Serverless Postgres Database",
+          "Mobile App Development for iOS and Android",
+          "AI and Business Process Workflow Automation",
+          "UI/UX Design and Brand Identity",
+          "Search Engine Optimization (SEO)",
+          "Generative Engine Optimization (GEO)",
+          "Answer Engine Optimization (AEO)",
+          "College Student Engineering Capstone Projects"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "NGD Services & Solutions",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Web Application Development",
+                "description": "High-performance, secure, responsive web applications engineered with modern technologies like Next.js, React, and Node.js."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI & Workflow Automation",
+                "description": "Custom AI models, lead ingestion pipelines, CRM integrations, and automated notifications via WhatsApp and email."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mobile Application Development",
+                "description": "Native and cross-platform iOS and Android mobile applications crafted with modern frameworks."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Identity & UI/UX Product Design",
+                "description": "Modern typography, cohesive design systems, logo creation, and intuitive user experiences."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Student Capstone Mentorship & Final Year Projects",
+                "description": "Dedicated academic mentorship, system architecture guidance, and code reviews for engineering, BCA, and MCA students."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ngdsolutions.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What services does NextGenDev Solutions (NGD) offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NextGenDev Solutions offers full-cycle software and digital solutions including custom web application development (React, Next.js, Node.js), mobile app development (iOS & Android), AI automation and workflow integrations, UI/UX design, and SEO optimization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the NGD Student Track for college students?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The NGD Student Track is an affordable program tailored for engineering, BCA, MCA, and computer science students. It provides hands-on mentorship for final-year capstone projects, portfolio building, and live development guidance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does NGD implement AI and workflow automation for businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NGD integrates custom AI automations that streamline operations, including automated customer lead capture, CRM synchronization, WhatsApp and email notification pipelines, and AI agent workflows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the typical pricing and delivery timeline for an NGD project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NGD offers transparent, milestone-based pricing with tailored tiers for startups, established companies, and discounted packages for students. Web applications and branding projects typically launch within 1 to 3 weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I contact NextGenDev Solutions or request a quote?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can request a free consultation via the enquiry form on our website, reach out via WhatsApp at +91 99999 99999, or email us at hello@ngdsolutions.com. All enquiries receive a response within 24 hours."
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>"""
-html = html.replace(title_anchor, head_extras, 1)
+html = html.replace(title_anchor, head_block, 1)
+html = html.replace(old_desc, '', 1)
 
 # ------------------------- 3. swap the Tailwind CDN for a compiled stylesheet
 cdn_block = re.search(
@@ -345,7 +524,10 @@ for marker in required:
 out = ROOT / 'public' / 'index.html'
 out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(html, encoding='utf-8')
-print(f'✓ wrote {out.relative_to(ROOT)} — {len(html) / 1024:.1f} KB, '
-      f'{len(html.splitlines())} lines, {len(ids)} ids (all unique), '
-      f'{html.count("data-ngd=")} config-driven links, '
-      f'{filled_links} static hrefs + {filled_text} text values filled from site.config.json')
+try:
+    print(f'✓ wrote {out.relative_to(ROOT)} — {len(html) / 1024:.1f} KB, '
+          f'{len(html.splitlines())} lines, {len(ids)} ids (all unique), '
+          f'{html.count("data-ngd=")} config-driven links, '
+          f'{filled_links} static hrefs + {filled_text} text values filled from site.config.json')
+except Exception:
+    print(f'[OK] wrote {out.relative_to(ROOT)}')

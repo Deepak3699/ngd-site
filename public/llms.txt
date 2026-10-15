@@ -1,0 +1,57 @@
+# NextGenDev Solutions (NGD)
+
+> NextGenDev Solutions (NGD) is a modern digital engineering and creative technology agency. We design, build, market, and automate digital solutions for businesses, startups, and college students worldwide.
+
+## Overview
+- **Brand Name**: NGD — NextGenDev Solutions
+- **Website**: https://ngdsolutions.com/
+- **Headquarters / Reach**: Remote-first, operating globally with primary service presence across India, US, UK, Canada, Australia, and UAE.
+- **Contact Email**: hello@ngdsolutions.com
+- **WhatsApp**: +91 99999 99999
+- **Operating Hours**: Mon–Fri, 9:00 AM – 6:00 PM IST
+- **Response Time**: Within 24 hours for all project enquiries
+
+## Core Capabilities & Services
+
+### 1. Custom Web Application Development
+- Full-stack web apps engineered with React, Next.js, Node.js, and Python.
+- Database architecture powered by Neon Serverless Postgres, PostgreSQL, and Redis.
+- Clean, responsive UI with Tailwind CSS and modern animation libraries.
+- High SEO score, fast Time-To-First-Byte (TTFB), and mobile-first responsiveness.
+
+### 2. AI & Workflow Automation
+- Custom AI integrations using OpenAI, Anthropic Claude, and open-source LLMs.
+- Business automation workflows: automated lead capture, CRM synchronization, WhatsApp/Email alerts.
+- Data ingestion pipelines, sentiment analysis, and intelligent chatbots.
+
+### 3. Mobile Application Development
+- Native and cross-platform mobile apps for iOS and Android.
+- Scalable backend APIs, real-time sync, and push notifications.
+
+### 4. Brand Identity & UI/UX Design
+- Comprehensive design systems, typography hierarchies, and component libraries.
+- Intuitive user journeys, wireframing, high-fidelity prototypes, and brand style guides.
+
+### 5. NGD Student Track (Capstone & Final-Year Projects)
+- Affordable, expert mentorship for engineering, BCA, MCA, and CS undergraduate/postgraduate students.
+- Live coding assistance, architecture reviews, and capstone project delivery.
+- Career mentorship, portfolio website development, and internship readiness.
+
+## Frequently Asked Questions (FAQ)
+
+### What makes NGD different from traditional agencies?
+NGD operates with a transparent milestone-based pricing model, rapid delivery timelines (typically 1 to 3 weeks for core digital assets), and dual specialized tracks catering to both enterprises and academic students.
+
+### Does NGD offer support after project delivery?
+Yes. All client deployments include post-launch support, performance monitoring, and warranty maintenance periods.
+
+### How do I get started?
+Enquire directly through the website at https://ngdsolutions.com/#contact or send an inquiry via WhatsApp for immediate consultation.
+
+## Key Links & Resources
+- Homepage: https://ngdsolutions.com/
+- Services: https://ngdsolutions.com/#services
+- Pricing: https://ngdsolutions.com/#pricing
+- Student Track: https://ngdsolutions.com/#students
+- Contact Form: https://ngdsolutions.com/#contact
+- Detailed LLM Guide: https://ngdsolutions.com/llms-full.txt

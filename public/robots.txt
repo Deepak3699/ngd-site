@@ -1,8 +1,44 @@
 User-agent: *
 Allow: /
-# the responses dashboard is private and never indexed
+# The admin panel and internal API routes are private and protected
 Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: /sitemap.xml
+# Explicit permissions for Generative AI & Answer Engine crawlers (GEO & AEO)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://ngdsolutions.com/sitemap.xml

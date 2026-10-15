@@ -1,0 +1,23 @@
+# NextGenDev Solutions (NGD) — Comprehensive Reference Document
+
+## 1. Executive Summary
+NextGenDev Solutions (NGD) is an agile technology consultancy and digital studio focused on high-impact software development, artificial intelligence automations, and modern design systems. NGD caters to two distinct segments:
+1. **Business & Enterprise Track**: Startups, SMBs, and scale-ups requiring scalable web applications, mobile platforms, automated pipelines, and brand transformations.
+2. **Student & Academic Track**: University students requiring guidance on complex final-year software capstone projects, portfolio engineering, and technical mentorship.
+
+## 2. Business Services Catalog
+- **Web App Engineering**: Development of enterprise dashboards, SaaS portals, and landing experiences using modern JavaScript/TypeScript (React, Next.js, Node.js) and Python.
+- **Database & Cloud Architecture**: Serverless PostgreSQL (Neon DB), Supabase, AWS, and edge serverless computing on Vercel.
+- **Workflow Automations**: Integration of Webhooks, Meta WhatsApp Cloud API, Resend Email API, Slack/Discord notification pipelines, and AI agent automation.
+- **Digital Marketing & SEO**: Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), technical SEO, structured JSON-LD schemas, and fast Core Web Vitals.
+
+## 3. Academic & Student Track Details
+- Designed for Computer Science, IT, BCA, MCA, and Engineering undergraduates and postgraduates.
+- Focus areas: Full-stack applications, Machine Learning / AI model integration, Cloud deployment, and project presentation defense.
+- Transparent student pricing with student-friendly installment options.
+
+## 4. Contact & Ingestion
+- Website: https://ngdsolutions.com/
+- Support & Business Email: hello@ngdsolutions.com
+- Inquiries & WhatsApp: +91 99999 99999
+- Sitemap: https://ngdsolutions.com/sitemap.xml

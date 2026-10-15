@@ -12,7 +12,7 @@
     "start": "node server.js",
     "init-db": "node scripts/init-db.js",
     "css": "tailwindcss -c tailwind.config.js -i src/input.css -o public/assets/tailwind.css --minify",
-    "build": "python3 scripts/build-homepage.py && npm run css && node scripts/inline-tailwind.mjs"
+    "build": "node scripts/build.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0"
