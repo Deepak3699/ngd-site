@@ -128,7 +128,7 @@ head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Auto
         "logo": "https://ngdsolutions.com/img/ngd-mark-white-transparent.svg",
         "image": "https://ngdsolutions.com/img/ngd-logo-white-on-black-1080.png",
         "description": "NextGenDev Solutions is a premier digital engineering and creative technology agency providing bespoke web development, AI workflow automation, mobile app creation, UI/UX design, and student capstone mentorship.",
-        "telephone": "+91 99999 99999",
+        "telephone": "+91 94659 38126",
         "email": "hello@ngdsolutions.com",
         "priceRange": "$$",
         "address": {
@@ -239,7 +239,7 @@ head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Auto
             "name": "How can I contact NextGenDev Solutions or request a quote?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You can request a free consultation via the enquiry form on our website, reach out via WhatsApp at +91 99999 99999, or email us at hello@ngdsolutions.com. All enquiries receive a response within 24 hours."
+              "text": "You can request a free consultation via the enquiry form on our website, reach out via WhatsApp at +91 94659 38126, or email us at hello@ngdsolutions.com. All enquiries receive a response within 24 hours."
             }
           }
         ]

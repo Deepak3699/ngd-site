@@ -4,10 +4,10 @@
   "brand": "NGD — NextGenDev Solutions",
 
   "email": "hello@ngdsolutions.com",
-  "phone": "+91 99999 99999",
-  "whatsapp": "919999999999",
-  "whatsappDisplay": "+91 99999 99999",
-  "whatsappMessage": "Hi NGD! I came from your website and I'd like to talk about a project.",
+  "phone": "+91 94659 38126",
+  "whatsapp": "919465938126",
+  "whatsappDisplay": "+91 94659 38126",
+  "whatsappMessage": "Hi NGD! I came from your website and I'd like to discuss a project.",
   "hours": "Mon–Fri, 9am–6pm IST",
   "location": "Remote-first, worldwide",
 
@@ -17,7 +17,7 @@
   "github": "",
 
   "notifications": {
-    "whatsappTo": "919999999999",
+    "whatsappTo": "919465938126",
     "emailTo": "hello@ngdsolutions.com"
   }
 }
