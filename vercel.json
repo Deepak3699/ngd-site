@@ -2,6 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "public",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/ngd-control-8421",
+      "destination": "/ngd-control-8421/",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
