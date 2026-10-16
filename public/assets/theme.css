@@ -70,3 +70,102 @@ html[data-theme="light"] #navbar {
   border-color: rgba(32,32,42,.13) !important;
   box-shadow: 0 8px 30px rgba(30,20,50,.06);
 }
+
+
+/* Responsive refinement: mobile/tablet only; desktop styles remain untouched. */
+@media (max-width: 767px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  main > section[class*="py-24"],
+  main > section[class*="py-32"] {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+  main > section[aria-label="Clients and results"] {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  /* Hero: reduce oversized vertical spacing while preserving the existing visual style. */
+  main > section:first-of-type {
+    padding-top: 6.5rem;
+    padding-bottom: 3.25rem;
+  }
+  main > section:first-of-type .grid.items-center {
+    gap: 2.25rem;
+  }
+  main > section:first-of-type h1 {
+    font-size: clamp(2.15rem, 8.5vw, 3rem);
+    line-height: 1.06;
+    letter-spacing: -.04em;
+    overflow-wrap: anywhere;
+  }
+  main > section:first-of-type h1 + p {
+    margin-top: 1.1rem;
+    font-size: .98rem;
+    line-height: 1.7;
+  }
+  main > section:first-of-type .eyebrow { font-size: .68rem; }
+  main > section:first-of-type .reveal.mt-9 {
+    margin-top: 1.5rem;
+  }
+  main > section:first-of-type .reveal.mt-9 a {
+    max-width: 100%;
+  }
+
+  /* Consistent section heading scale and tighter intro copy. */
+  main section h2 {
+    font-size: clamp(1.75rem, 6.7vw, 2.2rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+  main section h2.mt-6 { margin-top: 1rem; }
+  main section h2 + p { margin-top: .9rem; }
+  main section .stagger.mt-14,
+  main section .grid.mt-14 { margin-top: 1.75rem; }
+  main section .stagger.mt-12,
+  main section .grid.mt-12,
+  main section .pricing-group.mt-12 { margin-top: 1.75rem; }
+
+  /* Cards: less padding, same rounded/glass treatment and brand colours. */
+  main section article.glass.rounded-2xl.p-6,
+  main section .plan-card,
+  main section .spotlight-card,
+  main section .success-card {
+    padding: 1.1rem;
+    border-radius: 1.1rem;
+  }
+  main section .portfolio-card > div:last-child { padding: 1rem; }
+  main section .gradient-border > div { padding: 1rem; }
+  main section .gradient-border { margin-top: 1.75rem; border-radius: 1.25rem; }
+
+  /* Filters, tabs and action rows can wrap instead of pushing the viewport wider. */
+  main section [role="group"][aria-label="Filter projects"] { gap: .4rem; }
+  main section .filter-btn { padding: .45rem .65rem; font-size: .75rem; }
+  main section .seg { max-width: 100%; }
+  main section .seg-btn { min-width: 0; padding: .65rem .7rem; font-size: .78rem; }
+  main section .btn-primary,
+  main section .btn-ghost {
+    min-height: 2.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Prevent long labels, URLs, and form fields from causing horizontal overflow. */
+  main section input,
+  main section textarea,
+  main section select { min-width: 0; max-width: 100%; }
+  main section [class*="grid-cols-2"] { min-width: 0; }
+  main section img,
+  main section video,
+  main section svg { max-width: 100%; }
+  #ngdThemeToggle { width: 38px; height: 38px; border-radius: 11px; }
+  #mobileMenu { max-width: calc(100vw - 2rem); }
+}
+
+@media (max-width: 420px) {
+  main > section:first-of-type { padding-top: 6rem; }
+  main > section:first-of-type h1 { font-size: clamp(2rem, 8.4vw, 2.4rem); }
+  main > section:first-of-type .reveal.mt-9 { align-items: stretch; }
+  main > section:first-of-type .reveal.mt-9 a { width: 100%; justify-content: center; }
+  main section .filter-btn { padding: .4rem .55rem; font-size: .7rem; }
+}
