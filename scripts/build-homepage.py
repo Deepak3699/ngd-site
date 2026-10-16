@@ -279,6 +279,8 @@ new_mail = '''<a href="#" data-ngd="email"
             </svg>
           </a>'''
 html = html[:old_gh.start()] + new_mail + html[old_gh.end():]
+# Add a compact theme control beside the existing header actions.
+html = html.replace(new_mail, new_mail + '\n          <button id="ngdThemeToggle" type="button" aria-label="Theme: system. Click to change theme." title="Theme: system · click to cycle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>', 1)
 
 # ------------------------------------------------------------- 5. new styles
 css_anchor = '    @media (prefers-reduced-motion: reduce) {'
@@ -318,6 +320,9 @@ css_link_anchor = ('  <link rel="stylesheet" href="/assets/tailwind.css" />\n'
                    '  <!-- compiled from tailwind.config.js')
 must(html, css_link_anchor, 'tailwind link')
 html = html.replace(css_link_anchor, inline_cfg + css_link_anchor, 1)
+
+# Theme stylesheet and early-running preference script avoid a light-mode flash.
+html = html.replace('</head>', '  <link rel="stylesheet" href="/assets/theme.css" />\n  <script src="/assets/theme.js"></script>\n</head>', 1)
 
 # --- hero: premium icon-only WhatsApp button next to "See our work" ----------
 WA_GLYPH = (
