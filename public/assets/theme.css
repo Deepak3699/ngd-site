@@ -17,3 +17,56 @@ html[data-theme="light"] .noise{opacity:.08}
 html[data-theme="light"] #ngdThemeToggle{color:#292533;background:#fff;border-color:rgba(32,32,42,.14);box-shadow:0 3px 12px rgba(30,20,50,.05)}
 #ngdThemeToggle:focus-visible{outline:2px solid #8b5cf6;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){#ngdThemeToggle{transition:none}}
+
+/* Light mode surface + contrast refinements */
+html[data-theme="light"] .glass,
+html[data-theme="light"] .glass-soft,
+html[data-theme="light"] .spotlight-card,
+html[data-theme="light"] .plan-card,
+html[data-theme="light"] .portfolio-card,
+html[data-theme="light"] .success-card {
+  background-color: rgba(255,255,255,.94) !important;
+  border-color: rgba(32,32,42,.13) !important;
+  box-shadow: 0 12px 35px rgba(32,20,60,.055);
+}
+html[data-theme="light"] [class*="bg-[#0B0B12]"],
+html[data-theme="light"] [class*="bg-[#0C0C12]"],
+html[data-theme="light"] [class*="bg-[#101014]"],
+html[data-theme="light"] [class*="bg-zinc-900"],
+html[data-theme="light"] [class*="bg-zinc-800"] {
+  background-color: #fff !important;
+}
+html[data-theme="light"] .text-zinc-100,
+html[data-theme="light"] .text-zinc-200,
+html[data-theme="light"] .text-zinc-300,
+html[data-theme="light"] .text-gray-100,
+html[data-theme="light"] .text-gray-200,
+html[data-theme="light"] .text-gray-300 {
+  color: #292833 !important;
+}
+html[data-theme="light"] .text-white\/22,
+html[data-theme="light"] .text-white\/30,
+html[data-theme="light"] .text-white\/32,
+html[data-theme="light"] .text-white\/35,
+html[data-theme="light"] .text-white\/38,
+html[data-theme="light"] .text-white\/40,
+html[data-theme="light"] .text-white\/45,
+html[data-theme="light"] .text-white\/48,
+html[data-theme="light"] .text-white\/50,
+html[data-theme="light"] .text-white\/52,
+html[data-theme="light"] .text-white\/55,
+html[data-theme="light"] .text-white\/58,
+html[data-theme="light"] .text-white\/60,
+html[data-theme="light"] .text-white\/70,
+html[data-theme="light"] .text-white\/72,
+html[data-theme="light"] .text-white\/75,
+html[data-theme="light"] .text-white\/80 {
+  color: #656371 !important;
+}
+html[data-theme="light"] .gradient-border > * { background-color: #fff !important; }
+html[data-theme="light"] #mobileMenu,
+html[data-theme="light"] #navbar {
+  background-color: rgba(255,255,255,.96) !important;
+  border-color: rgba(32,32,42,.13) !important;
+  box-shadow: 0 8px 30px rgba(30,20,50,.06);
+}
