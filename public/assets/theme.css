@@ -315,10 +315,6 @@ html[data-theme="light"] footer [class*="text-white\/"] {
   color: var(--ngd-muted) !important;
   opacity: 1 !important;
 }
-html[data-theme="light"] main [class*="opacity-"],
-html[data-theme="light"] footer [class*="opacity-"] {
-  opacity: 1;
-}
 html[data-theme="light"] .glass,
 html[data-theme="light"] .glass-soft,
 html[data-theme="light"] .spotlight-card,
