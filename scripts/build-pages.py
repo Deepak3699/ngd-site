@@ -18,7 +18,7 @@ noise = '<div class="noise" aria-hidden="true"></div>'
 progress = between(HOME, '<!-- Scroll progress -->', '<!-- ============ NAVBAR ============ -->').rstrip()
 header = between(HOME, '<header class="fixed inset-x-0 top-0 z-[70]">', '</header>')
 footer = between(HOME, '<footer class="relative border-t', '</footer>')
-search_modal = between(HOME, '<!-- ══════════ CMDK (Search Modal) ══════════ -->', '  <script>')
+search_modal = between(HOME, '<!-- ══════════ CMDK (Search Modal) ══════════ -->', '  <script>')[:-len('  <script>')].rstrip()
 
 
 def page_chrome(fragment, title, description, canonical, page_name):
