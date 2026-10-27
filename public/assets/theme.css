@@ -169,3 +169,97 @@ html[data-theme="light"] #navbar {
   main > section:first-of-type .reveal.mt-9 a { width: 100%; justify-content: center; }
   main section .filter-btn { padding: .4rem .55rem; font-size: .7rem; }
 }
+
+
+/* Premium mobile polish: calmer surfaces, stronger type hierarchy, less nested-card feel. */
+@media (max-width: 767px) {
+  main section .glass,
+  main section .glass-soft,
+  main section .spotlight-card,
+  main section .success-card {
+    border-color: rgba(255,255,255,.075);
+    box-shadow: 0 8px 26px rgba(0,0,0,.08);
+  }
+
+  main section .btn-primary,
+  main section .btn-ghost {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  main section h2 {
+    text-wrap: balance;
+  }
+
+  /* The student page should feel editorial and spacious, not like a stack of boxes. */
+  body[data-page="students"] #students {
+    padding-top: clamp(3.5rem, 11vw, 5rem);
+    padding-bottom: clamp(3.5rem, 11vw, 5rem);
+  }
+
+  body[data-page="students"] #students > div {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+
+  body[data-page="students"] #students > div > .reveal {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="students"] #students > div > .reveal > .relative {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  body[data-page="students"] #students .grid.gap-12 {
+    gap: 2.25rem;
+  }
+
+  body[data-page="students"] #students h2 {
+    max-width: 13ch;
+    font-size: clamp(2.35rem, 10vw, 3.35rem);
+    line-height: 1.02;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+  }
+
+  body[data-page="students"] #students p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  body[data-page="students"] #students ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  body[data-page="students"] #students .glass-soft {
+    padding: 1.5rem 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255,255,255,.12) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="students"] #students .btn-primary,
+  body[data-page="students"] #students .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-page="students"] #students > div {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body[data-page="students"] #students h2 {
+    font-size: clamp(2.15rem, 9.5vw, 2.7rem);
+  }
+}
