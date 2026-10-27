@@ -14,7 +14,8 @@ export default async function handler(req, res) {
 
   return ok(res, {
     authed: admin.authed,
-    open: !authEnabled(),
+    open: false,
+    configured: authEnabled(),
     user: admin.user || null,
     team: publicTeam(),
     dbMode: DB_MODE,

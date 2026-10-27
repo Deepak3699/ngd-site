@@ -178,6 +178,6 @@ server.listen(PORT, HOST, () => {
   console.log(`  Admin      →  http://localhost:${PORT}${ADMIN_PATH}${adminIsHidden ? '   (secret path — /admin returns 404)' : ''}`);
   console.log(`  Health     →  http://localhost:${PORT}/api/health`);
   console.log(`  DB mode    →  ${process.env.DATABASE_URL ? 'neon' : 'dev-file (.dev-data/store.json)'}`);
-  console.log(`  Login      →  ${process.env.ADMIN_PASSWORD || process.env.TEAM_MEMBERS ? 'ON' : 'OFF (set ADMIN_PASSWORD or TEAM_MEMBERS)'}`);
+  console.log(`  Login      →  ${process.env.ADMIN_PASSWORD || process.env.TEAM_MEMBERS ? 'ON' : 'LOCKED (set ADMIN_PASSWORD or TEAM_MEMBERS)'}`);
   console.log(`  Alerts     →  ${[process.env.RESEND_API_KEY && 'email', (process.env.WHATSAPP_TOKEN || process.env.CALLMEBOT_APIKEY) && 'whatsapp', process.env.NOTIFY_WEBHOOK && 'webhook'].filter(Boolean).join(' + ') || 'none configured'}\n`);
 });

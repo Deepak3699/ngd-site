@@ -1,5 +1,5 @@
 /**
- * Admin lead management (all routes require a session when a login is configured).
+ * Admin lead management (all routes require a configured, valid session).
  *
  *   GET    /api/admin/leads?category=&status=&source=&assignee=&q=&page=&limit=&sort=
  *   PATCH  /api/admin/leads   { id, status? | adminNote? | assignedTo? }

@@ -46,7 +46,7 @@ npm install
 npm run dev
 ```
 
-With the included `.env.local` (test values you can throw away) the banner prints:
+With admin credentials set in `.env.local`, the banner prints:
 
 ```
   NGD site   →  http://localhost:3000
@@ -58,9 +58,8 @@ With the included `.env.local` (test values you can throw away) the banner print
 So locally: **site** → <http://localhost:3000> · **dashboard** → <http://localhost:3000/ngd-control-8241/>
 · **health** → <http://localhost:3000/api/health>
 
-Local test logins (from `.env.local`): `aman` / `local-dev-pass` (admin) and
-`simran` / `local-dev-pass-2` (member). Delete those two lines before you deploy — Vercel uses
-its own environment variables.
+Use the username and password configured in `.env.local`. If you have not configured credentials,
+the admin page stays locked and shows how to enable sign-in. Vercel uses its own environment variables.
 
 Without a `DATABASE_URL` everything still works: submissions land in `.dev-data/store.json` so
 you can test the whole flow (form → dashboard → CSV export). The dashboard shows a banner telling
@@ -188,9 +187,9 @@ You can also assign "me" and filter by owner, so you always know who is handling
 Sessions last 7 days, logins are rate-limited (8 tries / 5 min), and each change is written to
 the worklog with the person's name.
 
-**Login is off until you set `TEAM_MEMBERS` or `ADMIN_PASSWORD`** — the dashboard shows a red
-warning banner while it is open, so you can never ship it by accident. Remove the variables to
-go back to open access.
+**Admin access stays locked until you set `TEAM_MEMBERS` or `ADMIN_PASSWORD`.** The sign-in page
+explains what is missing, and the API rejects access until credentials are configured. Keep one
+of these settings in every environment where you need to use the dashboard.
 
 ---
 
@@ -306,10 +305,10 @@ POST /api/leads
   (honeypot / too-fast bots get { "ok": true, "spam": true } and are dropped)
 ```
 
-**Admin** (login required as soon as `TEAM_MEMBERS` or `ADMIN_PASSWORD` is set)
+**Admin** (always requires a configured login)
 
 ```
-GET    /api/admin/session      → authed, open, user, team, dbMode, adminPath,
+GET    /api/admin/session      → authed, configured, user, team, dbMode, adminPath,
                                  notifications (which alert channels are live), contact
 POST   /api/admin/login        { username?, password }
 POST   /api/admin/logout

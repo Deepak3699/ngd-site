@@ -6,7 +6,7 @@
   function getChoice() {
     try {
       var saved = localStorage.getItem(KEY);
-      return saved === 'light' || saved === 'dark' || saved === 'system' ? saved : 'system';
+      return saved === 'light' || saved === 'dark' || saved === 'system' ? saved : 'light';
     } catch (_) { return 'system'; }
   }
 

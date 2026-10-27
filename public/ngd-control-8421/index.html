@@ -14,7 +14,7 @@
     (function () {
       try {
         var saved = localStorage.getItem('ngd.theme');
-        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
@@ -24,17 +24,20 @@
 
 <body>
   <!-- ============================ LOGIN ============================ -->
-  <div class="login-screen hidden" id="loginScreen">
+  <div class="login-screen" id="loginScreen">
     <form class="login-card" id="loginForm" novalidate>
-      <div class="brand">
+      <div class="login-brand">
         <span class="brand-mark">N</span>
         <span class="brand-text">
-          <strong>NGD Admin</strong>
-          <span>Responses</span>
+          <strong>NGD</strong>
+          <span>PRIVATE WORKSPACE</span>
         </span>
       </div>
-      <h1>Sign in to continue</h1>
-      <p>Use your own team login. Access is rate-limited and sessions expire after 7 days.</p>
+      <p class="login-kicker">TEAM ACCESS</p>
+      <h1>Welcome back.</h1>
+      <p>Sign in to manage enquiries and continue the conversation.</p>
+
+      <div class="login-setup hidden" id="loginSetupNotice" role="status"></div>
 
       <div class="field">
         <label for="loginUser">Username</label>
@@ -46,10 +49,9 @@
           required />
       </div>
 
-      <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign in</button>
-      <p class="hidden" id="loginError" style="color:#FFC4AB;margin-top:12px"></p>
-      <p style="margin-top:16px;font-size:12px">Team logins come from the <code>TEAM_MEMBERS</code> environment
-        variable.</p>
+      <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign in to NGD</button>
+      <p class="login-error hidden" id="loginError" role="alert"></p>
+      <p class="login-footnote">Your workspace is protected. Sessions expire after 7 days.</p>
     </form>
   </div>
 
@@ -93,7 +95,14 @@
 
       <div class="notice notice-info hidden" id="dbNotice"><span>🗄️</span><span id="dbNoticeText"></span></div>
 
+      <nav class="dashboard-nav" role="tablist" aria-label="Dashboard sections">
+        <button class="dashboard-tab is-active" type="button" role="tab" aria-selected="true" data-view-select="enquiries">Enquiries <span id="navNewCount">0</span></button>
+        <button class="dashboard-tab" type="button" role="tab" aria-selected="false" data-view-select="overview">Overview</button>
+        <button class="dashboard-tab" type="button" role="tab" aria-selected="false" data-view-select="activity">Activity</button>
+      </nav>
+
       <!-- stats -->
+      <div class="dashboard-view" data-dashboard-view="overview" hidden>
       <section class="stat-grid" id="statGrid" aria-label="Summary"></section>
 
       <!-- charts + alerts -->
@@ -123,9 +132,10 @@
           <div class="breakdown" id="breakdownNeeds"></div>
         </div>
       </section>
+      </div>
 
       <!-- team worklog -->
-      <section class="panel" style="margin-bottom:14px">
+      <section class="panel dashboard-view" data-dashboard-view="activity" hidden style="margin-bottom:14px">
         <div class="panel-title">
           <h2>Team activity</h2>
           <button class="btn btn-ghost btn-sm" id="activityRefresh">↻ Refresh</button>
@@ -134,6 +144,8 @@
       </section>
 
       <!-- toolbar -->
+      <div class="dashboard-view" data-dashboard-view="enquiries">
+      <div class="view-heading"><div><p>INBOX</p><h1>Enquiries</h1><span>New requests, ready for a thoughtful reply.</span></div></div>
       <div class="toolbar">
         <div class="tabs" role="tablist" aria-label="Filter by audience">
           <button class="tab is-active" data-category="all" role="tab">
@@ -231,6 +243,7 @@
             <button class="btn btn-ghost btn-sm" id="nextBtn">Next →</button>
           </div>
         </div>
+      </div>
       </div>
     </main>
   </div>

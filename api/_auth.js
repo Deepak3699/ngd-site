@@ -15,7 +15,7 @@
  *   roles → "admin"  : everything, including deleting responses + managing notes of others
  *           "member" : see everything, update status, assign, write notes — but cannot delete
  *
- * If neither is set the dashboard stays open (and says so, loudly).
+ * If neither is set, the dashboard stays locked until an owner configures credentials.
  */
 import {
   ADMIN_COOKIE,
@@ -85,7 +85,7 @@ export const authEnabled = () => team().length > 0;
 
 export function findMember(username, password) {
   const list = team();
-  if (!list.length) return { ok: true, member: { username: 'open', name: 'Open access', role: 'admin' }, open: true };
+  if (!list.length) return { ok: false, open: false };
 
   const wanted = String(username || '').trim().toLowerCase();
   const given = sha256(password || '');
@@ -111,7 +111,7 @@ export function findMember(username, password) {
 
 export async function currentAdmin(req) {
   if (!authEnabled()) {
-    return { authed: true, open: true, user: { username: 'open', name: 'Open access', role: 'admin' } };
+    return { authed: false, open: false, user: null };
   }
 
   const token = parseCookies(req)[COOKIE_NAME];
