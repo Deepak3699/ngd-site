@@ -17,7 +17,7 @@
     document.documentElement.setAttribute('data-theme', mode);
     document.documentElement.style.colorScheme = mode;
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#0A1020' : '#EAF0FF');
+    if (meta) meta.setAttribute('content', dark ? '#0A1020' : '#F7F8FC');
 
     var button = document.getElementById('ngdThemeToggle');
     if (!button) return;
