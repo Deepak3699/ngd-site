@@ -18,4 +18,8 @@ console.log('\n3/3 Inlining compiled styles into single-bundle HTML...');
 const p3 = spawnSync('node', ['scripts/inline-tailwind.mjs'], { stdio: 'inherit', shell: true });
 if (p3.status !== 0) process.exit(p3.status || 1);
 
-console.log('\n✓ Build complete: public/index.html is ready for production!');
+console.log('\n4/4 Generating the Solutions and Students pages...');
+const p4 = spawnSync(pythonCmd, ['scripts/build-pages.py'], { stdio: 'inherit', shell: true });
+if (p4.status !== 0) process.exit(p4.status || 1);
+
+console.log('\n✓ Build complete: homepage and separate pages are ready for production!');

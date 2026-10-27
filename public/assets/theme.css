@@ -1,21 +1,21 @@
 html[data-theme="light"]{color-scheme:light}
-html[data-theme="light"] body{background:#fbfaff!important;color:#20202a!important}
-html[data-theme="light"] .text-white,html[data-theme="light"] [class*="text-white/"]{color:#24232d!important}
-html[data-theme="light"] .text-violet-300,html[data-theme="light"] .text-violet-400,html[data-theme="light"] [class*="text-[#C4B0FF]"],html[data-theme="light"] [class*="text-[#8FB6FF]"],html[data-theme="light"] [class*="text-[#9DB8FF]"]{color:#6d28d9!important}
-html[data-theme="light"] [class*="text-[#22D3EE]"],html[data-theme="light"] [class*="text-[#7FE3F5]"]{color:#087e9b!important}
+html[data-theme="light"] body{background:#EAF0FF!important;color:#121B33!important}
+html[data-theme="light"] .text-white,html[data-theme="light"] [class*="text-white/"]{color:#121B33!important}
+html[data-theme="light"] .text-brand-sky,html[data-theme="light"] .text-brand-blue,html[data-theme="light"] [class*="text-[#6E9BFF]"]{color:#2F6BFF!important}
+html[data-theme="light"] .text-cyan-300,html[data-theme="light"] .text-cyan-400{color:#2F6BFF!important}
 html[data-theme="light"] .btn-primary,html[data-theme="light"] .btn-primary *{color:#fff!important}
-html[data-theme="light"] [class*="bg-[#0A0A0F]"],html[data-theme="light"] [class*="bg-[#08080C]"],html[data-theme="light"] [class*="bg-[#0B0B0E]"],html[data-theme="light"] [class*="bg-[#0C0C12]"],html[data-theme="light"] [class*="bg-[#101014]"]{background-color:rgba(255,255,255,.94)!important}
+html[data-theme="light"] [class*="bg-[#0A1020]"],html[data-theme="light"] [class*="bg-[#121B33]"],html[data-theme="light"] [class*="bg-[#0B0B12]"]{background-color:rgba(234,240,255,.96)!important}
 html[data-theme="light"] [class*="bg-white/"],html[data-theme="light"] [class*="bg-white["],html[data-theme="light"] [class*="bg-black/"]{background-color:rgba(255,255,255,.8)!important}
 html[data-theme="light"] [class*="border-white/"],html[data-theme="light"] [class*="border-white["]{border-color:rgba(32,32,42,.13)!important}
-html[data-theme="light"] .nav-link{color:#555461!important}
-html[data-theme="light"] .nav-link:hover,html[data-theme="light"] .nav-link.active{color:#6d28d9!important}
-html[data-theme="light"] .glow-input,html[data-theme="light"] input,html[data-theme="light"] textarea,html[data-theme="light"] select{color:#20202a;background-color:#fff;border-color:rgba(32,32,42,.18)}
+html[data-theme="light"] .nav-link{color:#121B33!important}
+html[data-theme="light"] .nav-link:hover,html[data-theme="light"] .nav-link.active{color:#2F6BFF!important}
+html[data-theme="light"] .glow-input,html[data-theme="light"] input,html[data-theme="light"] textarea,html[data-theme="light"] select{color:#121B33;background-color:#fff;border-color:rgba(18,27,51,.18)}
 html[data-theme="light"] input::placeholder,html[data-theme="light"] textarea::placeholder{color:#777583}
 html[data-theme="light"] .noise{opacity:.08}
 #ngdThemeToggle{display:grid;place-items:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);color:#f4f4f5;transition:all .2s ease}
-#ngdThemeToggle:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.55)}
+#ngdThemeToggle:hover{transform:translateY(-1px);border-color:rgba(47,107,255,.7)}
 html[data-theme="light"] #ngdThemeToggle{color:#292533;background:#fff;border-color:rgba(32,32,42,.14);box-shadow:0 3px 12px rgba(30,20,50,.05)}
-#ngdThemeToggle:focus-visible{outline:2px solid #8b5cf6;outline-offset:3px}
+#ngdThemeToggle:focus-visible{outline:2px solid #2F6BFF;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){#ngdThemeToggle{transition:none}}
 
 /* Light mode surface + contrast refinements */
@@ -30,8 +30,8 @@ html[data-theme="light"] .success-card {
   box-shadow: 0 12px 35px rgba(32,20,60,.055);
 }
 html[data-theme="light"] [class*="bg-[#0B0B12]"],
-html[data-theme="light"] [class*="bg-[#0C0C12]"],
-html[data-theme="light"] [class*="bg-[#101014]"],
+html[data-theme="light"] [class*="bg-[#121B33]"],
+html[data-theme="light"] [class*="bg-[#121B33]"],
 html[data-theme="light"] [class*="bg-zinc-900"],
 html[data-theme="light"] [class*="bg-zinc-800"] {
   background-color: #fff !important;

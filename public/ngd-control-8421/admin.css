@@ -4,21 +4,21 @@
    ============================================================ */
 
 :root {
-  --ink: #08080C;
-  --panel: #0E0E14;
-  --panel-2: #121219;
+  --ink: #0A1020;
+  --panel: #121B33;
+  --panel-2: #121B33;
   --line: rgba(255, 255, 255, .09);
   --line-soft: rgba(255, 255, 255, .06);
   --text: #E8E8EF;
   --muted: rgba(232, 232, 239, .55);
   --muted-2: rgba(232, 232, 239, .35);
-  --blue: #4F7CFF;
-  --violet: #8B5CF6;
-  --cyan: #22D3EE;
+  --blue: #2F6BFF;
+  --violet: #6E9BFF;
+  --cyan: #6E9BFF;
   --green: #34D399;
   --amber: #FBBF24;
   --red: #FF7A8A;
-  --grad: linear-gradient(100deg, #4F7CFF, #8B5CF6 55%, #22D3EE);
+  --grad: linear-gradient(100deg, #2F6BFF, #6E9BFF 55%, #6E9BFF);
   --ease: cubic-bezier(.22, 1, .36, 1);
   --radius: 16px;
 }
@@ -65,17 +65,17 @@ textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0F;
+  background: #0A1020;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #4F7CFF, #8B5CF6);
+  background: linear-gradient(180deg, #2F6BFF, #6E9BFF);
   border-radius: 99px;
-  border: 2px solid #0A0A0F;
+  border: 2px solid #0A1020;
 }
 
 :focus-visible {
-  outline: 2px solid #8FB6FF;
+  outline: 2px solid #6E9BFF;
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -438,11 +438,11 @@ main {
 }
 
 .chart-bar.student {
-  background: linear-gradient(180deg, #22D3EE, #4F7CFF);
+  background: linear-gradient(180deg, #6E9BFF, #2F6BFF);
 }
 
 .chart-bar.client {
-  background: linear-gradient(180deg, #C084FC, #8B5CF6);
+  background: linear-gradient(180deg, #6E9BFF, #6E9BFF);
 }
 
 .chart-x {
@@ -609,7 +609,7 @@ select.input {
 }
 
 select.input option {
-  background: #101014;
+  background: #121B33;
 }
 
 /* ------------------------------ table ------------------------------ */
@@ -897,7 +897,7 @@ tbody tr.is-new td:first-child {
   right: 0;
   height: 100%;
   width: min(560px, 100%);
-  background: #0B0B11;
+  background: #0A1020;
   border-left: 1px solid var(--line);
   z-index: 61;
   transform: translateX(102%);
@@ -972,7 +972,7 @@ tbody tr.is-new td:first-child {
 }
 
 .data-row .v a {
-  color: #8FB6FF;
+  color: #6E9BFF;
 }
 
 .chip-link {
@@ -1394,7 +1394,7 @@ html[data-theme="light"] .empty strong {
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: .02em;
-  background: linear-gradient(135deg, #4F7CFF, #8B5CF6);
+  background: linear-gradient(135deg, #2F6BFF, #6E9BFF);
   color: #fff;
   flex: 0 0 auto;
 }

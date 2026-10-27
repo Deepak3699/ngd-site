@@ -68,7 +68,7 @@ head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Auto
   <meta name="author" content="NextGenDev Solutions" />
   <meta name="publisher" content="NextGenDev Solutions" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="theme-color" content="#0A0A0F" />
+  <meta name="theme-color" content="#0A1020" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/favicon.svg" />
   <link rel="canonical" href="https://ngdsolutions.com/" />
@@ -231,7 +231,7 @@ head_block = """  <title>NGD — NextGenDev Solutions | Web Development, AI Auto
             "name": "What is the typical pricing and delivery timeline for an NGD project?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "NGD offers transparent, milestone-based pricing with tailored tiers for startups, established companies, and discounted packages for students. Web applications and branding projects typically launch within 1 to 3 weeks."
+              "text": "NGD offers milestone-based pricing for businesses and invites students to discuss project and mentorship needs directly. Web applications and branding projects typically launch within 1 to 3 weeks."
             }
           },
           {
