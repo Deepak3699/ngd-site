@@ -1457,7 +1457,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div id="navbar"
         class="mt-3 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.08] bg-[#0A0A0F]/55 px-3 py-2.5 backdrop-blur-xl transition-all duration-500 sm:mt-4">
-        <a href="/" class="flex shrink-0 items-center gap-2.5 group" aria-label="NGD — NextGenDev Solutions, home">
+        <a href="#top" class="flex shrink-0 items-center gap-2.5 group" aria-label="NGD — NextGenDev Solutions, home">
           <span
             class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[#4F7CFF] via-[#8B5CF6] to-[#22D3EE] shadow-[0_10px_26px_-10px_rgba(79,124,255,.95)] group-hover:scale-105 transition-transform duration-300">
             <img src="/img/ngd-mark-white-transparent.svg" alt="NGD Logo" class="h-5 w-5 object-contain" />
@@ -1470,10 +1470,14 @@
         </a>
 
         <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
-          <a class="nav-link" href="/services/">Services</a>
-          <a class="nav-link" href="/work/">Work</a>
-          <a class="nav-link" href="/students/">Students</a>
-          <a class="nav-link" href="/about/">About</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#difference">Difference</a>
+          <a class="nav-link" href="#solutions">Solutions</a>
+          <a class="nav-link" href="#work">Work</a>
+          <a class="nav-link" href="#process">Process</a>
+          <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="#students">Students</a>
+          <a class="nav-link" href="#faq">FAQ</a>
         </nav>
 
         <div class="flex items-center gap-2">
@@ -1495,11 +1499,12 @@
               <path d="M4 7l8 6 8-6" />
             </svg>
           </a>
-          <button id="ngdThemeToggle" type="button" aria-label="Theme: system. Click to change theme." title="Theme: system · click to cycle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
 
+          <button id="ngdThemeToggle" type="button" aria-label="Theme: system. Click to change theme." title="Theme: system · click to cycle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
           <div class="hidden items-center gap-2 lg:flex">
-            <a href="/contact/" class="btn-primary !px-4 !py-2 text-[13px]">
-              Start a project
+            <a href="#contact" class="btn-ghost !px-4 !py-2 text-[13px]">Book a call</a>
+            <a href="#pricing" class="btn-primary !px-4 !py-2 text-[13px]">
+              Get started
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
@@ -1538,19 +1543,27 @@
             </span>
             <kbd class="font-mono text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/50">⌘K</kbd>
           </button>
-          <a class="nav-link !py-3 !text-[15px]" href="/services/">Services</a>
-          <a class="nav-link !py-3 !text-[15px]" href="/work/">Work</a>
-          <a class="nav-link !py-3 !text-[15px]" href="/students/">Students</a>
-          <a class="nav-link !py-3 !text-[15px]" href="/about/">About</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#services">Services</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#difference">Difference</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#solutions">Solutions</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#work">Work</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#process">Process</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#pricing">Pricing</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#students">Students</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#faq">FAQ</a>
           <div class="mt-2 grid grid-cols-2 gap-2">
-            <a href="/contact/" class="btn-primary !py-2.5 text-[13px]">Start a project</a>
+            <a href="#contact" class="btn-ghost !py-2.5 text-[13px]">Book a call</a>
+            <a href="#pricing" class="btn-primary !py-2.5 text-[13px]">Get started</a>
           </div>
         </nav>
       </div>
     </div>
   </header>
 
-  <main id="top"><section class="relative overflow-hidden pb-16 pt-32 sm:pt-36 lg:pb-28 lg:pt-44">
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden pb-16 pt-32 sm:pt-36 lg:pb-28 lg:pt-44">
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div class="grid-bg mask-radial absolute inset-0 opacity-60"></div>
         <div class="blob"
@@ -1582,24 +1595,25 @@
             <h1
               class="reveal mt-6 text-[2.55rem] font-semibold leading-[1.04] tracking-[-0.038em] text-white sm:text-[3.4rem] lg:text-[4.15rem]"
               style="transition-delay:.06s">
-              Digital products, built<br class="hidden sm:block" />
-              <span class="serif grad-text pr-1">for the way</span> you work.
+              You have the business idea.<br class="hidden sm:block" />
+              <span class="serif grad-text pr-1">We build</span> the digital side of it.
             </h1>
 
             <p class="reveal mt-6 max-w-xl text-[1.02rem] leading-relaxed text-white/58 sm:text-[1.08rem]"
               style="transition-delay:.12s">
-              Brand, web, software and automation work, planned together and built by the same team.
+              NextGenDev Solutions helps businesses build, launch, market and automate their digital presence — from
+              branding and websites to apps, marketing, SEO and AI solutions. One team, one roadmap, zero guesswork.
             </p>
 
             <div class="reveal mt-9 flex flex-wrap items-center gap-3" style="transition-delay:.18s">
-              <a href="/contact/" class="btn-primary">
-                Discuss a project
+              <a href="#contact" class="btn-primary">
+                Book a free strategy call
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <a href="/work/" class="btn-ghost">
+              <a href="#work" class="btn-ghost">
                 See our work
                 <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1739,7 +1753,10 @@
 
         </div>
       </div>
-    </section><section class="relative border-y border-white/[0.06] bg-white/[0.014] py-12" aria-label="Clients and results">
+    </section>
+
+    <!-- ============ SOCIAL PROOF ============ -->
+    <section class="relative border-y border-white/[0.06] bg-white/[0.014] py-12" aria-label="Clients and results">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <p class="reveal text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-white/35">
           Trusted by founders &amp; teams across 14 industries
@@ -1900,12 +1917,2109 @@
         </div>
       </div>
     </section>
-    <section class="home-paths" aria-label="Explore NGD">
-      <a class="home-path" href="/services/"><span>01</span><strong>What we do</strong><em>Services and capabilities ↗</em></a>
-      <a class="home-path" href="/work/"><span>02</span><strong>Selected work</strong><em>Projects and outcomes ↗</em></a>
-      <a class="home-path" href="/students/"><span>03</span><strong>For students</strong><em>Mentorship and projects ↗</em></a>
-      <a class="home-path" href="/about/"><span>04</span><strong>How we work</strong><em>Our approach and answers ↗</em></a>
-    </section></main>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="relative py-24 sm:py-32">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="blob" style="width:420px;height:420px;background:#8B5CF6;top:12%;right:-160px;opacity:.22;"></div>
+        <div class="blob" style="width:380px;height:380px;background:#4F7CFF;bottom:0;left:-140px;opacity:.2;"></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="max-w-2xl">
+          <span class="eyebrow reveal">What we do</span>
+          <h2
+            class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem] lg:text-[2.9rem]">
+            Everything you need to <span class="grad-text">build, launch, market</span> and automate.
+          </h2>
+          <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+            Six disciplines, one accountable team. We don't hand you off between departments — the people who plan your
+            solution are the people who ship it.
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#4F7CFF]/22 to-[#8B5CF6]/10 text-[#9DB8FF]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.8 2-2 0-.6-.3-1-.6-1.4-.3-.4-.4-.8-.4-1.1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4-4-7-9-7z" />
+                  <circle cx="7.5" cy="11.5" r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="11" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="16" cy="9.5" r="1.2" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">01</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">Brand Identity &amp; Design</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Positioning, logo systems and a visual language that makes you look like the category leader — not the
+              cheaper option.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">Logo systems</li>
+              <li class="chip">Brand guidelines</li>
+              <li class="chip">Design systems</li>
+              <li class="chip">Pitch decks</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#8B5CF6]/22 to-[#22D3EE]/10 text-[#C4B0FF]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="2.5" />
+                  <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+                  <path d="M7 13h5M7 16.5h9" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">02</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">Websites &amp; Landing Pages</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Fast, accessible, conversion-engineered sites built to rank and to sell. No bloated templates, no
+              guesswork, no surprises.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">Next.js builds</li>
+              <li class="chip">CMS &amp; editing</li>
+              <li class="chip">CRO</li>
+              <li class="chip">Core Web Vitals</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#22D3EE]/22 to-[#4F7CFF]/10 text-[#7FE3F5]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="6" y="2.5" width="12" height="19" rx="3" />
+                  <path d="M10.5 5.5h3M12 18.3h.01" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">03</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">Mobile &amp; Web Apps</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Custom platforms, dashboards and apps that turn messy manual operations into software your team actually
+              enjoys using.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">React Native</li>
+              <li class="chip">Dashboards</li>
+              <li class="chip">Payments</li>
+              <li class="chip">API integrations</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#4F7CFF]/22 to-[#22D3EE]/10 text-[#9DB8FF]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 11v2a1 1 0 0 0 1 1h2l5 4V6L7 10H5a1 1 0 0 0-1 1z" />
+                  <path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 5.5a9 9 0 0 1 0 13" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">04</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">Digital Marketing</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Paid and organic campaigns tied to revenue, not vanity metrics. Creative, funnels and reporting included
+              every month.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">Meta &amp; Google Ads</li>
+              <li class="chip">Funnels</li>
+              <li class="chip">Content</li>
+              <li class="chip">Email &amp; CRM</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#8B5CF6]/22 to-[#4F7CFF]/10 text-[#C4B0FF]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="M20 20l-4-4" />
+                  <path d="M8.5 11h5M11 8.5v5" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">05</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">SEO &amp; Content Systems</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Technical SEO, topical authority and content engines that compound month after month instead of spiking
+              and dying.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">Technical SEO</li>
+              <li class="chip">Local SEO</li>
+              <li class="chip">Content ops</li>
+              <li class="chip">Link building</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift spot glass rounded-2xl p-6">
+            <div class="flex items-start justify-between">
+              <span
+                class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#22D3EE]/22 to-[#8B5CF6]/12 text-[#7FE3F5]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z" />
+                  <path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" />
+                </svg>
+              </span>
+              <span class="mono text-[11px] text-white/22">06</span>
+            </div>
+            <h3 class="mt-5 text-[17px] font-semibold tracking-tight text-white">AI &amp; Automation</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">
+              Chatbots, workflow automation and internal AI tooling that quietly remove the repetitive work from your
+              team's week.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              <li class="chip">Chatbots</li>
+              <li class="chip">n8n / Zapier</li>
+              <li class="chip">LLM apps</li>
+              <li class="chip">CRM ops</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ DIFFERENCE ══════════ -->
+    <section id="difference" class="relative py-24 sm:py-32 scroll-mt-24 overflow-hidden border-t border-white/[.06]">
+      <span id="approach" class="sr-only"></span>
+      <div
+        class="absolute top-1/3 -left-52 w-[500px] h-[500px] bg-indigo-600/10 blur-[140px] rounded-full pointer-events-none">
+      </div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 text-[12px] font-mono uppercase tracking-widest text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> The Solution-First Difference</div>
+          <h2 class="mt-5 text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] leading-[1.05]">Agencies
+            bill hours.
+<span class="text-white/40">We guarantee</span> <span
+              class="font-serif italic font-normal text-gradient-color">outcomes.</span></h2>
+          <p class="mt-5 text-white/55 text-[16px] leading-relaxed max-w-2xl">Every engagement is scoped around a
+            measurable business result — revenue, conversion, retention, or speed. If we don't move the metric, we keep
+            working. That's the NGD protocol. Hover any card to see how we differ.</p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="diffGrid"></div>
+
+        <!-- Comparison toggle -->
+        <div
+          class="reveal mt-8 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[.04] to-transparent overflow-hidden">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-6 sm:px-8 py-6 border-b border-white/10">
+            <div>
+              <div class="font-bold text-lg tracking-tight text-white">NGD vs. The Old Way</div>
+              <div class="text-[13px] text-white/45">A brutally honest comparison. Toggle to compare.</div>
+            </div>
+            <div class="flex bg-black/40 border border-white/10 rounded-xl p-1 gap-1 text-[13px] font-medium"
+              id="compareToggle">
+              <button data-cmp="freelance"
+                class="cmp-btn px-4 py-2 rounded-lg text-white/50 hover:text-white transition-all cursor-pointer">Freelancers</button>
+              <button data-cmp="agency"
+                class="cmp-btn px-4 py-2 rounded-lg text-white/50 hover:text-white transition-all cursor-pointer">Old
+                Agency</button>
+              <button data-cmp="ngd" class="cmp-btn px-4 py-2 rounded-lg pill-active transition-all cursor-pointer">NGD
+                ✓</button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/[.07] text-center"
+            id="compareGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ SOLUTIONS BENTO ══════════ -->
+    <section id="solutions"
+      class="relative py-24 sm:py-32 scroll-mt-24 border-t border-white/[.06] bg-[#0B0B0E] overflow-hidden">
+      <div
+        class="absolute -top-40 right-0 w-[600px] h-[500px] bg-violet-600/10 blur-[140px] rounded-full pointer-events-none">
+      </div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-2xl">
+            <div
+              class="inline-flex items-center gap-2 text-[12px] font-mono uppercase tracking-widest text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full px-4 py-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span> Core Solutions</div>
+            <h2 class="mt-5 text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] leading-[1.05]">One
+              team.
+              Every layer of <span class="font-serif italic font-normal text-gradient-color">your stack.</span>
+            </h2>
+          </div>
+          <p class="text-white/50 max-w-sm text-[15px] leading-relaxed lg:text-right">Six deeply-integrated practices.
+            Mix and match into a single fixed-scope solution — designed, built, and measured by NGD.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-6 gap-3.5">
+          <!-- Large: Web Platforms -->
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-4 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[.05] to-white/[.01] p-6 sm:p-8 overflow-hidden relative group">
+            <div
+              class="absolute -top-20 -right-20 w-72 h-72 bg-indigo-500/20 blur-[90px] rounded-full pointer-events-none group-hover:bg-indigo-500/30 transition-all duration-700">
+            </div>
+            <div class="relative z-10 grid sm:grid-cols-2 gap-6">
+              <div>
+                <div
+                  class="w-11 h-11 rounded-xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-300 mb-4">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+                  </svg></div>
+                <h3 class="font-bold text-xl tracking-tight text-white">Full-Stack Web Platforms</h3>
+                <p class="mt-2 text-[13.5px] text-white/50 leading-relaxed">Next.js 15, React Server Components, edge
+                  rendering. Marketing sites to multi-tenant SaaS — built for sub-second loads.</p>
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  <span
+                    class="text-[11px] font-mono bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/60">Next.js</span>
+                  <span
+                    class="text-[11px] font-mono bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/60">TypeScript</span>
+                  <span
+                    class="text-[11px] font-mono bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/60">Supabase</span>
+                  <span
+                    class="text-[11px] font-mono bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/60">Stripe</span>
+                </div>
+                <a href="#contact"
+                  class="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-indigo-300 hover:gap-2.5 transition-all">Scope
+                  a build <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg></a>
+              </div>
+              <div
+                class="rounded-xl border border-white/10 bg-black/60 overflow-hidden font-mono text-[11.5px] leading-relaxed self-center">
+                <div class="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-white/10 bg-white/[.02]">
+                  <div class="code-dot bg-[#FF5F57] !w-2.5 !h-2.5"></div>
+                  <div class="code-dot bg-[#FEBC2E] !w-2.5 !h-2.5"></div>
+                  <div class="code-dot bg-[#28C840] !w-2.5 !h-2.5"></div>
+                  <span class="ml-2 text-white/35">deploy.ts</span>
+                  <span
+                    class="ml-auto text-emerald-300 text-[10px] bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">●
+                    deployed in 38s</span>
+                </div>
+                <div class="p-4 text-white/70">
+                  <div><span class="text-violet-400">const</span> <span class="text-indigo-300">app</span> = <span
+                      class="text-violet-400">await</span> ngd.<span class="text-emerald-300">ship</span>({</div>
+                  <div class="pl-4">framework: <span class="text-amber-300">'nextjs-15'</span>,</div>
+                  <div class="pl-4">edge: <span class="text-indigo-300">true</span>,</div>
+                  <div class="pl-4">lighthouse: <span class="text-emerald-300">100</span>, <span
+                      class="typing-cursor text-white/80"></span></div>
+                  <div>});</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Large: AI -->
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-2 rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-500/[.07] to-white/[.01] p-6 sm:p-8 overflow-hidden relative group">
+            <div
+              class="absolute -bottom-20 -left-20 w-72 h-72 bg-emerald-500/15 blur-[90px] rounded-full pointer-events-none">
+            </div>
+            <div class="relative z-10">
+              <div
+                class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center text-emerald-300 mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
+                  <circle cx="12" cy="12" r="3.5" />
+                </svg></div>
+              <h3 class="font-bold text-xl tracking-tight text-white">AI-Native Products</h3>
+              <p class="mt-2 text-[13.5px] text-white/50 leading-relaxed">RAG pipelines, agents & copilots wired into
+                your product.</p>
+              <div class="mt-5 rounded-xl border border-white/10 bg-black/50 p-3.5 space-y-2.5 text-[12px]">
+                <div class="flex gap-2">
+                  <div
+                    class="w-6 h-6 rounded-lg bg-indigo-500/30 flex-shrink-0 flex items-center justify-center text-[10px]">
+                    🧑</div>
+                  <div class="bg-white/[.06] rounded-lg rounded-tl-none px-3 py-2 text-white/80">Summarize this
+                    quarter's churn…</div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="w-6 h-6 rounded-lg bg-emerald-500/30 flex-shrink-0 flex items-center justify-center"><span
+                      class="w-2 h-2 bg-emerald-300 rounded-full animate-pulse"></span></div>
+                  <div
+                    class="bg-emerald-400/10 border border-emerald-400/20 rounded-lg rounded-tl-none px-3 py-2 text-emerald-100/90">
+                    <span id="aiTyping"></span><span class="typing-cursor"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small row -->
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-2 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[.05] to-white/[.01] p-6 overflow-hidden relative">
+            <div
+              class="w-11 h-11 rounded-xl bg-violet-500/15 border border-violet-500/25 flex items-center justify-center text-violet-300 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2.5" />
+                <path d="M12 18h.01" />
+              </svg></div>
+            <h3 class="font-bold text-[17px] tracking-tight text-white">Mobile Apps</h3>
+            <p class="mt-1.5 text-[13px] text-white/50 leading-relaxed">React Native + Expo. One codebase, both stores,
+              OTA updates.</p>
+            <div class="mt-4 flex items-center gap-2">
+              <div class="flex -space-x-1">
+                <div class="w-8 h-12 rounded-md bg-gradient-to-b from-indigo-500 to-violet-600 border border-white/20">
+                </div>
+                <div class="w-8 h-12 rounded-md bg-gradient-to-b from-violet-500 to-fuchsia-600 border border-white/20">
+                </div>
+                <div
+                  class="w-8 h-12 rounded-md bg-zinc-800 border border-white/20 flex items-center justify-center text-[10px] font-bold text-white">
+                  +2</div>
+              </div>
+              <div class="text-[11px] font-mono text-white/40 ml-1">iOS · Android
+                <span class="text-emerald-300">★
+                  4.8 avg rating</span></div>
+            </div>
+          </div>
+
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-2 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[.05] to-white/[.01] p-6 overflow-hidden relative">
+            <div
+              class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/25 flex items-center justify-center text-amber-300 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="13.5" cy="6.5" r="1.5" />
+                <circle cx="17.5" cy="10.5" r="1.5" />
+                <circle cx="8.5" cy="7.5" r="1.5" />
+                <circle cx="6.5" cy="12.5" r="1.5" />
+                <path
+                  d="M12 2a10 10 0 1 0 10 10c0-1.5-.5-2-2-2h-3a2 2 0 0 1-1.5-.7l-.8-.9a2 2 0 0 0-1.5-.6H8a4 4 0 0 1-4-4V4.5A2.5 2.5 0 0 1 6.5 2H12Z" />
+              </svg></div>
+            <h3 class="font-bold text-[17px] tracking-tight text-white">Design Systems</h3>
+            <p class="mt-1.5 text-[13px] text-white/50 leading-relaxed">Token-driven UI kits your team will actually
+              use.</p>
+            <div class="mt-4 flex gap-1.5">
+              <div
+                class="h-9 flex-1 rounded-lg bg-indigo-500 border border-white/20 hover:scale-105 transition-transform cursor-pointer"
+                title="Indigo"></div>
+              <div
+                class="h-9 flex-1 rounded-lg bg-violet-500 border border-white/20 hover:scale-105 transition-transform cursor-pointer"
+                title="Violet"></div>
+              <div
+                class="h-9 flex-1 rounded-lg bg-emerald-400 border border-white/20 hover:scale-105 transition-transform cursor-pointer"
+                title="Emerald"></div>
+              <div
+                class="h-9 flex-1 rounded-lg bg-zinc-100 border border-white/20 hover:scale-105 transition-transform cursor-pointer"
+                title="Zinc"></div>
+              <div
+                class="h-9 flex-1 rounded-lg bg-zinc-900 border border-white/20 hover:scale-105 transition-transform cursor-pointer"
+                title="Obsidian"></div>
+            </div>
+          </div>
+
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-2 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[.05] to-white/[.01] p-6 overflow-hidden relative">
+            <div
+              class="w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-500/25 flex items-center justify-center text-sky-300 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 0 0-11.7 1.62A4 4 0 0 0 6 19h11.5Z" />
+              </svg></div>
+            <h3 class="font-bold text-[17px] tracking-tight text-white">Cloud & Edge</h3>
+            <p class="mt-1.5 text-[13px] text-white/50 leading-relaxed">Zero-downtime infra on Vercel, AWS & Cloudflare.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-black/50 p-3">
+              <div class="flex justify-between text-[11px] font-mono text-white/40 mb-2"><span>p99 latency</span><span
+                  class="text-emerald-300">41ms ↓</span></div>
+              <canvas id="sparkline" class="w-full h-[44px]"></canvas>
+            </div>
+          </div>
+
+          <!-- Bottom wide: API -->
+          <div
+            class="reveal spotlight spotlight-card bento-tilt md:col-span-6 rounded-2xl border border-white/10 bg-gradient-to-r from-indigo-500/[.08] via-violet-500/[.05] to-emerald-500/[.07] p-6 sm:p-8 overflow-hidden relative">
+            <div class="grid md:grid-cols-[1fr_auto] gap-6 items-center">
+              <div class="flex gap-5 items-start">
+                <div
+                  class="w-11 h-11 shrink-0 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white mb-1">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg></div>
+                <div>
+                  <h3 class="font-bold text-xl tracking-tight text-white">APIs, Integrations & Automation <span
+                      class="ml-2 text-[11px] font-mono font-normal bg-white/10 border border-white/15 px-2 py-1 rounded-full text-white/70">120+
+                      connectors</span></h3>
+                  <p class="mt-2 text-[13.5px] text-white/50 leading-relaxed max-w-2xl">Stripe, Salesforce, HubSpot,
+                    warehouses, webhooks — we connect your stack into one source of truth and automate the busywork
+                    away.</p>
+                  <div class="mt-4 flex flex-wrap gap-2" id="integrationPills"></div>
+                </div>
+              </div>
+              <button onclick="simulateSync()" id="syncBtn"
+                class="shrink-0 inline-flex items-center gap-2 border border-white/15 bg-white/5 hover:bg-white/10 rounded-xl px-6 py-3.5 text-[14px] font-semibold text-white transition-all cursor-pointer">
+                <svg id="syncIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" />
+                </svg>
+                <span id="syncLabel">Run live sync</span>
+              </button>
+            </div>
+            <div id="syncBar" class="hidden mt-5 h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="syncFill"
+                class="h-full w-0 bg-gradient-to-r from-indigo-500 via-violet-500 to-emerald-400 transition-all duration-300">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <section id="work" class="relative py-24 sm:py-32">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="blob" style="width:440px;height:440px;background:#22D3EE;top:20%;left:-160px;opacity:.16;"></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-2xl">
+            <span class="eyebrow reveal">Selected work</span>
+            <h2
+              class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem]">
+              Built to be <span class="grad-text">shipped</span>, not just designed.
+            </h2>
+            <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+              A snapshot of recent builds across commerce, logistics, wellness and SaaS. Every one started with the same
+              question: what does this business actually need?
+            </p>
+          </div>
+
+          <div class="reveal flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+            <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+            <button class="filter-btn" data-filter="web" type="button">Web</button>
+            <button class="filter-btn" data-filter="app" type="button">Apps</button>
+            <button class="filter-btn" data-filter="commerce" type="button">E-commerce</button>
+            <button class="filter-btn" data-filter="ai" type="button">AI</button>
+            <button class="filter-btn" data-filter="brand" type="button">Branding</button>
+          </div>
+        </div>
+
+        <div id="portfolioGrid" class="stagger mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- 1 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="web">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 18% 0%, rgba(79,124,255,.42), transparent 62%), radial-gradient(110% 110% at 92% 92%, rgba(34,211,238,.28), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">Web
+                platform</span>
+              <div
+                class="absolute inset-x-6 bottom-0 translate-y-1.5 rounded-t-xl border border-white/10 bg-white/[0.055] p-3 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                <div class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-white/30"></span><span
+                    class="h-1.5 w-1.5 rounded-full bg-white/20"></span><span
+                    class="h-1.5 w-16 rounded-full bg-white/16"></span></div>
+                <div class="mt-3 flex h-16 items-end gap-1.5">
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#8B5CF6]"
+                    style="height:38%"></span>
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#8B5CF6]"
+                    style="height:56%"></span>
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#22D3EE]"
+                    style="height:72%"></span>
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#22D3EE]"
+                    style="height:52%"></span>
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#8B5CF6]"
+                    style="height:88%"></span>
+                  <span class="flex-1 rounded-t bg-gradient-to-t from-[#4F7CFF]/25 to-[#22D3EE]"
+                    style="height:100%"></span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">NorthPeak Logistics</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">-42% admin</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Custom booking portal, quote engine and
+                internal ops dashboard replacing six spreadsheets.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Next.js · Postgres · SEO</p>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="commerce">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 80% 0%, rgba(139,92,246,.42), transparent 62%), radial-gradient(110% 110% at 8% 90%, rgba(79,124,255,.3), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">E-commerce</span>
+              <div
+                class="absolute inset-x-6 bottom-0 translate-y-1.5 rounded-t-xl border border-white/10 bg-white/[0.055] p-3 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                <div class="grid grid-cols-3 gap-2">
+                  <span class="h-14 rounded-lg bg-gradient-to-br from-white/18 to-white/[0.05]"></span>
+                  <span class="h-14 rounded-lg bg-gradient-to-br from-[#8B5CF6]/45 to-white/[0.05]"></span>
+                  <span class="h-14 rounded-lg bg-gradient-to-br from-white/18 to-white/[0.05]"></span>
+                </div>
+                <div class="mt-2.5 h-1.5 w-24 rounded-full bg-white/20"></div>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">Lumen Retail</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">+186% revenue</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Headless storefront, checkout rebuild and
+                retention flows shipped in five weeks.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Headless CMS · Payments · Email</p>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="app">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 50% 0%, rgba(34,211,238,.34), transparent 60%), radial-gradient(110% 110% at 90% 100%, rgba(139,92,246,.3), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">Mobile
+                app</span>
+              <div
+                class="absolute bottom-0 left-1/2 w-[62%] -translate-x-1/2 translate-y-2 rounded-t-2xl border border-white/12 bg-white/[0.06] p-3 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                <div class="mx-auto h-1 w-10 rounded-full bg-white/25"></div>
+                <div class="mt-3 space-y-2">
+                  <div class="flex items-center gap-2 rounded-lg bg-white/[0.05] p-2"><span
+                      class="h-5 w-5 rounded-md bg-gradient-to-br from-[#22D3EE] to-[#4F7CFF]"></span><span
+                      class="h-1.5 flex-1 rounded-full bg-white/18"></span></div>
+                  <div class="flex items-center gap-2 rounded-lg bg-white/[0.05] p-2"><span
+                      class="h-5 w-5 rounded-md bg-gradient-to-br from-[#8B5CF6] to-[#22D3EE]"></span><span
+                      class="h-1.5 flex-1 rounded-full bg-white/14"></span></div>
+                  <div class="flex items-center gap-2 rounded-lg bg-white/[0.05] p-2"><span
+                      class="h-5 w-5 rounded-md bg-gradient-to-br from-[#4F7CFF] to-[#8B5CF6]"></span><span
+                      class="h-1.5 flex-1 rounded-full bg-white/12"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">Kite &amp; Co Loyalty</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">12.4k installs</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Cross-platform loyalty app with in-store
+                rewards, push campaigns and 4.9 store rating.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">React Native · Firebase · Design system
+              </p>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="ai">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 25% 10%, rgba(139,92,246,.42), transparent 62%), radial-gradient(110% 110% at 95% 95%, rgba(34,211,238,.3), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">AI
+                automation</span>
+              <div class="absolute inset-x-6 bottom-3 space-y-2">
+                <div
+                  class="ml-auto w-[72%] rounded-2xl rounded-br-sm border border-white/10 bg-white/[0.07] p-2.5 backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1">
+                  <div class="h-1.5 w-3/4 rounded-full bg-white/25"></div>
+                  <div class="mt-1.5 h-1.5 w-1/2 rounded-full bg-white/15"></div>
+                </div>
+                <div
+                  class="w-[78%] rounded-2xl rounded-bl-sm border border-[#8B5CF6]/25 bg-gradient-to-br from-[#4F7CFF]/25 to-[#8B5CF6]/20 p-2.5 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                  <div class="h-1.5 w-2/3 rounded-full bg-white/40"></div>
+                  <div class="mt-1.5 h-1.5 w-1/3 rounded-full bg-white/22"></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">Zestly AI Support Desk</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">71% auto-resolved</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Triage bot trained on internal docs, wired
+                into the helpdesk with human handoff rules.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">LLM app · n8n · Helpdesk API</p>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="brand">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 70% 10%, rgba(255,255,255,.16), transparent 60%), radial-gradient(110% 110% at 10% 90%, rgba(139,92,246,.35), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">Branding</span>
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="flex items-center gap-3 transition-transform duration-500 group-hover:scale-105">
+                  <span
+                    class="grid h-14 w-14 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-xl font-bold text-white backdrop-blur">A</span>
+                  <div>
+                    <div class="h-2 w-24 rounded-full bg-white/30"></div>
+                    <div class="mt-2 h-1.5 w-16 rounded-full bg-white/16"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">Auralab Rebrand</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">2x avg. deal size</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Positioning workshop, new identity system and
+                a website that finally justifies the price.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Brand system · Website · Collateral</p>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="portfolio-card reveal lift group glass overflow-hidden rounded-2xl" data-cat="web">
+            <div class="relative h-48 overflow-hidden"
+              style="background:radial-gradient(120% 120% at 40% 0%, rgba(34,211,238,.34), transparent 62%), radial-gradient(110% 110% at 95% 90%, rgba(79,124,255,.32), transparent 58%), #0B0B12;">
+              <div class="absolute inset-0 opacity-30"
+                style="background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;">
+              </div>
+              <span
+                class="absolute left-4 top-4 rounded-full border border-white/12 bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white/75 backdrop-blur">Marketing</span>
+              <div
+                class="absolute inset-x-6 bottom-0 translate-y-1.5 rounded-t-xl border border-white/10 bg-white/[0.055] p-3 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                <div class="flex items-center justify-between">
+                  <span class="h-1.5 w-14 rounded-full bg-white/22"></span>
+                  <span class="h-1.5 w-8 rounded-full bg-[#22D3EE]/70"></span>
+                </div>
+                <svg viewBox="0 0 200 60" class="mt-3 h-14 w-full" aria-hidden="true" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#4F7CFF" stop-opacity="0" />
+                      <stop offset="40%" stop-color="#8B5CF6" />
+                      <stop offset="100%" stop-color="#22D3EE" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 52 C 30 50, 45 42, 70 38 S 110 30, 135 20 S 175 8, 200 4" fill="none" stroke="url(#spark)"
+                    stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-[16px] font-semibold tracking-tight text-white">Brightpath Coaching</h3>
+                <span class="shrink-0 text-[11px] font-semibold text-[#8FB6FF]">5.3x ROAS</span>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Funnel rebuild, paid social creative system
+                and a content engine feeding the top of it.</p>
+              <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Paid ads · Funnels · Content</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="reveal mt-12 flex justify-center">
+          <a href="#contact" class="btn-ghost" data-preset="client">
+            Request the full case study deck
+            <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AUDIENCE ============ -->
+    <section class="relative border-y border-white/[0.06] bg-white/[0.012] py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow reveal">Who we build for</span>
+          <h2
+            class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem]">
+            Different businesses.<br class="hidden sm:block" /> <span class="grad-text">Radically different
+              solutions.</span>
+          </h2>
+          <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+            The same solution-first process, tuned to the realities of your stage, market and budget.
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#9DB8FF]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 15.5l6-9 5 6.5 4-5.5" />
+                <path d="M3 20h18" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">Startups &amp; Founders</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">You need to look credible to investors and
+              customers — yesterday. We ship an MVP brand, site and product shell fast.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: MVP site · Product UI ·
+              Pitch assets</p>
+          </div>
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#7FE3F5]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10.5l8-6.5 8 6.5" />
+                <path d="M6 9.5V20h12V9.5" />
+                <path d="M10 20v-5.5h4V20" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">Local &amp; Service Businesses</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">Plumbers, clinics, studios, agencies. You need
+              to be found locally, trusted instantly and booked automatically.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: Local SEO · Site · Booking
+              automation</p>
+          </div>
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#C4B0FF]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 8h14l-1.2 12H6.2z" />
+                <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">E-commerce Brands</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">Traffic isn't the problem — conversion and
+              repeat purchase are. We fix the funnel, then scale the spend.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: CRO · Storefront · Email
+              &amp; SMS</p>
+          </div>
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#9DB8FF]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.5" />
+                <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">Coaches &amp; Creators</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">Turn audience attention into paid offers with a
+              positioning-led site, funnel and content system that runs itself.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: Offer funnel · Site ·
+              Content engine</p>
+          </div>
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#C4B0FF]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="14" rx="2" />
+                <path d="M8 21h8M12 18v3" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">SaaS &amp; Tech Teams</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">You have product. You need onboarding, marketing
+              site, docs and automation that scale with the roadmap.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: Marketing site · Design
+              system · AI ops</p>
+          </div>
+
+          <div class="reveal lift glass rounded-2xl p-6">
+            <span
+              class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-[#7FE3F5]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 4l9 4.5-9 4.5-9-4.5z" />
+                <path d="M6.5 10.8V16c0 1.5 2.5 3 5.5 3s5.5-1.5 5.5-3v-5.2" />
+              </svg>
+            </span>
+            <h3 class="mt-5 text-[16px] font-semibold tracking-tight text-white">Education &amp; Institutions</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/52">Schools, academies and training providers that
+              need admissions websites, portals and student-facing tools.</p>
+            <p class="mt-4 text-[11px] uppercase tracking-wider text-white/30">Typical build: Admissions site · Portal ·
+              Automation</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENTS ============ -->
+    <section id="students" class="relative py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal rounded-[28px] bg-gradient-to-br from-[#4F7CFF]/45 via-[#8B5CF6]/30 to-[#22D3EE]/35 p-[1px]">
+          <div class="relative overflow-hidden rounded-[27px] bg-[#0A0A0F] px-6 py-12 sm:px-10 sm:py-14 lg:px-14">
+            <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+              <div class="blob"
+                style="width:380px;height:380px;background:#8B5CF6;top:-140px;right:-100px;opacity:.28;"></div>
+              <div class="blob"
+                style="width:320px;height:320px;background:#22D3EE;bottom:-160px;left:-80px;opacity:.2;"></div>
+              <div class="grid-bg absolute inset-0 opacity-25"></div>
+            </div>
+
+            <div class="relative grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+              <div>
+                <span class="eyebrow">NGD for students</span>
+                <h2
+                  class="mt-6 text-[1.9rem] font-semibold leading-[1.12] tracking-[-0.03em] text-white sm:text-[2.4rem]">
+                  Start your career with <span class="serif grad-text">real work</span>, not just tutorials.
+                </h2>
+                <p class="mt-5 max-w-lg text-[15px] leading-relaxed text-white/58">
+                  We build alongside students every semester — portfolio sites, final-year projects and genuine agency
+                  experience. You leave with shipped work, a mentor's reference and a portfolio that doesn't look like
+                  everyone else's.
+                </p>
+
+                <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[#22D3EE]/35 bg-[#22D3EE]/12 text-[#7FE3F5]">
+                      <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class="text-[14px] text-white/72">Live client work on real briefs</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[#22D3EE]/35 bg-[#22D3EE]/12 text-[#7FE3F5]">
+                      <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class="text-[14px] text-white/72">1:1 mentorship from senior builders</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[#22D3EE]/35 bg-[#22D3EE]/12 text-[#7FE3F5]">
+                      <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class="text-[14px] text-white/72">Internship track with real deliverables</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[#22D3EE]/35 bg-[#22D3EE]/12 text-[#7FE3F5]">
+                      <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class="text-[14px] text-white/72">Student pricing on every package</span>
+                  </li>
+                </ul>
+
+                <div class="mt-9 flex flex-wrap gap-3">
+                  <a href="#contact" class="btn-primary" data-preset="student" data-preset-need="Internship Track">
+                    Apply to the student track
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                  <a href="#pricing" class="btn-ghost" data-preset="student">See student pricing</a>
+                </div>
+              </div>
+
+              <div class="grid content-start gap-4 sm:grid-cols-2">
+                <div class="glass-soft rounded-2xl p-5">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-[#9DB8FF]">Starter</p>
+                  <h3 class="mt-2 text-[15px] font-semibold tracking-tight text-white">Portfolio Website</h3>
+                  <p class="mt-2 text-[13px] leading-relaxed text-white/50">A sharp personal site that makes recruiters
+                    stop scrolling. Delivered in 10 days.</p>
+                  <p class="mt-4 text-[13px] font-semibold text-white">from ₹2,500 <span
+                      class="font-normal text-white/35">student rate</span></p>
+                  <a href="#contact" class="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8FB6FF] hover:gap-2.5 transition-all"
+                    data-preset="student" data-preset-need="Portfolio Website">Enquire
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg></a>
+                </div>
+                <div class="glass-soft rounded-2xl p-5">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-[#C4B0FF]">Academic</p>
+                  <h3 class="mt-2 text-[15px] font-semibold tracking-tight text-white">Final-Year Project</h3>
+                  <p class="mt-2 text-[13px] leading-relaxed text-white/50">Full app or web system with documentation,
+                    demo and defence-ready explanation.</p>
+                  <p class="mt-4 text-[13px] font-semibold text-white">from ₹7,000</p>
+                  <a href="#contact" class="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8FB6FF] hover:gap-2.5 transition-all"
+                    data-preset="student" data-preset-need="Final-Year Project">Enquire
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg></a>
+                </div>
+                <div class="glass-soft rounded-2xl p-5">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-[#7FE3F5]">Guidance</p>
+                  <h3 class="mt-2 text-[15px] font-semibold tracking-tight text-white">1:1 Mentorship</h3>
+                  <p class="mt-2 text-[13px] leading-relaxed text-white/50">Weekly sessions on code, design or career
+                    direction with a working senior.</p>
+                  <p class="mt-4 text-[13px] font-semibold text-white">₹499 <span class="font-normal text-white/35">/
+                      session</span></p>
+                  <a href="#contact" class="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8FB6FF] hover:gap-2.5 transition-all"
+                    data-preset="student" data-preset-need="Mentorship">Enquire
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg></a>
+                </div>
+                <div class="glass-soft rounded-2xl p-5">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-[#9DB8FF]">Experience</p>
+                  <h3 class="mt-2 text-[15px] font-semibold tracking-tight text-white">Internship Track</h3>
+                  <p class="mt-2 text-[13px] leading-relaxed text-white/50">8 weeks inside live projects with a real
+                    brief, review cycles and a reference.</p>
+                  <p class="mt-4 text-[13px] font-semibold text-white">Cohort based <span
+                      class="font-normal text-white/35">· 12 seats</span></p>
+                  <a href="#contact" class="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8FB6FF] hover:gap-2.5 transition-all"
+                    data-preset="student" data-preset-need="Internship Track">Apply
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="relative border-y border-white/[0.06] bg-white/[0.012] py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow reveal">How it works</span>
+          <h2
+            class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem]">
+            A process built to remove <span class="grad-text">surprises</span>.
+          </h2>
+          <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+            Five stages, weekly visibility, and a written scope you approve before we start building anything.
+          </p>
+        </div>
+
+        <div class="relative mt-16">
+          <div
+            class="pointer-events-none absolute left-0 right-0 top-[22px] hidden h-[1px] bg-gradient-to-r from-transparent via-[#8B5CF6]/45 to-transparent lg:block"
+            aria-hidden="true"></div>
+
+          <div class="stagger grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+
+            <div class="reveal relative">
+              <div class="flex items-center gap-3 lg:block">
+                <span
+                  class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-[#0A0A0F] text-[13px] font-bold text-white shadow-[0_0_0_6px_rgba(10,10,15,1)]">
+                  <span class="grad-text">01</span>
+                </span>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-white/35 lg:mt-5">30 minutes</p>
+              </div>
+              <h3 class="mt-3 text-[16px] font-semibold tracking-tight text-white lg:mt-1">Discovery call</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">A straight conversation about the business,
+                the bottleneck and the budget. No pitch deck, no pressure.</p>
+            </div>
+
+            <div class="reveal relative">
+              <div class="flex items-center gap-3 lg:block">
+                <span
+                  class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-[#0A0A0F] text-[13px] font-bold text-white shadow-[0_0_0_6px_rgba(10,10,15,1)]">
+                  <span class="grad-text">02</span>
+                </span>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-white/35 lg:mt-5">2–4 days</p>
+              </div>
+              <h3 class="mt-3 text-[16px] font-semibold tracking-tight text-white lg:mt-1">Strategy &amp; scope</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">A written plan: what we're building, why, in
+                what order, what it costs and what happens after launch.</p>
+            </div>
+
+            <div class="reveal relative">
+              <div class="flex items-center gap-3 lg:block">
+                <span
+                  class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-[#0A0A0F] text-[13px] font-bold text-white shadow-[0_0_0_6px_rgba(10,10,15,1)]">
+                  <span class="grad-text">03</span>
+                </span>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-white/35 lg:mt-5">1–2 weeks</p>
+              </div>
+              <h3 class="mt-3 text-[16px] font-semibold tracking-tight text-white lg:mt-1">Design sprint</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Wireframes to a polished UI system you approve
+                in Figma before a single line of code gets written.</p>
+            </div>
+
+            <div class="reveal relative">
+              <div class="flex items-center gap-3 lg:block">
+                <span
+                  class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-[#0A0A0F] text-[13px] font-bold text-white shadow-[0_0_0_6px_rgba(10,10,15,1)]">
+                  <span class="grad-text">04</span>
+                </span>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-white/35 lg:mt-5">2–6 weeks</p>
+              </div>
+              <h3 class="mt-3 text-[16px] font-semibold tracking-tight text-white lg:mt-1">Build &amp; QA</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">Weekly demos, a staging link you can share,
+                and testing on real devices before anything goes live.</p>
+            </div>
+
+            <div class="reveal relative">
+              <div class="flex items-center gap-3 lg:block">
+                <span
+                  class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-[#0A0A0F] text-[13px] font-bold text-white shadow-[0_0_0_6px_rgba(10,10,15,1)]">
+                  <span class="grad-text">05</span>
+                </span>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-white/35 lg:mt-5">Ongoing</p>
+              </div>
+              <h3 class="mt-3 text-[16px] font-semibold tracking-tight text-white lg:mt-1">Launch &amp; scale</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/50">We ship, monitor and optimise. Growth and
+                automation work starts exactly where the build ends.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="relative py-24 sm:py-32">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="blob" style="width:420px;height:420px;background:#4F7CFF;top:10%;right:-140px;opacity:.18;"></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div class="max-w-xl">
+            <span class="eyebrow reveal">Client words</span>
+            <h2
+              class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.5rem]">
+              Results people are happy to <span class="grad-text">put their name to</span>.
+            </h2>
+          </div>
+
+          <div class="reveal flex gap-2">
+            <button id="tPrev"
+              class="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.03] text-white/70 transition hover:border-white/25 hover:bg-white/[0.07] hover:text-white"
+              aria-label="Previous testimonial">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+            <button id="tNext"
+              class="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.03] text-white/70 transition hover:border-white/25 hover:bg-white/[0.07] hover:text-white"
+              aria-label="Next testimonial">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="reveal mt-12 overflow-hidden" id="tCarousel">
+          <div class="t-track" id="tTrack">
+
+            <div class="t-slide pr-0 sm:pr-5">
+              <figure class="glass h-full rounded-3xl p-7 sm:p-9">
+                <div class="flex items-center gap-1 text-[#FFC85C]" aria-label="5 out of 5 stars">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                </div>
+                <blockquote
+                  class="mt-6 text-[19px] font-medium leading-relaxed tracking-[-0.015em] text-white/92 sm:text-[22px]">
+                  “NGD didn't pitch us a website — they diagnosed our sales problem and built the fix. Organic traffic
+                  is up 318% and enquiries now arrive on autopilot.”
+                </blockquote>
+                <figcaption class="mt-7 flex items-center gap-3.5">
+                  <span
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#4F7CFF] to-[#8B5CF6] text-[13px] font-bold text-white">SN</span>
+                  <div>
+                    <p class="text-[14px] font-semibold text-white">Sarah Novak</p>
+                    <p class="text-[12.5px] text-white/45">Founder, NorthPeak Logistics</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="t-slide pr-0 sm:pr-5">
+              <figure class="glass h-full rounded-3xl p-7 sm:p-9">
+                <div class="flex items-center gap-1 text-[#FFC85C]" aria-label="5 out of 5 stars">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                </div>
+                <blockquote
+                  class="mt-6 text-[19px] font-medium leading-relaxed tracking-[-0.015em] text-white/92 sm:text-[22px]">
+                  “We'd been quoted three times as much for half the clarity. They shipped our storefront in five weeks
+                  and revenue was up 186% by month four.”
+                </blockquote>
+                <figcaption class="mt-7 flex items-center gap-3.5">
+                  <span
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#22D3EE] text-[13px] font-bold text-white">DO</span>
+                  <div>
+                    <p class="text-[14px] font-semibold text-white">Daniel Okafor</p>
+                    <p class="text-[12.5px] text-white/45">CEO, Lumen Retail</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="t-slide pr-0 sm:pr-5">
+              <figure class="glass h-full rounded-3xl p-7 sm:p-9">
+                <div class="flex items-center gap-1 text-[#FFC85C]" aria-label="5 out of 5 stars">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                </div>
+                <blockquote
+                  class="mt-6 text-[19px] font-medium leading-relaxed tracking-[-0.015em] text-white/92 sm:text-[22px]">
+                  “The automation work paid for itself in six weeks. 71% of our support tickets now resolve without a
+                  human ever touching them.”
+                </blockquote>
+                <figcaption class="mt-7 flex items-center gap-3.5">
+                  <span
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#22D3EE] to-[#4F7CFF] text-[13px] font-bold text-white">PR</span>
+                  <div>
+                    <p class="text-[14px] font-semibold text-white">Priya Raman</p>
+                    <p class="text-[12.5px] text-white/45">Head of Operations, Zestly</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="t-slide">
+              <figure class="glass h-full rounded-3xl p-7 sm:p-9">
+                <div class="flex items-center gap-1 text-[#FFC85C]" aria-label="5 out of 5 stars">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z" />
+                  </svg>
+                </div>
+                <blockquote
+                  class="mt-6 text-[19px] font-medium leading-relaxed tracking-[-0.015em] text-white/92 sm:text-[22px]">
+                  “As a first-time founder I needed a partner, not a vendor. They explained every decision and handed me
+                  a brand I'm genuinely proud to show investors.”
+                </blockquote>
+                <figcaption class="mt-7 flex items-center gap-3.5">
+                  <span
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#4F7CFF] to-[#22D3EE] text-[13px] font-bold text-white">MH</span>
+                  <div>
+                    <p class="text-[14px] font-semibold text-white">Marcus Hale</p>
+                    <p class="text-[12.5px] text-white/45">Founder, Auralab</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center justify-center gap-2" id="tDots" role="tablist"
+          aria-label="Testimonial navigation"></div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="pricing" class="relative py-24 sm:py-32 scroll-mt-24 border-t border-white/[.06] overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="blob" style="width:440px;height:440px;background:#8B5CF6;top:4%;left:-150px;opacity:.18;"></div>
+        <div class="blob" style="width:380px;height:380px;background:#22D3EE;bottom:2%;right:-140px;opacity:.16;"></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-2xl">
+            <span class="eyebrow reveal">Pricing</span>
+            <h2
+              class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem]">
+              Fixed prices. <span class="grad-text">Student rates</span> built in.
+            </h2>
+            <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+              Pick your side — student or business. Every price below is a starting point, and every quote you get is
+              written, fixed and dated before we start.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="seg" role="tablist" aria-label="Pricing audience">
+              <button type="button" class="seg-btn" data-audience="student" role="tab" aria-selected="false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 4l9 4.5-9 4.5-9-4.5z" />
+                  <path d="M6.5 10.8V16c0 1.5 2.5 3 5.5 3s5.5-1.5 5.5-3v-5.2" />
+                </svg>
+                Student rates
+              </button>
+              <button type="button" class="seg-btn" data-audience="client" role="tab" aria-selected="false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14" />
+                  <path d="M14 20v-8h4a2 2 0 0 1 2 2v6M2 20h20" />
+                </svg>
+                Business packages
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student plans -->
+        <div class="pricing-group mt-12" data-group="student">
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="reveal plan-card">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#9DB8FF]">Starter</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Portfolio Website</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">A sharp personal site recruiters actually
+                stop scrolling for — your work, your story, your contact. Delivered in 10 days.</p>
+              <div class="plan-price"><span class="amount">₹2,500 – ₹4,500</span><span class="unit">one-time · student rate</span>
+              </div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>1–3 pages, mobile-first, custom design</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Projects, resume &amp; contact sections</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Deployed free + custom domain setup</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>LinkedIn + GitHub profile polish</li>
+              </ul>
+              <a href="#contact" data-preset="student" data-preset-need="Portfolio Website"
+                class="btn-ghost mt-6 justify-center">Enquire about this
+                <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+
+            <div class="reveal plan-card is-featured">
+              <span class="badge-pop absolute right-5 top-5">Most chosen</span>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#C4B0FF]">Academic</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Final-Year Project</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">Complete app or web system built with you, not
+                for you — code you can explain line by line at the defence.</p>
+              <div class="plan-price"><span class="amount">₹7,000 – ₹15,000</span><span class="unit">from · 2–4 weeks</span></div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Full-stack app + database design</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Report, diagrams &amp; documentation</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Defence rehearsal + likely viva questions</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>2 revision rounds after feedback</li>
+              </ul>
+              <a href="#contact" data-preset="student" data-preset-need="Final-Year Project"
+                class="btn-primary mt-6 justify-center">Enquire about this
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+
+            <div class="reveal plan-card">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#7FE3F5]">Experience</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Internship Track</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">Eight weeks inside live client work. Real
+                briefs, review cycles, a mentor's reference at the end.</p>
+              <div class="plan-price"><span class="amount">Cohort</span><span class="unit">12 seats per batch</span>
+              </div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Work on real shipped deliverables</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Weekly 1:1 with a senior builder</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Certificate + reference letter</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Mentorship add-on at ₹499 – ₹999 / session</li>
+              </ul>
+              <a href="#contact" data-preset="student" data-preset-need="Internship Track"
+                class="btn-ghost mt-6 justify-center">Apply to the cohort
+                <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+          </div>
+
+          <div class="reveal glass-soft mt-4 flex flex-col gap-3 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-[13.5px] leading-relaxed text-white/55">
+              <span class="font-semibold text-white">Verified students save up to 40%</span> on every package — attach
+              your college ID and the discount is applied to the quote.
+            </p>
+            <a href="#contact" data-preset="student" class="btn-ghost shrink-0 !py-2.5 text-[13px]">Get my student quote</a>
+          </div>
+        </div>
+
+        <!-- Business plans -->
+        <div class="pricing-group mt-12 hidden" data-group="client">
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- 1. Landing page -->
+            <div class="reveal plan-card">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#9DB8FF]">Single Page</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Landing Page</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">High-conversion single-page website to launch an offer, product or service — fast delivery &amp; mobile-first.</p>
+              <div class="plan-price"><span class="amount">₹5,000 – ₹10,000</span><span class="unit">one-time · 3–5 days</span></div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>1 custom page, conversion-engineered</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Mobile-first, fast load speed</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Lead capture form &amp; WhatsApp CTA</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>On-page SEO basics &amp; analytics setup</li>
+              </ul>
+              <a href="#contact" data-preset="client" data-preset-need="Landing Page"
+                class="btn-ghost mt-6 justify-center">Scope this build
+                <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+
+            <!-- 2. Small business website -->
+            <div class="reveal plan-card">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#7FE3F5]">Starter</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Small Business Website</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">Professional multi-page website to build trust, showcase services and turn visitors into paying customers.</p>
+              <div class="plan-price"><span class="amount">₹10,000 – ₹25,000</span><span class="unit">one-time · 1–2 weeks</span></div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Up to 5 custom-designed pages</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Google Search Console &amp; Local SEO</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Contact forms, click-to-call &amp; map</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Core Web Vitals 90+ speed score</li>
+              </ul>
+              <a href="#contact" data-preset="client" data-preset-need="Small Business Website"
+                class="btn-ghost mt-6 justify-center">Scope this build
+                <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+
+            <!-- 3. Business website with CMS -->
+            <div class="reveal plan-card is-featured">
+              <span class="badge-pop absolute right-5 top-5">Most Popular</span>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#C4B0FF]">Growth</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Business Website with CMS</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">Complete dynamic website with an easy Admin CMS panel to update blogs, services, products &amp; leads yourself.</p>
+              <div class="plan-price"><span class="amount">₹20,000 – ₹40,000</span><span class="unit">from · 2–3 weeks</span></div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Up to 15 pages + dynamic blog/articles</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Custom Admin CMS (zero coding needed)</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Payment gateway &amp; CRM integration</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Automated lead alerts to WhatsApp/Email</li>
+              </ul>
+              <a href="#contact" data-preset="client" data-preset-need="Business Website with CMS"
+                class="btn-primary mt-6 justify-center">Scope this build
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+
+            <!-- 4. Full-stack web application -->
+            <div class="reveal plan-card">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#9DB8FF]">Scale</p>
+              <h3 class="mt-2 text-[18px] font-semibold tracking-tight text-white">Full-Stack Web App</h3>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-white/55">Custom SaaS applications, portals and AI workflow automations engineered with React, Next.js, Node &amp; Postgres.</p>
+              <div class="plan-price"><span class="amount">₹30,000+</span><span class="unit">from · 3–5 weeks</span></div>
+              <ul class="plan-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>Custom dashboards, user auth &amp; roles</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>PostgreSQL database &amp; serverless API</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>AI copilots, automation &amp; integrations</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>High security, staging URL &amp; SLA support</li>
+              </ul>
+              <a href="#contact" data-preset="client" data-preset-need="Full-Stack Web Application"
+                class="btn-ghost mt-6 justify-center">Scope this build
+                <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- 5. Monthly maintenance -->
+          <div class="reveal glass-soft mt-5 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div class="max-w-2xl">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-[#22D3EE]">Support &amp; Peace of Mind</span>
+              <h4 class="mt-1 text-[16px] font-semibold text-white">Monthly Website Maintenance &amp; Support</h4>
+              <p class="mt-1 text-[13.5px] leading-relaxed text-white/60">
+                <span class="font-semibold text-white">₹1,000 – ₹5,000 / month</span> — hosting uptime monitoring, weekly backups, security patches, regular content updates and bug fixes so your business runs smoothly 24/7.
+              </p>
+            </div>
+            <a href="#contact" data-preset="client" data-preset-need="Monthly Maintenance"
+              class="btn-ghost shrink-0 !py-2.5 text-[13px]">Ask about maintenance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENQUIRY / CONTACT ============ -->
+    <section id="contact" class="relative py-24 sm:py-32 scroll-mt-24 overflow-hidden bg-[#0B0B0E] border-t border-white/[.06]">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="grid-bg absolute inset-0 opacity-40"
+          style="-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 35%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 35%,#000,transparent 75%);">
+        </div>
+        <div class="blob" style="width:520px;height:520px;background:#4F7CFF;top:-180px;left:14%;opacity:.2;"></div>
+        <div class="blob" style="width:460px;height:460px;background:#8B5CF6;bottom:-220px;right:12%;opacity:.2;"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow reveal">Start here</span>
+          <h2
+            class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.6rem]">
+            Tell us who you are — we'll route it to the <span class="serif grad-text">right team</span>.
+          </h2>
+          <p class="reveal mt-5 text-[15px] leading-relaxed text-white/55 sm:text-base">
+            Students and businesses get different people, different questions and different pricing. One form, two
+            tracks.
+          </p>
+        </div>
+
+        <div class="reveal-scale gradient-border mt-12 rounded-[28px] shadow-[0_40px_120px_-30px_rgba(99,102,241,.45)]">
+          <div class="rounded-[27px] bg-[#0C0C12]/95 backdrop-blur-xl p-6 sm:p-9 lg:p-11">
+            <div class="grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-12">
+
+              <!-- ---------------- Form ---------------- -->
+              <div>
+                <div class="mb-7">
+                  <p class="text-[12px] font-medium uppercase tracking-[0.16em] text-white/40">I'm enquiring as a</p>
+                  <div class="seg mt-3" id="categorySeg" role="tablist" aria-label="Enquiry type">
+                    <button type="button" class="seg-btn" data-category-btn="student" role="tab" aria-selected="false">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 4l9 4.5-9 4.5-9-4.5z" />
+                        <path d="M6.5 10.8V16c0 1.5 2.5 3 5.5 3s5.5-1.5 5.5-3v-5.2" />
+                      </svg>
+                      Student
+                    </button>
+                    <button type="button" class="seg-btn" data-category-btn="client" role="tab" aria-selected="false">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14" />
+                        <path d="M14 20v-8h4a2 2 0 0 1 2 2v6M2 20h20" />
+                      </svg>
+                      Business / Other
+                    </button>
+                  </div>
+                </div>
+
+                <form id="leadForm" novalidate>
+                  <!-- honeypot: invisible to humans, irresistible to bots -->
+                  <div class="hp-field" aria-hidden="true">
+                    <label for="lfWebsiteUrl">Website URL</label>
+                    <input id="lfWebsiteUrl" name="website_url" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label class="field-label" for="lfName">Your name <span class="req">*</span></label>
+                      <input id="lfName" name="name" type="text" class="glow-input" placeholder="Ada Lovelace"
+                        autocomplete="name" />
+                      <p class="field-error" data-error-for="name" hidden></p>
+                    </div>
+                    <div>
+                      <label class="field-label" for="lfEmail">Email <span class="req">*</span></label>
+                      <input id="lfEmail" name="email" type="email" class="glow-input" placeholder="you@example.com"
+                        autocomplete="email" inputmode="email" />
+                      <p class="field-error" data-error-for="email" hidden></p>
+                      <p class="field-hint" data-hint-for="email" hidden></p>
+                    </div>
+                    <div>
+                      <label class="field-label" for="lfPhone">Phone / WhatsApp <span
+                          class="text-white/30">(optional)</span></label>
+                      <input id="lfPhone" name="phone" type="tel" class="glow-input" placeholder="+91 98765 43210"
+                        autocomplete="tel" inputmode="tel" />
+                      <p class="field-error" data-error-for="phone" hidden></p>
+                    </div>
+                    <div class="pane" data-pane="student">
+                      <label class="field-label" for="lfStudyYear">Year of study</label>
+                      <select id="lfStudyYear" name="studyYear" class="glow-input">
+                        <option value="">Select year</option>
+                        <option>1st year</option>
+                        <option>2nd year</option>
+                        <option>3rd year</option>
+                        <option>Final year</option>
+                        <option>Graduated / looking for work</option>
+                      </select>
+                    </div>
+                    <div class="pane" data-pane="client">
+                      <label class="field-label" for="lfCompany">Company / brand <span
+                          class="text-white/30">(optional)</span></label>
+                      <input id="lfCompany" name="company" type="text" class="glow-input" placeholder="Acme Pvt Ltd"
+                        autocomplete="organization" />
+                      <p class="field-error" data-error-for="company" hidden></p>
+                    </div>
+                    <div class="pane" data-pane="student">
+                      <label class="field-label" for="lfCollege">College / university</label>
+                      <input id="lfCollege" name="college" type="text" class="glow-input"
+                        placeholder="e.g. GNDU, Amritsar" autocomplete="organization" />
+                      <p class="field-error" data-error-for="college" hidden></p>
+                    </div>
+                    <div class="pane" data-pane="client">
+                      <label class="field-label" for="lfRole">Your role <span
+                          class="text-white/30">(optional)</span></label>
+                      <input id="lfRole" name="role" type="text" class="glow-input" placeholder="Founder, Marketing head…" />
+                    </div>
+                    <div class="pane" data-pane="student">
+                      <label class="field-label" for="lfCourse">Course / branch</label>
+                      <input id="lfCourse" name="course" type="text" class="glow-input"
+                        placeholder="B.Tech CSE, BCA, MBA…" />
+                    </div>
+                    <div class="pane" data-pane="client">
+                      <label class="field-label" for="lfWebsite">Website <span
+                          class="text-white/30">(optional)</span></label>
+                      <input id="lfWebsite" name="companyWebsite" type="text" class="glow-input"
+                        placeholder="yourbrand.com" />
+                    </div>
+                  </div>
+
+                  <!-- Student-specific -->
+                  <div class="pane mt-5" data-pane="student">
+                    <p class="field-label">What do you need help with? <span class="text-white/30">(pick one)</span></p>
+                    <div class="pill-grid" data-pill-group="studentNeed">
+                      <button type="button" class="pill" data-pill-value="Portfolio Website">Portfolio Website</button>
+                      <button type="button" class="pill" data-pill-value="Final-Year Project">Final-Year Project</button>
+                      <button type="button" class="pill" data-pill-value="Mentorship">1:1 Mentorship</button>
+                      <button type="button" class="pill" data-pill-value="Internship Track">Internship Track</button>
+                      <button type="button" class="pill" data-pill-value="Other / Not sure">Not sure yet</button>
+                    </div>
+                  </div>
+
+                  <!-- Business-specific -->
+                  <div class="pane mt-5" data-pane="client">
+                    <p class="field-label">What do you need? <span class="text-white/30">(pick one)</span></p>
+                    <div class="pill-grid" data-pill-group="clientNeed">
+                      <button type="button" class="pill" data-pill-value="Brand & Design">Brand &amp; design</button>
+                      <button type="button" class="pill" data-pill-value="Website / Landing Page">Website</button>
+                      <button type="button" class="pill" data-pill-value="Web App / Platform">Web app / platform</button>
+                      <button type="button" class="pill" data-pill-value="Mobile App">Mobile app</button>
+                      <button type="button" class="pill" data-pill-value="Digital Marketing">Marketing</button>
+                      <button type="button" class="pill" data-pill-value="SEO & Content">SEO &amp; content</button>
+                      <button type="button" class="pill" data-pill-value="AI & Automation">AI &amp; automation</button>
+                      <button type="button" class="pill" data-pill-value="Something else">Something else</button>
+                    </div>
+
+                    <p class="field-label mt-5">Budget range <span class="text-white/30">(optional)</span></p>
+                    <div class="pill-grid" data-pill-group="budget">
+                      <button type="button" class="pill" data-pill-value="₹5,000 – ₹10,000">₹5k – ₹10k</button>
+                      <button type="button" class="pill" data-pill-value="₹10,000 – ₹25,000">₹10k – ₹25k</button>
+                      <button type="button" class="pill" data-pill-value="₹20,000 – ₹40,000">₹20k – ₹40k</button>
+                      <button type="button" class="pill" data-pill-value="₹30,000+">₹30k+</button>
+                      <button type="button" class="pill" data-pill-value="₹1k – ₹5k/mo (Maintenance)">₹1k – ₹5k/mo</button>
+                      <button type="button" class="pill" data-pill-value="Not sure yet">Not sure yet</button>
+                    </div>
+
+                    <p class="field-label mt-5">Timeline <span class="text-white/30">(optional)</span></p>
+                    <div class="pill-grid" data-pill-group="timeline">
+                      <button type="button" class="pill" data-pill-value="ASAP">ASAP</button>
+                      <button type="button" class="pill" data-pill-value="This month">This month</button>
+                      <button type="button" class="pill" data-pill-value="This quarter">This quarter</button>
+                      <button type="button" class="pill" data-pill-value="Just exploring">Just exploring</button>
+                    </div>
+                  </div>
+
+                  <div class="mt-5">
+                    <label class="field-label" for="lfMessage" data-message-label>Anything else we should know? <span
+                        class="text-white/30">(one line is fine)</span></label>
+                    <textarea id="lfMessage" name="message" rows="3" class="glow-input resize-none"
+                      placeholder="Tell us about the idea, the deadline or the bottleneck…"></textarea>
+                    <p class="field-error" data-error-for="message" hidden></p>
+                  </div>
+
+                  <button type="submit" id="leadSubmit"
+                    class="magnetic btn-primary mt-6 w-full justify-center rounded-2xl py-4 text-[15px] font-bold">
+                    <span class="spinner hidden" id="leadSpinner" aria-hidden="true"></span>
+                    <span id="leadSubmitLabel">Send my enquiry</span>
+                    <svg id="leadSubmitArrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                  <div class="form-status" id="leadStatus" role="status" aria-live="polite"></div>
+
+                  <div class="mt-5 flex flex-col items-center justify-center gap-3 text-[12.5px] text-white/40 sm:flex-row">
+                    <span class="flex items-center gap-1.5">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"
+                        aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      Reply within 24 hours
+                    </span>
+                    <span class="hidden h-1 w-1 rounded-full bg-white/20 sm:block"></span>
+                    <span class="flex items-center gap-1.5">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"
+                        aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      No spam, no sales calls
+                    </span>
+                    <span class="hidden h-1 w-1 rounded-full bg-white/20 sm:block"></span>
+                    <span class="flex items-center gap-1.5">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"
+                        aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      NDA-friendly
+                    </span>
+                  </div>
+                </form>
+
+                <!-- ---------------- Success state ---------------- -->
+                <div class="success-card" id="leadSuccess">
+                  <span
+                    class="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-emerald-400/30 bg-emerald-400/12 text-emerald-300">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </span>
+                  <h3 class="mt-5 text-[22px] font-semibold tracking-tight text-white">Enquiry received.</h3>
+                  <p class="mx-auto mt-3 max-w-md text-[14px] leading-relaxed text-white/58" id="leadSuccessCopy">
+                    Thanks — we've got it. Expect a reply within 24 hours.
+                  </p>
+                  <button type="button" id="refChip" class="ref-chip" title="Click to copy">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#8FB6FF]"></span>
+                    <span id="refValue">NGD-XXXXXXX</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                  </button>
+                  <div class="mt-7 flex flex-wrap justify-center gap-3">
+                    <a href="mailto:hello@ngdsolutions.com" data-ngd="email" class="btn-ghost !py-2.5 text-[13px]">Email us now</a>
+                    <button type="button" id="sendAnother" class="btn-ghost !py-2.5 text-[13px]">Send another enquiry</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---------------- Side panel ---------------- -->
+              <aside class="lg:border-l lg:border-white/[.07] lg:pl-10">
+                <p class="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/40">What happens next</p>
+                <ul class="steps mt-5">
+                  <li><strong>We read it — a human, today</strong>Every enquiry lands in our dashboard with a reference
+                    ID and an owner.</li>
+                  <li><strong>You get a scoped reply in 24h</strong>Fixed price, timeline and the exact next step. No
+                    discovery-call purgatory.</li>
+                  <li><strong>We build a v0 in 7 days</strong>Something real to react to, then weekly demos until launch.
+                  </li>
+                </ul>
+
+                <div class="mt-8 rounded-2xl border border-[#22D3EE]/20 bg-[#22D3EE]/[.06] p-5">
+                  <p class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-[#7FE3F5]">
+                    <span class="relative flex h-1.5 w-1.5">
+                      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22D3EE] opacity-75"></span>
+                      <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22D3EE]"></span>
+                    </span>
+                    Now booking
+                  </p>
+                  <p class="mt-2 text-[13.5px] leading-relaxed text-white/60">3 project slots and 12 student-track seats
+                    left this quarter. Student cohort intake closes on the 30th.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="relative py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+
+          <div class="lg:sticky lg:top-28 lg:self-start">
+            <span class="eyebrow reveal">FAQ</span>
+            <h2
+              class="reveal mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.032em] text-white sm:text-[2.4rem]">
+              Questions we get <span class="grad-text">every week</span>.
+            </h2>
+            <p class="reveal mt-5 max-w-sm text-[15px] leading-relaxed text-white/55">
+              Still unsure about something? Ask us directly — we reply to every enquiry within four working hours.
+            </p>
+            <a href="#contact" class="reveal btn-ghost mt-7">
+              Ask a question
+              <svg class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="stagger space-y-3">
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">How much does a project
+                    actually cost?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  Landing pages start from ₹5,000–₹10,000, small business websites range between ₹10,000–₹25,000, CMS websites are ₹20,000–₹40,000, and full-stack web applications start from ₹30,000+. Monthly maintenance is available at ₹1,000–₹5,000 per month. You get a fixed written quote after our strategy call — never an open-ended hourly meter.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">How long does a website
+                    take to launch?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  A five-page Launch site ships in about two weeks. Growth builds with copywriting, e-commerce or custom
+                  features typically take three to six weeks. We give you a dated timeline in the scope document and hit
+                  it — our average project-to-launch time is 21 days.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">Do I own the code,
+                    accounts and data?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  Yes — completely. Hosting, domains, ad accounts, analytics and repositories are all set up in your
+                  name. If you ever leave, you take everything with you and we hand over clean documentation. No hostage
+                  hosting, no lock-in clauses.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">Can you take over an
+                    existing website or app?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  Often, yes. We start with a technical and UX audit, tell you honestly whether improving it is cheaper
+                  than rebuilding, and give you both quotes side by side. Roughly 40% of our work is rescuing projects
+                  other agencies abandoned.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">What if I only need one
+                    service?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  That's completely fine — and often the right call. Solution-first means we'll tell you if you don't
+                  need something. Plenty of clients start with a single landing page or an SEO sprint and come back
+                  later for more.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc reveal glass rounded-2xl">
+              <h3>
+                <button class="acc-btn flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                  aria-expanded="false">
+                  <span class="text-[15px] font-medium tracking-tight text-white sm:text-[16px]">Do you offer student
+                    discounts?</span>
+                  <span
+                    class="acc-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-white/70">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-panel">
+                <p class="px-5 pb-6 text-[14px] leading-relaxed text-white/58 sm:px-6">
+                  Yes. Verified students get up to 40% off standard packages, plus access to our internship track and
+                  1:1 mentorship. Portfolio websites start at ₹2,500 and final-year projects at ₹7,000 — just mention you're
+                  a student when you enquire.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section id="book-call" class="relative overflow-hidden py-24 sm:py-32 scroll-mt-24">
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="grid-bg absolute inset-0 opacity-30"
+          style="-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000,transparent 72%);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000,transparent 72%);">
+        </div>
+        <div class="blob" style="width:520px;height:520px;background:#4F7CFF;top:-160px;left:20%;opacity:.26;"></div>
+        <div class="blob" style="width:440px;height:440px;background:#8B5CF6;bottom:-200px;right:15%;opacity:.24;">
+        </div>
+        <div class="blob" style="width:360px;height:360px;background:#22D3EE;top:40%;right:34%;opacity:.14;"></div>
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <span class="eyebrow reveal">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22D3EE] opacity-75"></span>
+            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22D3EE]"></span>
+          </span>
+          Taking on 4 new projects this month
+        </span>
+
+        <h2
+          class="reveal mt-7 text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.035em] text-white sm:text-[3rem] lg:text-[3.4rem]">
+          Ready to build the <span class="serif grad-text">digital side</span> of your business?
+        </h2>
+
+        <p class="reveal mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-white/58 sm:text-[1.05rem]">
+          Tell us the idea, the bottleneck or the goal. We'll come back with an honest read on what it would take — and
+          whether you even need us.
+        </p>
+
+        <form id="quickForm" class="reveal mx-auto mt-9 flex max-w-2xl flex-col gap-3 sm:flex-row" novalidate>
+          <div class="hp-field" aria-hidden="true">
+            <label for="qfTrap">Leave this empty</label>
+            <input id="qfTrap" name="website_url" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label class="sr-only" for="qfType">I am a</label>
+          <select id="qfType" name="category"
+            class="w-full rounded-full border border-white/12 bg-white/[0.04] px-4 py-3.5 text-[14px] text-white outline-none backdrop-blur-xl transition focus:border-[#8B5CF6]/60 sm:w-auto">
+            <option value="student">I'm a student</option>
+            <option value="client">Business / other</option>
+          </select>
+
+          <label class="sr-only" for="qfEmail">Email address</label>
+          <input id="qfEmail" type="email" required placeholder="you@company.com"
+            class="w-full flex-1 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3.5 text-[14px] text-white placeholder-white/32 outline-none backdrop-blur-xl transition focus:border-[#8B5CF6]/60 focus:bg-white/[0.06]" />
+
+          <button type="submit" class="btn-primary shrink-0 !px-6 !py-3.5">
+            <span id="qfLabel">Get a free call</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </form>
+
+        <p id="ctaMsg" class="mt-4 hidden text-[13.5px] font-medium text-[#7FE3F5]" role="status" aria-live="polite">
+        </p>
+        <p class="mt-3 text-[12.5px] text-white/35">Want to tell us more? Use the
+          <a href="#contact" class="text-[#8FB6FF] underline decoration-dotted underline-offset-2">full enquiry form</a>.
+        </p>
+
+        <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12.5px] text-white/38">
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#7FE3F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            Free 30-minute strategy call
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#7FE3F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            No obligation, no hard sell
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#7FE3F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            Reply within 4 working hours
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="relative border-t border-white/[0.07] bg-[#08080C]">
@@ -1913,7 +4027,7 @@
       <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
 
         <div>
-          <a href="/" class="flex items-center gap-2.5 group" aria-label="NGD — NextGenDev Solutions, home">
+          <a href="#top" class="flex items-center gap-2.5 group" aria-label="NGD — NextGenDev Solutions, home">
             <span
               class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[#4F7CFF] via-[#8B5CF6] to-[#22D3EE] group-hover:scale-105 transition-transform duration-300">
               <img src="/img/ngd-mark-white-transparent.svg" alt="NGD Logo" class="h-5 w-5 object-contain" />
@@ -1970,27 +4084,27 @@
         <nav aria-label="Services">
           <h3 class="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/40">Services</h3>
           <ul class="mt-5 space-y-3 text-[13.5px]">
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">Brand identity &amp; design</a>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">Brand identity &amp; design</a>
             </li>
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">Websites &amp; landing pages</a>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">Websites &amp; landing pages</a>
             </li>
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">Mobile &amp; web apps</a></li>
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">Digital marketing</a></li>
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">SEO &amp; content systems</a></li>
-            <li><a href="/services/#services" class="text-white/58 transition hover:text-white">AI &amp; automation</a></li>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">Mobile &amp; web apps</a></li>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">Digital marketing</a></li>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">SEO &amp; content systems</a></li>
+            <li><a href="#services" class="text-white/58 transition hover:text-white">AI &amp; automation</a></li>
           </ul>
         </nav>
 
         <nav aria-label="Company">
           <h3 class="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/40">Company</h3>
           <ul class="mt-5 space-y-3 text-[13.5px]">
-            <li><a href="/services/#difference" class="text-white/58 transition hover:text-white">Our difference</a></li>
-            <li><a href="/services/#solutions" class="text-white/58 transition hover:text-white">Core solutions</a></li>
-            <li><a href="/work/#work" class="text-white/58 transition hover:text-white">Selected work</a></li>
-            <li><a href="/about/#process" class="text-white/58 transition hover:text-white">Process</a></li>
-            <li><a href="/contact/#pricing" class="text-white/58 transition hover:text-white">Pricing</a></li>
-            <li><a href="/students/#students" class="text-white/58 transition hover:text-white">Student program</a></li>
-            <li><a href="/about/#faq" class="text-white/58 transition hover:text-white">FAQ</a></li>
+            <li><a href="#difference" class="text-white/58 transition hover:text-white">Our difference</a></li>
+            <li><a href="#solutions" class="text-white/58 transition hover:text-white">Core solutions</a></li>
+            <li><a href="#work" class="text-white/58 transition hover:text-white">Selected work</a></li>
+            <li><a href="#process" class="text-white/58 transition hover:text-white">Process</a></li>
+            <li><a href="#pricing" class="text-white/58 transition hover:text-white">Pricing</a></li>
+            <li><a href="#students" class="text-white/58 transition hover:text-white">Student program</a></li>
+            <li><a href="#faq" class="text-white/58 transition hover:text-white">FAQ</a></li>
           </ul>
         </nav>
 
@@ -2029,7 +4143,7 @@
               </a>
             </li>
             <li>
-              <a href="/contact/#contact" class="flex items-center gap-2.5 text-white/58 transition hover:text-white">
+              <a href="#contact" class="flex items-center gap-2.5 text-white/58 transition hover:text-white">
                 <svg class="h-4 w-4 text-white/32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="1.8" aria-hidden="true">
                   <circle cx="12" cy="12" r="9" />
@@ -2039,7 +4153,7 @@
               </a>
             </li>
             <li>
-              <a href="/contact/#contact" class="flex items-center gap-2.5 text-white/58 transition hover:text-white">
+              <a href="#contact" class="flex items-center gap-2.5 text-white/58 transition hover:text-white">
                 <svg class="h-4 w-4 text-white/32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="1.8" aria-hidden="true">
                   <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" />
@@ -2049,7 +4163,7 @@
               </a>
             </li>
           </ul>
-          <a href="/contact/#contact" class="btn-primary mt-6 !py-2.5 text-[13px]">
+          <a href="#contact" class="btn-primary mt-6 !py-2.5 text-[13px]">
             Start a project
             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2065,9 +4179,9 @@
         <p class="text-[12.5px] text-white/35">© <span id="year">2025</span> NGD — NextGenDev Solutions. All rights
           reserved.</p>
         <div class="flex items-center gap-5 text-[12.5px] text-white/35">
-          <a href="/" class="transition hover:text-white/70">Privacy</a>
-          <a href="/" class="transition hover:text-white/70">Terms</a>
-          <a href="/" class="transition hover:text-white/70">Cookies</a>
+          <a href="#top" class="transition hover:text-white/70">Privacy</a>
+          <a href="#top" class="transition hover:text-white/70">Terms</a>
+          <a href="#top" class="transition hover:text-white/70">Cookies</a>
         </div>
       </div>
     </div>
@@ -3153,9 +5267,7 @@
         var type = (params.get('type') || '').toLowerCase();
         var hashType = /student/i.test(location.hash) ? 'student' : /client|business/i.test(location.hash) ? 'client' : '';
         var preset = type || hashType;
-        if (preset === 'student' || preset === 'client') {
-          goToEnquiry(preset, params.get('need'), params.get('plan'));
-        }
+        if (preset === 'student' || preset === 'client') goToEnquiry(preset, null, null);
       }
 
       if (leadForm) {

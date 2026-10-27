@@ -281,9 +281,7 @@
         var type = (params.get('type') || '').toLowerCase();
         var hashType = /student/i.test(location.hash) ? 'student' : /client|business/i.test(location.hash) ? 'client' : '';
         var preset = type || hashType;
-        if (preset === 'student' || preset === 'client') {
-          goToEnquiry(preset, params.get('need'), params.get('plan'));
-        }
+        if (preset === 'student' || preset === 'client') goToEnquiry(preset, null, null);
       }
 
       if (leadForm) {
