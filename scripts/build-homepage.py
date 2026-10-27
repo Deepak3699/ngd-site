@@ -265,11 +265,22 @@ css_link = ('\n  <link rel="stylesheet" href="/assets/tailwind.css" />'
             '\n  <!-- compiled from tailwind.config.js — run `npm run css` after markup changes -->')
 html = html[:cdn_block.start()] + css_link + html[cdn_block.end():]
 
-# -------------------------------------- 4. compact header actions
-theme_button = '<button id="ngdThemeToggle" type="button" aria-label="Theme: system. Click to change theme." title="Theme: system · click to cycle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>'
-menu_button = '          <button id="menuBtn"'
-must(html, menu_button, 'mobile menu toggle')
-html = html.replace(menu_button, '          ' + theme_button + '\n' + menu_button, 1)
+# -------------------------------------- 4. dead GitHub button → email button
+old_gh = re.search(r'<a href="https://github\.com".*?</a>', html, re.S)
+if not old_gh:
+    print('✗ GitHub anchor not found', file=sys.stderr)
+    sys.exit(1)
+new_mail = '''<a href="#" data-ngd="email"
+            class="hidden sm:flex w-9 h-9 rounded-lg border border-white/10 items-center justify-center text-white/60 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all"
+            aria-label="Email NGD">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" />
+              <path d="M4 7l8 6 8-6" />
+            </svg>
+          </a>'''
+html = html[:old_gh.start()] + new_mail + html[old_gh.end():]
+# Add a compact theme control beside the existing header actions.
+html = html.replace(new_mail, new_mail + '\n          <button id="ngdThemeToggle" type="button" aria-label="Theme: system. Click to change theme." title="Theme: system · click to cycle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>', 1)
 
 # ------------------------------------------------------------- 5. new styles
 css_anchor = '    @media (prefers-reduced-motion: reduce) {'
