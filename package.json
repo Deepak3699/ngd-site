@@ -5,7 +5,7 @@
   "type": "module",
   "description": "NGD Solutions — Next.js website, interactive Three.js experience, SEO/AEO, analytics, and Neon-backed enquiries.",
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.9.0 <25"
   },
   "scripts": {
     "dev": "next dev -H 0.0.0.0",

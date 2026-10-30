@@ -1,140 +1,166 @@
 /**
- * Admin lead management (all routes require a configured, valid session).
+ * POST /api/leads — public endpoint. Every form on the site funnels through here.
  *
- *   GET    /api/admin/leads?category=&status=&source=&assignee=&q=&page=&limit=&sort=
- *   PATCH  /api/admin/leads   { id, status? | adminNote? | assignedTo? }
- *   DELETE /api/admin/leads?id=12            (admins only)
- *   GET    /api/admin/leads?id=12&events=1   → single response + its activity log
+ * Body: { category: 'student' | 'client', ...fields, sourceSection, meta }
+ * Response: { ok: true, ref, id, duplicate? }
  */
-import { clean, fail, getQuery, methodNotAllowed, ok, readBody } from '../_http.js';
-import { canDelete, currentAdmin } from '../_auth.js';
-import { addEvent, assignLead, deleteLead, listEvents, listLeads, updateLead } from '../_db.js';
+import {
+  clean,
+  clientIp,
+  fail,
+  getQuery,
+  hashIp,
+  isEmail,
+  isPhone,
+  json,
+  LIMITS,
+  methodNotAllowed,
+  normalizeEmail,
+  ok,
+  rateLimit,
+  readBody,
+  referenceId,
+  userAgent,
+} from './_http.js';
+import { addEvent, createLead, findDupeLead } from './_db.js';
+import { notifyNewLead } from './_notify.js';
 
-export const STATUSES = ['new', 'contacted', 'won', 'lost', 'archived'];
+const CATEGORIES = new Set(['student', 'client']);
+
+const STUDENT_NEEDS = new Set([
+  'Portfolio Website', 'Final-Year Project', 'Mentorship', 'Internship Track', 'Other / Not sure',
+]);
+const CLIENT_NEEDS = new Set([
+  'Brand & Design', 'Website / Landing Page', 'Web App / Platform', 'Mobile App',
+  'Digital Marketing', 'SEO & Content', 'AI & Automation', 'Something else',
+]);
 
 export default async function handler(req, res) {
-  const admin = await currentAdmin(req);
-  if (!admin.authed) return fail(res, 401, 'unauthorized', 'Please sign in to view responses.');
+  if (req.method === 'OPTIONS') return ok(res, {});
+  if (req.method !== 'POST') return methodNotAllowed(res, ['POST']);
 
-  if (req.method === 'GET') return list(req, res, admin);
-  if (req.method === 'PATCH' || req.method === 'PUT') return update(req, res, admin);
-  if (req.method === 'DELETE') return remove(req, res, admin);
-  return methodNotAllowed(res, ['GET', 'PATCH', 'DELETE']);
-}
-
-async function list(req, res, admin) {
-  const q = getQuery(req);
-
-  // single response + activity log
-  if (q.id) {
-    const id = parseInt(q.id, 10);
-    if (!Number.isFinite(id)) return fail(res, 422, 'invalid_id', 'Pass ?id=<number>.');
-    try {
-      const { items } = await listLeads({ category: 'all', status: 'all', page: 1, limit: 100 });
-      const item = items.find((i) => Number(i.id) === id) || null;
-      const events = item ? await listEvents(id) : [];
-      if (!item) return fail(res, 404, 'not_found', 'That response no longer exists.');
-      return ok(res, { item, events });
-    } catch (err) {
-      console.error('[admin/leads] detail failed:', err);
-      return fail(res, 500, 'server_error', 'Could not load that response.');
-    }
-  }
-
-  const category = ['student', 'client'].includes(q.category) ? q.category : 'all';
-  const status = STATUSES.includes(q.status) ? q.status : 'all';
-  const assignee = ['all', 'me', 'unassigned'].includes(q.assignee) || clean(q.assignee, 60) ? clean(q.assignee, 60) || 'all' : 'all';
-
-  try {
-    const result = await listLeads({
-      category,
-      status,
-      source: clean(q.source, 60) || 'all',
-      assignee,
-      viewer: admin.user?.username || '',
-      q: clean(q.q, 120),
-      page: q.page,
-      limit: q.limit,
-      sort: q.sort === 'oldest' ? 'oldest' : 'newest',
-    });
-    return ok(res, {
-      items: result.items,
-      total: result.total,
-      page: result.page,
-      limit: result.limit,
-      counts: result.counts,
-      filters: { category, status, assignee },
-    });
-  } catch (err) {
-    console.error('[admin/leads] list failed:', err);
-    return fail(res, 500, 'server_error', 'Could not load responses.');
-  }
-}
-
-async function update(req, res, admin) {
   const body = await readBody(req);
-  const id = parseInt(body.id ?? getQuery(req).id, 10);
-  if (!Number.isFinite(id)) return fail(res, 422, 'invalid_id', 'A numeric lead id is required.');
 
-  const actor = { username: admin.user?.username, name: admin.user?.name };
-  const touched = {};
-
-  try {
-    if (body.status !== undefined) {
-      const status = clean(body.status, 20).toLowerCase();
-      if (!STATUSES.includes(status)) {
-        return fail(res, 422, 'invalid_status', `Status must be one of: ${STATUSES.join(', ')}.`);
-      }
-      const updated = await updateLead(id, { status, actor });
-      if (!updated) return fail(res, 404, 'not_found', 'That response no longer exists.');
-      touched.status = status;
-    }
-
-    if (body.adminNote !== undefined) {
-      const updated = await updateLead(id, { adminNote: clean(body.adminNote, 1000), actor });
-      if (!updated) return fail(res, 404, 'not_found', 'That response no longer exists.');
-      touched.adminNote = true;
-    }
-
-    if (body.assignedTo !== undefined) {
-      // "" / null / "unassigned" clears it; "me" claims it for the signed-in user
-      const raw = clean(body.assignedTo, 60);
-      const target = raw === 'me' ? actor.username : raw === 'unassigned' ? '' : raw;
-      const updated = await assignLead(id, target, actor);
-      if (!updated) return fail(res, 404, 'not_found', 'That response no longer exists.');
-      touched.assignedTo = target || null;
-    }
-
-    if (!Object.keys(touched).length) {
-      return fail(res, 422, 'nothing_to_update', 'Send status, adminNote and/or assignedTo.');
-    }
-
-    return ok(res, { updated: touched });
-  } catch (err) {
-    console.error('[admin/leads] update failed:', err);
-    return fail(res, 500, 'server_error', 'Could not update that response.');
+  /* ---------- spam gates ---------- */
+  // 1. honeypot field hidden in the markup — real users never fill it.
+  if (clean(body.website_url || body.hp, 200)) {
+    return ok(res, { ref: referenceId(), spam: true });
   }
-}
-
-async function remove(req, res, admin) {
-  if (!canDelete(admin.user)) {
-    return fail(res, 403, 'forbidden', 'Only an admin can delete responses. Ask your team owner.');
+  // 2. forms report how long the visitor spent before submitting (<1.2s = bot).
+  const elapsed = Number(body.elapsedMs);
+  if (Number.isFinite(elapsed) && elapsed > 0 && elapsed < 1200) {
+    return ok(res, { ref: referenceId(), spam: true });
   }
-  const id = parseInt(getQuery(req).id, 10);
-  if (!Number.isFinite(id)) return fail(res, 422, 'invalid_id', 'Pass ?id=<number>.');
-  try {
-    const done = await deleteLead(id);
-    if (!done) return fail(res, 404, 'not_found', 'That response no longer exists.');
-    await addEvent({
-      leadId: id,
-      actor: admin.user?.username,
-      actorName: admin.user?.name,
-      action: 'deleted',
-      detail: `by ${admin.user?.name || admin.user?.username || 'admin'}`,
+
+  const limit = rateLimit(`lead:${clientIp(req)}`, 8, 60_000);
+  if (!limit.allowed) {
+    return json(
+      res,
+      429,
+      { ok: false, error: { code: 'rate_limited', message: 'Too many submissions. Please try again in a minute.' } },
+      { 'Retry-After': String(limit.retryAfter) }
+    );
+  }
+
+  /* ---------- validation ---------- */
+  const category = clean(body.category, 20).toLowerCase();
+  if (!CATEGORIES.has(category)) {
+    const label = body.categoryLabel ? ` ("${clean(body.categoryLabel, 40)}")` : '';
+    return fail(res, 422, 'invalid_category', `Please choose whether you are a Student or a Business / Other${label}.`);
+  }
+
+  const name = clean(body.name, LIMITS.name);
+  const email = normalizeEmail(clean(body.email, LIMITS.email));
+  const phone = clean(body.phone, LIMITS.phone);
+  const message = clean(body.message, LIMITS.text);
+
+  const errors = {};
+  if (name.length < 2) errors.name = 'Please enter your full name.';
+  if (!isEmail(email)) errors.email = 'Please enter a valid email address.';
+  if (phone && !isPhone(phone)) errors.phone = 'Please enter a valid phone number (or leave it blank).';
+  if (message.length > LIMITS.text) errors.message = 'Message is too long.';
+
+  if (category === 'student') {
+    const studentNeed = clean(body.studentNeed, LIMITS.short);
+    if (studentNeed && !STUDENT_NEEDS.has(studentNeed)) errors.studentNeed = 'Unknown option.';
+  } else {
+    const clientNeed = clean(body.clientNeed, LIMITS.short);
+    if (clientNeed && !CLIENT_NEEDS.has(clientNeed)) errors.clientNeed = 'Unknown option.';
+  }
+
+  if (Object.keys(errors).length) {
+    return json(res, 422, {
+      ok: false,
+      error: { code: 'validation_failed', message: 'Please fix the highlighted fields.', fields: errors },
     });
-    return ok(res, { deleted: id });
+  }
+
+  /* ---------- duplicate guard ---------- */
+  try {
+    const dupe = await findDupeLead(email, category, 45);
+    if (dupe) return ok(res, { ref: dupe.ref, id: dupe.id, duplicate: true });
+  } catch {
+    /* never block a real submission because of the dupe check */
+  }
+
+  /* ---------- persist ---------- */
+  const ref = referenceId();
+  const record = {
+    ref,
+    category,
+    name,
+    email,
+    phone: phone || null,
+    college: category === 'student' ? clean(body.college, LIMITS.short) || null : null,
+    course: category === 'student' ? clean(body.course, LIMITS.short) || null : null,
+    study_year: category === 'student' ? clean(body.studyYear, 40) || null : null,
+    student_need: category === 'student' ? clean(body.studentNeed, LIMITS.short) || null : null,
+    company: category === 'client' ? clean(body.company, LIMITS.short) || null : null,
+    role: category === 'client' ? clean(body.role, LIMITS.short) || null : null,
+    website: category === 'client' ? clean(body.companyWebsite, 200) || null : null,
+    industry: category === 'client' ? clean(body.industry, LIMITS.short) || null : null,
+    client_need: category === 'client' ? clean(body.clientNeed, LIMITS.short) || null : null,
+    budget: category === 'client' ? clean(body.budget, 60) || null : null,
+    timeline: category === 'client' ? clean(body.timeline, 60) || null : null,
+    message: message || null,
+    source_section: clean(body.sourceSection, 60) || 'contact',
+    page_url: clean(body.pageUrl, 300) || null,
+    user_agent: userAgent(req),
+    ip_hash: hashIp(req),
+    meta: {
+      ...(typeof body.meta === 'object' && body.meta ? body.meta : {}),
+      query: getQuery(req).src || null,
+      referrer: clean(body.referrer, 300) || null,
+    },
+  };
+
+  try {
+    const created = await createLead(record);
+
+    // Log it + ping you on WhatsApp / email. Never blocks the visitor.
+    try {
+      await addEvent({ leadId: created.id, actor: 'website', actorName: 'Website form', action: 'created', detail: category });
+    } catch { /* worklog is best-effort */ }
+
+    try {
+      const alerts = await notifyNewLead(created);
+      const sent = Object.entries(alerts).filter(([, v]) => v === 'sent').map(([k]) => k);
+      if (sent.length) console.log(`[leads] alerts sent via ${sent.join(', ')} for ${created.ref}`);
+    } catch (err) {
+      console.error('[leads] notification failed (submission still saved):', err?.message || err);
+    }
+
+    return ok(res, {
+      ref: created.ref,
+      id: created.id,
+      category,
+      message:
+        category === 'student'
+          ? "You're on the list. Expect a reply within 24 hours with next steps and student pricing."
+          : "Thanks — we'll reply within 24 hours with a scoped plan and fixed price.",
+    });
   } catch (err) {
-    console.error('[admin/leads] delete failed:', err);
-    return fail(res, 500, 'server_error', 'Could not delete that response.');
+    console.error('[leads] insert failed:', err);
+    return fail(res, 500, 'server_error', 'We could not save your enquiry. Please email hello@ngdsolutions.com.');
   }
 }
