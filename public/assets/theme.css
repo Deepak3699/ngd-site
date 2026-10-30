@@ -385,3 +385,131 @@ html[data-theme="light"] #ngdThemeToggle {
   html[data-theme="light"] main form [class*="text-white/"],
   html[data-theme="light"] main form [class*="text-white\\/"] { color: #596276 !important; }
 }
+
+/* Homepage mobile art direction: editorial rows, a focused hero, and a swipeable work rail. */
+@media (max-width: 767px) {
+  #services .stagger.mt-14,
+  #difference #diffGrid {
+    display: block !important;
+    margin-top: 1.65rem !important;
+    border-top: 1px solid rgba(255,255,255,.11);
+  }
+
+  #services .stagger.mt-14 > article,
+  #difference #diffGrid > div {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 13px;
+    row-gap: 3px;
+    padding: 15px 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.11) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  #services .stagger.mt-14 > article > div:first-child,
+  #difference #diffGrid > div > div:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    display: block;
+    margin: 0 !important;
+  }
+
+  #services .stagger.mt-14 > article > div:first-child > span:first-child,
+  #difference #diffGrid > div > div:first-child {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 11px !important;
+  }
+
+  #services .stagger.mt-14 > article .mono { display: none; }
+
+  #services .stagger.mt-14 > article > h3,
+  #difference #diffGrid > div > h3 {
+    grid-column: 2;
+    margin: 1px 0 0 !important;
+    font-size: 14px !important;
+    line-height: 1.35;
+  }
+
+  #services .stagger.mt-14 > article > p,
+  #difference #diffGrid > div > p {
+    grid-column: 2;
+    margin: 3px 0 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  #services .stagger.mt-14 > article > ul {
+    grid-column: 2;
+    margin: 7px 0 0 !important;
+    gap: 6px !important;
+  }
+
+  #difference #diffGrid > div > div:last-child {
+    grid-column: 2;
+    margin: 4px 0 0 !important;
+    padding-top: 8px !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-size: 10px !important;
+  }
+
+  #difference #diffGrid > div > div:last-child span:last-child {
+    margin-left: auto;
+    color: #6E9BFF !important;
+    opacity: 1 !important;
+    font-size: 10px !important;
+  }
+
+  #work #portfolioGrid {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-right: -1rem;
+    padding: 0 1rem .75rem 0;
+  }
+
+  #work #portfolioGrid::-webkit-scrollbar { display: none; }
+
+  #work #portfolioGrid > article {
+    flex: 0 0 min(84vw, 340px);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  #work #portfolioGrid > article > div:first-child { height: 160px !important; }
+
+  /* The floating contact button already covers WhatsApp on small screens. */
+  main > section:first-of-type .wa-orb.hidden { display: none !important; }
+}
+
+@media (max-width: 420px) {
+  #services .stagger.mt-14 > article,
+  #difference #diffGrid > div { column-gap: 11px; }
+
+  #work #portfolioGrid > article { flex-basis: 82vw; }
+}
+
+html[data-theme="light"] #services .stagger.mt-14,
+html[data-theme="light"] #difference #diffGrid { border-color: rgba(18,27,51,.13); }
+
+html[data-theme="light"] #services .stagger.mt-14 > article,
+html[data-theme="light"] #difference #diffGrid > div {
+  border-bottom-color: rgba(18,27,51,.13) !important;
+}
+
