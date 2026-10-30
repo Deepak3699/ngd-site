@@ -4,6 +4,7 @@ import { Logo } from './logo';
 import { CookieSettingsButton } from './cookie-settings-button';
 import { primaryNav, site, socialLinks, whatsappUrl } from '@/lib/site';
 import { services } from '@/lib/content/services';
+import { gaMeasurementId } from '@/lib/analytics';
 
 export function SiteFooter() {
   return (
@@ -48,7 +49,7 @@ export function SiteFooter() {
           <div>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
-            {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && <CookieSettingsButton />}
+            {gaMeasurementId && <CookieSettingsButton />}
             {socialLinks.map((item) => <a key={item.label} href={item.url} target="_blank" rel="noreferrer">{item.label}</a>)}
           </div>
         </div>

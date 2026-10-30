@@ -84,18 +84,15 @@ Do not add placeholder social profiles, fake locations, unverified testimonials 
 
 ## Google Analytics 4
 
-1. In Google Analytics, create/open a GA4 property and add a **Web** data stream.
-2. Copy its **Measurement ID**, normally starting with `G-`.
-3. Set:
+The NGD GA4 measurement ID `G-M840HRYWV6` is configured by default. Analytics loads only after a visitor selects **Allow analytics**. “Essential only” prevents the Google script from loading.
+
+To use a different stream, set:
 
 ```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID="G-XXXXXXXXXX"
+NEXT_PUBLIC_GA_MEASUREMENT_ID="G-NEWSTREAMID"
 ```
 
-4. Rebuild/redeploy. Analytics does not load until a visitor selects **Allow analytics**. “Essential only” stores no analytics consent cookies and prevents the GA script from loading.
-5. Accept analytics on the live site and verify the visit in **GA4 → Reports → Realtime**. Form submissions fire `generate_lead` after a successful API response.
-
-Leave the variable empty to disable GA and the consent banner entirely.
+Set the variable to an empty string to disable GA and the consent banner entirely. To verify, accept analytics on the live site and check **GA4 → Reports → Realtime**. Form submissions fire `generate_lead` after a successful API response.
 
 ## SEO / AEO / GEO launch setup
 

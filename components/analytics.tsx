@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BarChart3, X } from 'lucide-react';
+import { gaMeasurementId } from '@/lib/analytics';
 
 declare global {
   interface Window {
@@ -14,7 +15,7 @@ declare global {
 }
 
 const CONSENT_KEY = 'ngd.analytics-consent';
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = gaMeasurementId;
 
 type Consent = 'granted' | 'denied' | null;
 

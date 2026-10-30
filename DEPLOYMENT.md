@@ -88,7 +88,7 @@ Cloudflare Pages’ simple Next.js guide is for static export. This NGD project 
 
 1. GA4 → **Admin → Data streams → Web** → create/select the stream for the final domain.
 2. Copy the Measurement ID (`G-…`). Official help: <https://support.google.com/analytics/answer/9539598>
-3. Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` and redeploy.
+3. The NGD measurement ID `G-M840HRYWV6` is configured by default. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel only if you need to use a different stream, then redeploy.
 4. Open the live site, select **Allow analytics**, then check **GA4 → Realtime**.
 5. Submit a test enquiry and confirm the `generate_lead` event. Do not use a real customer’s details for testing.
 6. Return to **Cookie preferences** in the footer and verify that **Essential only** stops future analytics collection.
