@@ -21,7 +21,7 @@ if (!process.env.DATABASE_URL) {
   process.exit(1);
 }
 
-const { ensureSchema, ping } = await import('../api/_db.js');
+const { ensureSchema, ping } = await import('../server/api/_db.js');
 const result = await ping();
 if (!result.ok) {
   console.error('✗ Could not reach Neon:', result.error);

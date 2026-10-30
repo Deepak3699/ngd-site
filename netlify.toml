@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Netlify's current Next.js runtime is auto-detected. Keep this file minimal
+# so App Router, Route Handlers and proxy.ts use the supported runtime.

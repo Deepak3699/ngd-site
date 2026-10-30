@@ -17,12 +17,12 @@
       theme: {
         extend: {
           colors: {
-            ink: '#0A1020',
-            ink2: '#121B33',
+            ink: '#0A0A0F',
+            ink2: '#0C0C14',
             brand: {
-              blue: '#2F6BFF',
-              violet: '#6E9BFF',
-              cyan: '#6E9BFF'
+              blue: '#4F7CFF',
+              violet: '#8B5CF6',
+              cyan: '#22D3EE'
             }
           },
           fontFamily: {
@@ -35,10 +35,10 @@
   </script>
   <style>
     :root {
-      --g1: #2F6BFF;
-      --g2: #6E9BFF;
-      --g3: #6E9BFF;
-      --grad: linear-gradient(100deg, #2F6BFF 0%, #6E9BFF 52%, #6E9BFF 100%);
+      --g1: #4F7CFF;
+      --g2: #8B5CF6;
+      --g3: #22D3EE;
+      --grad: linear-gradient(100deg, #4F7CFF 0%, #8B5CF6 52%, #22D3EE 100%);
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
@@ -54,7 +54,7 @@
 
     body {
       margin: 0;
-      background: #0A1020;
+      background: #0A0A0F;
       color: #E8E8EF;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
@@ -74,17 +74,17 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #0A1020;
+      background: #0A0A0F;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #2F6BFF, #6E9BFF);
+      background: linear-gradient(180deg, #4F7CFF, #8B5CF6);
       border-radius: 99px;
-      border: 2px solid #0A1020;
+      border: 2px solid #0A0A0F;
     }
 
     :focus-visible {
-      outline: 2px solid #6E9BFF;
+      outline: 2px solid #8FB6FF;
       outline-offset: 3px;
       border-radius: 10px;
     }
@@ -226,7 +226,7 @@
       font-weight: 600;
       letter-spacing: -.01em;
       color: #fff;
-      background: linear-gradient(100deg, #2F6BFF 0%, #6E9BFF 55%, #6E9BFF 100%);
+      background: linear-gradient(100deg, #4F7CFF 0%, #8B5CF6 55%, #22D3EE 100%);
       background-size: 160% 100%;
       box-shadow: 0 12px 34px -14px rgba(79, 124, 255, .9), inset 0 1px 0 rgba(255, 255, 255, .22);
       transition: transform .4s var(--ease), box-shadow .4s var(--ease), background-position .6s var(--ease);
@@ -553,7 +553,7 @@
 
     .dot.is-active {
       width: 26px;
-      background: linear-gradient(90deg, #2F6BFF, #6E9BFF);
+      background: linear-gradient(90deg, #4F7CFF, #22D3EE);
     }
 
     /* ---------- Misc ---------- */
@@ -595,7 +595,7 @@
 
     /* ---------- Difference & Solutions Bento ---------- */
     .text-gradient-color {
-      background: linear-gradient(90deg, #818CF8, #6E9BFF 50%, #34D399);
+      background: linear-gradient(90deg, #818CF8, #C084FC 50%, #34D399);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -697,17 +697,17 @@
 
   <!-- Scroll progress -->
   <div id="progress"
-    class="fixed left-0 top-0 z-[75] h-[2px] w-0 bg-gradient-to-r from-[#2F6BFF] via-[#6E9BFF] to-[#6E9BFF]"
+    class="fixed left-0 top-0 z-[75] h-[2px] w-0 bg-gradient-to-r from-[#4F7CFF] via-[#8B5CF6] to-[#22D3EE]"
     aria-hidden="true"></div>
 
   <!-- ============ NAVBAR ============ -->
   <header class="fixed inset-x-0 top-0 z-[70]">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div id="navbar"
-        class="mt-3 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.08] bg-[#0A1020]/55 px-3 py-2.5 backdrop-blur-xl transition-all duration-500 sm:mt-4">
+        class="mt-3 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.08] bg-[#0A0A0F]/55 px-3 py-2.5 backdrop-blur-xl transition-all duration-500 sm:mt-4">
         <a href="#top" class="flex shrink-0 items-center gap-2.5 group" aria-label="NGD — NextGenDev Solutions, home">
           <span
-            class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[#2F6BFF] via-[#6E9BFF] to-[#6E9BFF] shadow-[0_10px_26px_-10px_rgba(47,107,255,.95)] group-hover:scale-105 transition-transform duration-300">
+            class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-[#4F7CFF] via-[#8B5CF6] to-[#22D3EE] shadow-[0_10px_26px_-10px_rgba(79,124,255,.95)] group-hover:scale-105 transition-transform duration-300">
             <img src="/img/ngd-mark-white-transparent.svg" alt="NGD Logo" class="h-5 w-5 object-contain" />
           </span>
           <span class="leading-none">
@@ -719,9 +719,12 @@
 
         <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
           <a class="nav-link" href="#services">Services</a>
-          <a class="nav-link" href="/solutions/">Solutions</a>
+          <a class="nav-link" href="#difference">Difference</a>
+          <a class="nav-link" href="#solutions">Solutions</a>
+          <a class="nav-link" href="#work">Work</a>
+          <a class="nav-link" href="#process">Process</a>
           <a class="nav-link" href="#pricing">Pricing</a>
-          <a class="nav-link" href="/students/">Students</a>
+          <a class="nav-link" href="#students">Students</a>
           <a class="nav-link" href="#faq">FAQ</a>
         </nav>
 
@@ -773,7 +776,7 @@
 
       <!-- Mobile menu -->
       <div id="mobileMenu"
-        class="mt-2 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0A1020]/95 opacity-0 backdrop-blur-2xl lg:hidden"
+        class="mt-2 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0A0A0F]/95 opacity-0 backdrop-blur-2xl lg:hidden"
         style="max-height:0;">
         <nav class="flex flex-col gap-1 p-3" aria-label="Mobile">
           <button onclick="openCmdk()"
@@ -788,9 +791,12 @@
             <kbd class="font-mono text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/50">⌘K</kbd>
           </button>
           <a class="nav-link !py-3 !text-[15px]" href="#services">Services</a>
-          <a class="nav-link !py-3 !text-[15px]" href="/solutions/">Solutions</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#difference">Difference</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#solutions">Solutions</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#work">Work</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#process">Process</a>
           <a class="nav-link !py-3 !text-[15px]" href="#pricing">Pricing</a>
-          <a class="nav-link !py-3 !text-[15px]" href="/students/">Students</a>
+          <a class="nav-link !py-3 !text-[15px]" href="#students">Students</a>
           <a class="nav-link !py-3 !text-[15px]" href="#faq">FAQ</a>
           <div class="mt-2 grid grid-cols-2 gap-2">
             <a href="#contact" class="btn-ghost !py-2.5 text-[13px]">Book a call</a>
@@ -808,15 +814,15 @@
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div class="grid-bg mask-radial absolute inset-0 opacity-60"></div>
         <div class="blob"
-          style="width:540px;height:540px;background:#2F6BFF;top:-160px;left:-140px;animation:drift 15s ease-in-out infinite;">
+          style="width:540px;height:540px;background:#4F7CFF;top:-160px;left:-140px;animation:drift 15s ease-in-out infinite;">
         </div>
         <div class="blob"
-          style="width:480px;height:480px;background:#6E9BFF;top:-80px;right:-120px;animation:drift 19s ease-in-out infinite reverse;">
+          style="width:480px;height:480px;background:#8B5CF6;top:-80px;right:-120px;animation:drift 19s ease-in-out infinite reverse;">
         </div>
         <div class="blob"
-          style="width:400px;height:400px;background:#6E9BFF;top:300px;left:36%;opacity:.2;animation:drift 24s ease-in-out infinite;">
+          style="width:400px;height:400px;background:#22D3EE;top:300px;left:36%;opacity:.2;animation:drift 24s ease-in-out infinite;">
         </div>
-        <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent to-[#0A1020]"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent to-[#0A0A0F]"></div>
       </div>
 
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -827,8 +833,8 @@
             <span class="eyebrow reveal">
               <span class="relative flex h-1.5 w-1.5">
                 <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6E9BFF] opacity-75"></span>
-                <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#6E9BFF]"></span>
+                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22D3EE] opacity-75"></span>
+                <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22D3EE]"></span>
               </span>
               Digital solutions agency
             </span>
@@ -866,13 +872,13 @@
             <div class="reveal mt-9 flex flex-wrap items-center gap-x-5 gap-y-4" style="transition-delay:.24s">
               <div class="flex -space-x-2.5" aria-hidden="true">
                 <span
-                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A1020] bg-gradient-to-br from-[#2F6BFF] to-[#6E9BFF] text-[11px] font-bold text-white">SN</span>
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A0A0F] bg-gradient-to-br from-[#4F7CFF] to-[#8B5CF6] text-[11px] font-bold text-white">SN</span>
                 <span
-                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A1020] bg-gradient-to-br from-[#6E9BFF] to-[#6E9BFF] text-[11px] font-bold text-white">DO</span>
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A0A0F] bg-gradient-to-br from-[#8B5CF6] to-[#22D3EE] text-[11px] font-bold text-white">DO</span>
                 <span
-                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A1020] bg-gradient-to-br from-[#6E9BFF] to-[#2F6BFF] text-[11px] font-bold text-white">PR</span>
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A0A0F] bg-gradient-to-br from-[#22D3EE] to-[#4F7CFF] text-[11px] font-bold text-white">PR</span>
                 <span
-                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A1020] bg-white/10 text-[11px] font-bold text-white">+</span>
+                  class="grid h-9 w-9 place-items-center rounded-full border-2 border-[#0A0A0F] bg-white/10 text-[11px] font-bold text-white">+</span>
               </div>
               <div class="text-[13px] leading-tight">
                 <p class="font-semibold text-white">Trusted by 140+ founders &amp; teams</p>
@@ -903,13 +909,13 @@
           <!-- Live showcase -->
           <div class="reveal relative" style="transition-delay:.16s">
             <div
-              class="absolute -inset-8 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_50%_40%,rgba(47,107,255,.28),transparent_70%)] blur-2xl"
+              class="absolute -inset-8 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_50%_40%,rgba(79,124,255,.28),transparent_70%)] blur-2xl"
               aria-hidden="true"></div>
 
             <div
               class="relative rounded-[26px] bg-gradient-to-br from-white/20 via-white/[0.06] to-transparent p-[1px]">
               <div
-                class="overflow-hidden rounded-[25px] bg-[#0B0B12]/92 shadow-[0_50px_140px_-45px_rgba(47,107,255,.6)] backdrop-blur-2xl">
+                class="overflow-hidden rounded-[25px] bg-[#0B0B12]/92 shadow-[0_50px_140px_-45px_rgba(79,124,255,.6)] backdrop-blur-2xl">
 
                 <!-- window bar -->
                 <div class="flex items-center gap-3 border-b border-white/[0.06] px-4 py-3">
@@ -929,8 +935,8 @@
                       class="truncate text-[11px] text-white/45">ngd.solutions/work/northpeak-logistics</span>
                   </div>
                   <span
-                    class="hidden shrink-0 items-center gap-1.5 rounded-full border border-[#6E9BFF]/25 bg-[#6E9BFF]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#6E9BFF] sm:inline-flex">
-                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-[#6E9BFF]"></span> Live
+                    class="hidden shrink-0 items-center gap-1.5 rounded-full border border-[#22D3EE]/25 bg-[#22D3EE]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#7FE3F5] sm:inline-flex">
+                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-[#22D3EE]"></span> Live
                   </span>
                 </div>
 
@@ -951,7 +957,7 @@
               <div class="glass rounded-2xl px-4 py-3 shadow-2xl" style="animation:floatY 6s ease-in-out infinite;">
                 <div class="flex items-center gap-2.5">
                   <span
-                    class="grid h-8 w-8 place-items-center rounded-lg border border-[#6E9BFF]/25 bg-[#6E9BFF]/12 text-[#6E9BFF]">
+                    class="grid h-8 w-8 place-items-center rounded-lg border border-[#22D3EE]/25 bg-[#22D3EE]/12 text-[#7FE3F5]">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12z" />
@@ -970,7 +976,7 @@
                 style="animation:floatY 7.5s ease-in-out infinite .8s;">
                 <div class="flex items-center gap-2.5">
                   <span
-                    class="grid h-8 w-8 place-items-center rounded-lg border border-[#6E9BFF]/30 bg-[#6E9BFF]/12 text-[#6E9BFF]">
+                    class="grid h-8 w-8 place-items-center rounded-lg border border-[#8B5CF6]/30 bg-[#8B5CF6]/12 text-[#C4B0FF]">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3 17l5-5 4 3 8-8" />

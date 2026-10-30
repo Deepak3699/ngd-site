@@ -43,7 +43,7 @@
     }
 
     select.glow-input option {
-      background: #121B33;
+      background: #101014;
       color: #fff;
     }
 
@@ -214,7 +214,7 @@
     }
 
     .field-hint button {
-      color: #6E9BFF;
+      color: #8FB6FF;
       text-decoration: underline;
       background: none;
       border: 0;
@@ -493,7 +493,7 @@
       height: 12px;
       border-radius: 999px;
       background: #4ADE80;
-      box-shadow: 0 0 0 2.5px #0A1020, 0 0 12px 2px rgba(74, 222, 128, .65);
+      box-shadow: 0 0 0 2.5px #0A0A0F, 0 0 12px 2px rgba(74, 222, 128, .65);
     }
 
     @keyframes waPulse {

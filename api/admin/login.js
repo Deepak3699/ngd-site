@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return methodNotAllowed(res, ['POST']);
 
   if (!authEnabled()) {
-    return fail(res, 503, 'auth_not_configured', 'Admin sign-in is not configured. Set ADMIN_PASSWORD or TEAM_MEMBERS, then refresh this page.');
+    return ok(res, { open: true, team: [], message: 'Admin is open — set ADMIN_PASSWORD to require a login.' });
   }
 
   const limit = rateLimit(`login:${clientIp(req)}`, 8, 5 * 60_000);
