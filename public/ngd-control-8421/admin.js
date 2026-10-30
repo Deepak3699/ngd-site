@@ -62,7 +62,7 @@ const state = {
   selected: new Set(),
   auto: false,
   autoTimer: null,
-  open: false,
+  open: true, // login disabled
   contact: null,
   notifications: null,
   user: null,
@@ -166,20 +166,6 @@ function toggleTheme() {
   toast(now === 'light' ? 'Light mode on' : 'Dark mode on');
 }
 
-function setDashboardView(name) {
-  const allowed = ['enquiries', 'overview', 'activity'];
-  const view = allowed.includes(name) ? name : 'enquiries';
-  $$('[data-dashboard-view]').forEach((panel) => {
-    panel.hidden = panel.dataset.dashboardView !== view;
-  });
-  $$('[data-view-select]').forEach((button) => {
-    const active = button.dataset.viewSelect === view;
-    button.classList.toggle('is-active', active);
-    button.setAttribute('aria-selected', String(active));
-  });
-  try { localStorage.setItem('ngd.admin.view', view); } catch { /* private mode */ }
-}
-
 /* ---------- login -------------------------------------------------------- */
 async function boot() {
   const reached = await resolveApiBase();
@@ -196,23 +182,12 @@ async function boot() {
     toast('Could not reach the API — is the server running?', 'warn');
   }
 
-  const needsLogin = !state.session || !state.session.authed;
+  const needsLogin = state.session && !state.session.open && !state.session.authed;
   if (needsLogin) {
     $('#loginScreen').classList.remove('hidden');
     $('#app').classList.add('hidden');
-    const setupNotice = $('#loginSetupNotice');
-    if (!state.session) {
-      setupNotice.textContent = 'We could not verify your sign-in. Check your connection and refresh this page.';
-      setupNotice.classList.remove('hidden');
-    } else if (!state.session.configured) {
-      setupNotice.textContent = 'Admin sign-in is not configured yet. Set ADMIN_PASSWORD or TEAM_MEMBERS on the server, then refresh this page.';
-      setupNotice.classList.remove('hidden');
-      $('#loginUser').disabled = true;
-      $('#loginPass').disabled = true;
-      $('#loginBtn').disabled = true;
-    }
     const userField = $('#loginUser');
-    if (state.session && state.session.configured && (state.session.team || []).length === 1) {
+    if ((state.session.team || []).length <= 1) {
       userField.value = state.session.team?.[0]?.username || 'admin';
       userField.closest('.field').style.display = 'none';
     }
@@ -333,12 +308,6 @@ function renderDbNotice(health) {
 /* ---------- wiring ------------------------------------------------------ */
 function wire() {
   $('#themeBtn').onclick = toggleTheme;
-
-  $$('[data-view-select]').forEach((button) => {
-    button.onclick = () => setDashboardView(button.dataset.viewSelect);
-  });
-  try { setDashboardView(localStorage.getItem('ngd.admin.view') || 'enquiries'); }
-  catch { setDashboardView('enquiries'); }
 
   $$('.tab').forEach((tab) => {
     tab.onclick = () => {
@@ -531,16 +500,12 @@ function renderStats() {
     )
     .join('');
 
-  const navNewCount = $('#navNewCount');
-  if (navNewCount) navNewCount.textContent = c.new || 0;
-
   $('#countAll').textContent = c.all ?? state.total;
   $('#countStudents').textContent = c.student || 0;
   $('#countClients').textContent = c.client || 0;
 
   $$('#statGrid .stat').forEach((el) => {
     el.onclick = () => {
-      setDashboardView('enquiries');
       const key = el.dataset.key;
       state.page = 1;
       if (key.startsWith('__category:')) {

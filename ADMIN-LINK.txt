@@ -1,37 +1,21 @@
-# NGD ADMIN PANEL — kahan hai / link kya hai
-# (yeh file sirf tumhare liye hai — site par kahin link nahi hai, yeh jaan-boojh kar hai)
+NGD ADMIN DASHBOARD
+===================
 
-## 1) Abhi, is sandbox ka live preview (server chal raha hai)
-   Live preview link (port 3000) ke aage yeh path lagao:
+Default local path:
+  http://localhost:3000/ngd-control-8421
 
-       /ngd-control-8421/
+Production:
+  https://YOUR-DOMAIN/ngd-control-8421
 
-   Jaise:  https://3000-xxxxxxxx.e2b.app/ngd-control-8421/
+For security, set ADMIN_PATH to your own long random path in the hosting
+provider's environment settings. The dashboard then moves to:
+  https://YOUR-DOMAIN/YOUR-ADMIN-PATH
 
-   Sign in with the credentials configured in .env.local. If credentials are not configured,
-   the page explains how to enable sign-in and the admin API remains locked.
+Login is disabled until ADMIN_PASSWORD or TEAM_MEMBERS is configured.
+A hidden path does not replace a strong password.
 
-## 2) Apne computer par (npm run dev ke baad)
-       http://localhost:3000/ngd-control-8421/
+/admin intentionally returns 404.
+The trailing-slash dashboard URL may normalize to the no-slash URL; both resolve.
+Do not link the dashboard from public pages or share its URL publicly.
 
-## 3) Vercel par deploy hone ke baad
-   Agar ADMIN_PATH env set hai  →  https://tumhari-site.vercel.app/ngd-control-8421/
-   Agar ADMIN_PATH set nahi hai →  https://tumhari-site.vercel.app/admin
-   Admin sign-in is required. Configure TEAM_MEMBERS or ADMIN_PASSWORD in Vercel settings.
-
-   ZAROORI: yeh link kahin public mat likho. Bookmark kar lo.
-   Path badalna ho to Vercel → Settings → Environment Variables → ADMIN_PATH,
-   ya locally .env.local mein ADMIN_PATH ki value badal do.
-
-## Not working? yeh check karo
-   * /admin (bina path) jaan-boojh kar 404 deta hai — sirf /ngd-control-8241/ chalega.
-   * 308 aaye to trailing slash ke saath URL kholo — /ngd-control-8241/
-   * Login screen aaye to .env.local credentials use karo. If sign-in is not configured, add
-     ADMIN_PASSWORD or TEAM_MEMBERS to the server environment before continuing.
-   * "API not reachable" toast aaye to server band hai → npm run dev chalao.
-
-## Files (workspace mein)
-   ngd-site/public/ngd-control-8421/index.html   ← dashboard and sign-in page
-   ngd-site/public/ngd-control-8421/admin.js     ← dashboard logic
-   ngd-site/public/ngd-control-8421/admin.css    ← dashboard and sign-in styles
-   ngd-site/.env.local                ← ADMIN_PATH + test logins (local only)
+See README.md and .env.example for TEAM_MEMBERS, roles and alert settings.

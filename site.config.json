@@ -1,21 +1,17 @@
 {
-  "_readme": "EDIT THIS FILE — it is the single source of truth for every contact detail on the site and for notifications. Run `npm run build` afterwards. Leave a value as an empty string (\"\") to hide that element automatically.",
-
-  "brand": "NGD — NextGenDev Solutions",
-
+  "_readme": "Public contact details for the Next.js site and enquiry API. Add only real social profile URLs; empty values stay hidden.",
+  "brand": "NGD Solutions — NextGenDev Solutions",
   "email": "hello@ngdsolutions.com",
   "phone": "+91 94659 38126",
   "whatsapp": "919465938126",
   "whatsappDisplay": "+91 94659 38126",
-  "whatsappMessage": "Hi NGD! I came from your website and I'd like to discuss a project.",
+  "whatsappMessage": "Hi NGD Solutions! I came from your website and I'd like to discuss a project.",
   "hours": "Mon–Fri, 9am–6pm IST",
-  "location": "Remote-first, worldwide",
-
-  "instagram": "https://instagram.com/",
-  "linkedin": "https://linkedin.com/company/",
-  "x": "https://x.com/",
+  "location": "Remote-first · India & worldwide",
+  "instagram": "",
+  "linkedin": "",
+  "x": "",
   "github": "",
-
   "notifications": {
     "whatsappTo": "919465938126",
     "emailTo": "hello@ngdsolutions.com"

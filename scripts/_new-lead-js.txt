@@ -569,7 +569,7 @@
               }
               if (ctaMsg) {
                 ctaMsg.textContent = 'Thanks — got it (ref ' + result.data.ref + '). Check your inbox within 4 working hours.';
-                ctaMsg.style.color = '#6E9BFF';
+                ctaMsg.style.color = '#7FE3F5';
               }
               if (emailEl) emailEl.value = '';
               toast('Request received', 'Reference ' + result.data.ref + ' · we reply within 4 working hours.', 'success');
@@ -584,4 +584,30 @@
               if (qfLabel) qfLabel.textContent = 'Get a free call';
             });
         });
+      }
+
+      /* ---------- pricing audience toggle ---------- */
+      var pricingTabs = document.querySelectorAll('[data-audience]');
+      var pricingGroups = document.querySelectorAll('[data-group]');
+
+      function showPricing(audience) {
+        pricingTabs.forEach(function (tab) {
+          var on = tab.getAttribute('data-audience') === audience;
+          tab.classList.toggle('is-active', on);
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        pricingGroups.forEach(function (group) {
+          group.classList.toggle('hidden', group.getAttribute('data-group') !== audience);
+        });
+        try { localStorage.setItem('ngd.pricing.v1', audience); } catch (e) { /* ignore */ }
+      }
+
+      pricingTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () { showPricing(tab.getAttribute('data-audience')); });
+      });
+
+      if (pricingTabs.length) {
+        var savedAudience = null;
+        try { savedAudience = localStorage.getItem('ngd.pricing.v1'); } catch (e) { /* ignore */ }
+        showPricing(savedAudience === 'student' ? 'student' : 'client');
       }

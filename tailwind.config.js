@@ -1,16 +1,15 @@
 /** Tailwind config for the compiled stylesheet (replaces the Play CDN). */
 export default {
-  content: ['./public/index.html', './scripts/page-solutions.html', './scripts/page-students.html'],
+  content: ['./public/index.html'],
   theme: {
     extend: {
       colors: {
-        ink: '#0A1020',
-        ink2: '#121B33',
+        ink: '#0A0A0F',
+        ink2: '#0C0C14',
         brand: {
-          blue: '#2F6BFF',
-          sky: '#6E9BFF',
-          violet: '#6E9BFF',
-          cyan: '#6E9BFF'
+          blue: '#4F7CFF',
+          violet: '#8B5CF6',
+          cyan: '#22D3EE'
         }
       },
       fontFamily: {
