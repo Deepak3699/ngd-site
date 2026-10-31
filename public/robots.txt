@@ -41,4 +41,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://ngdsolutions.com/sitemap.xml
+Sitemap: https://ngdsolutions.vercel.app/sitemap.xml

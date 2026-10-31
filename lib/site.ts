@@ -1,6 +1,6 @@
 import config from '@/site.config.json';
 
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ngdsolutions.com';
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ngdsolutions.vercel.app';
 export const siteUrl = configuredUrl.replace(/\/+$/, '');
 
 export const absoluteUrl = (path = '/') =>

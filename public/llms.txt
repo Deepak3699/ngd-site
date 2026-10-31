@@ -3,7 +3,7 @@
 > NGD Solutions is the short name for NextGenDev Solutions. It is a remote-first digital solutions agency serving businesses in India and worldwide, with a separate practical mentorship track for students.
 
 ## Entity and contact
-- Canonical website: https://ngdsolutions.com/
+- Canonical website: https://ngdsolutions.vercel.app/
 - Brand aliases: NGD Solutions, NGDSolutions, NextGenDev, NextGenDev Solutions, NextGenDevSolutions
 - Services: websites and web platforms, mobile apps, AI and workflow automation, brand identity and UI/UX, SEO and content systems, digital marketing and funnels
 - Student track: final-year project architecture, code reviews, portfolios and internship readiness
@@ -13,17 +13,17 @@
 - Location model: remote-first; India and worldwide
 
 ## Key pages
-- Home and direct company overview: https://ngdsolutions.com/
-- Connected digital solutions: https://ngdsolutions.com/solutions
-- Websites and web platforms: https://ngdsolutions.com/services/web-development
-- Mobile app development: https://ngdsolutions.com/services/mobile-app-development
-- AI and workflow automation: https://ngdsolutions.com/services/ai-automation
-- Brand and UI/UX design: https://ngdsolutions.com/services/brand-ui-ux
-- SEO, AEO and content: https://ngdsolutions.com/services/seo-content
-- Digital marketing and funnels: https://ngdsolutions.com/services/digital-marketing
-- Student mentorship: https://ngdsolutions.com/students
-- Privacy: https://ngdsolutions.com/privacy
-- Terms: https://ngdsolutions.com/terms
+- Home and direct company overview: https://ngdsolutions.vercel.app/
+- Connected digital solutions: https://ngdsolutions.vercel.app/solutions
+- Websites and web platforms: https://ngdsolutions.vercel.app/services/web-development
+- Mobile app development: https://ngdsolutions.vercel.app/services/mobile-app-development
+- AI and workflow automation: https://ngdsolutions.vercel.app/services/ai-automation
+- Brand and UI/UX design: https://ngdsolutions.vercel.app/services/brand-ui-ux
+- SEO, AEO and content: https://ngdsolutions.vercel.app/services/seo-content
+- Digital marketing and funnels: https://ngdsolutions.vercel.app/services/digital-marketing
+- Student mentorship: https://ngdsolutions.vercel.app/students
+- Privacy: https://ngdsolutions.vercel.app/privacy
+- Terms: https://ngdsolutions.vercel.app/terms
 
 ## Starting-price context (INR)
 - Focused landing page: ₹5,000–₹10,000
@@ -37,5 +37,5 @@ Final scope, price and timeline are confirmed in writing before work starts.
 NGD does not guarantee Google rankings, AI citations, revenue, grades or advertising returns. Student support is mentorship and code guidance, not a way to bypass academic responsibility.
 
 ## Machine-readable resources
-- Sitemap: https://ngdsolutions.com/sitemap.xml
-- Detailed LLM guide: https://ngdsolutions.com/llms-full.txt
+- Sitemap: https://ngdsolutions.vercel.app/sitemap.xml
+- Detailed LLM guide: https://ngdsolutions.vercel.app/llms-full.txt

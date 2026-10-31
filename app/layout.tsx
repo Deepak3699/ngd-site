@@ -63,7 +63,7 @@ export const viewport: Viewport = {
 };
 
 function siteUrlForMetadata() {
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://ngdsolutions.com';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://ngdsolutions.vercel.app';
 }
 
 const entitySchema = {
