@@ -13,7 +13,7 @@ import { faqs, pricing, processSteps, useCases } from '@/lib/content/site-conten
 import { absoluteUrl, site, whatsappUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'NGD Solutions (NextGenDev Solutions) | Websites, Apps & AI',
+  title: { absolute: 'NGD Solutions (NextGenDev Solutions) | Websites, Mobile Apps & AI Automation' },
   description: 'NGD Solutions builds fast websites, web and mobile apps, AI automations and digital growth systems for businesses. Clear scope, honest pricing and student mentorship.',
   alternates: { canonical: '/' },
 };
@@ -43,6 +43,16 @@ const homeSchema = {
       '@id': absoluteUrl('/#faq-schema'),
       mainEntity: faqs.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
     },
+    {
+      '@type': 'OfferCatalog',
+      '@id': absoluteUrl('/#pricing-catalog'),
+      name: 'NGD Solutions Pricing',
+      itemListElement: pricing.map((plan, index) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: plan.name, description: plan.description },
+        priceCurrency: 'INR',
+      })),
+    },
   ],
 };
 
@@ -58,7 +68,7 @@ export default function HomePage() {
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="hero-kicker"><span className="status-dot" />NGD Solutions <i /> NextGenDev Solutions</p>
-            <h1 id="hero-title">Digital products{' '}<br />built to <em>move</em>{' '}<br />business forward.</h1>
+            <h1 id="hero-title">Websites, apps & AI{' '}<br />built to <em>move</em>{' '}<br />business forward.</h1>
             <p className="hero-intro">We design and build <strong>fast websites, apps and AI automations</strong> that make your business easier to find, trust and run.</p>
             <div className="hero-actions">
               <Link className="button button-primary button-large" href="#contact">Get a free project plan <ArrowRight size={18} /></Link>

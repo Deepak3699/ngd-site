@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('homepage has the brand entity, clear purpose and working navigation', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/NGD Solutions \(NextGenDev Solutions\)/);
-  await expect(page.locator('h1')).toContainText('Digital products');
+  await expect(page.locator('h1')).toContainText('built to');
   await expect(page.locator('.hero-intro')).toContainText('fast websites, apps and AI automations');
   const html = await page.content();
   expect(html).toContain('NGDSolutions');

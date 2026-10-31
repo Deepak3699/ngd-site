@@ -1,6 +1,6 @@
 import config from '@/site.config.json';
 
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ngdsolutions.com';
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? 'https://' + process.env.VERCEL_PROJECT_PRODUCTION_URL : 'https://ngdsolutions.vercel.app');
 export const siteUrl = configuredUrl.replace(/\/+$/, '');
 
 export const absoluteUrl = (path = '/') =>
@@ -20,6 +20,7 @@ export const site = {
   whatsappMessage: config.whatsappMessage,
   hours: config.hours,
   location: config.location,
+  founder: { name: 'Deepak Khuttan', role: 'Founder & Lead Developer', github: 'https://github.com/Deepak3699', linkedin: 'https://www.linkedin.com/in/Deepak3699' },
 };
 
 export const whatsappUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;

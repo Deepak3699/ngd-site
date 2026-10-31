@@ -28,7 +28,7 @@ export function SiteFooter() {
           </div>
           <div className="footer-column">
             <h3>Services</h3>
-            {services.slice(0, 5).map((service) => <Link key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</Link>)}
+            {services.map((service) => <Link key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</Link>)}
           </div>
           <div className="footer-column">
             <h3>Explore</h3>
