@@ -11,8 +11,13 @@ import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Student Project & Portfolio Mentorship',
-  description: 'NGD for Students: practical guidance for final-year projects, portfolio websites, code reviews and internship readiness from NextGenDev Solutions.',
+  description: 'Get practical guidance for final-year projects, portfolio websites, Git workflows, code reviews and internship readiness through NGD for Students.',
   alternates: { canonical: '/students' },
+  openGraph: {
+    title: 'Student Project & Portfolio Mentorship | NGD Solutions',
+    description: 'Practical guidance for final-year projects, portfolio websites, code reviews and early-career developer readiness.',
+    url: '/students',
+  },
 };
 
 const benefits = [
