@@ -15,7 +15,7 @@ const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: '400', st
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrlForMetadata()),
   title: {
-    default: 'NGD Solutions (NextGenDev Solutions) | Websites, Apps & AI',
+    default: 'Web Development, Apps & AI Automation in India',
     template: '%s | NGD Solutions',
   },
   description: site.description,
