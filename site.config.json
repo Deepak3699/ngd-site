@@ -1,7 +1,7 @@
 {
   "_readme": "Public contact details for the Next.js site and enquiry API. Add only real social profile URLs; empty values stay hidden.",
   "brand": "NGD Solutions — NextGenDev Solutions",
-  "email": "hello@ngdsolutions.com",
+  "email": "nextgendevsolution@gmail.com",
   "phone": "+91 94659 38126",
   "whatsapp": "919465938126",
   "whatsappDisplay": "+91 94659 38126",
@@ -14,6 +14,6 @@
   "github": "",
   "notifications": {
     "whatsappTo": "919465938126",
-    "emailTo": "hello@ngdsolutions.com"
+    "emailTo": "nextgendevsolution@gmail.com"
   }
 }
