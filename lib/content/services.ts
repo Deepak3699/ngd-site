@@ -142,7 +142,7 @@ export const services: Service[] = [
     eyebrow: 'Campaigns connected to the whole journey',
     description: 'Offers, landing pages, campaign creative and follow-up systems designed as one measurable funnel.',
     seoTitle: 'Digital Marketing & Conversion Funnels',
-    seoDescription: 'Connect offer planning, landing pages, campaign creative and lead follow-up into a measurable digital marketing funnel for your business.'
+    seoDescription: 'Connect offer planning, landing pages, campaign creative and lead follow-up into a measurable digital marketing funnel for your business.',
     answer:
       'NGD Solutions supports digital campaigns with offer planning, landing pages, paid-social or search creative, email follow-ups and conversion tracking. The goal is a coherent customer journey rather than isolated ads or vanity metrics.',
     icon: 'growth',
