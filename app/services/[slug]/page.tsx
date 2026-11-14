@@ -21,10 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.title} in India`,
-    description: service.description,
+    title: service.seoTitle,
+    description: service.seoDescription,
     alternates: { canonical: `/services/${service.slug}` },
-    openGraph: { title: `${service.title} | NGD Solutions`, description: service.description, url: `/services/${service.slug}` },
+    openGraph: { title: `${service.seoTitle} | NGD Solutions`, description: service.seoDescription, url: `/services/${service.slug}` },
+    twitter: { card: 'summary_large_image', title: `${service.seoTitle} | NGD Solutions`, description: service.seoDescription },
   };
 }
 

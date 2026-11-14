@@ -4,6 +4,8 @@ export type Service = {
   shortTitle: string;
   eyebrow: string;
   description: string;
+  seoTitle: string;
+  seoDescription: string;
   answer: string;
   icon: 'code' | 'mobile' | 'ai' | 'design' | 'search' | 'growth';
   deliverables: string[];
@@ -19,6 +21,8 @@ export const services: Service[] = [
     shortTitle: 'Web development',
     eyebrow: 'Next.js websites, portals & web apps',
     description: 'Fast, accessible digital experiences engineered to earn trust, rank clearly and convert visitors into enquiries.',
+    seoTitle: 'Website Development in India',
+    seoDescription: 'Build a fast business website, customer portal or web app with Next.js and React. NGD Solutions includes responsive design and technical SEO basics.',
     answer:
       'NGD Solutions builds marketing websites, customer portals, dashboards and full-stack web applications using modern tools such as Next.js, React and Postgres. Every build includes responsive design, technical SEO, analytics readiness and a clean handover.',
     icon: 'code',
@@ -41,6 +45,8 @@ export const services: Service[] = [
     shortTitle: 'Mobile apps',
     eyebrow: 'iOS & Android product development',
     description: 'Useful, polished apps with one shared codebase, a scalable backend and a release plan for both app stores.',
+    seoTitle: 'Mobile App Development in India',
+    seoDescription: 'Plan and build iOS and Android apps with product UI, backend APIs and release support. Start with a focused MVP from NGD Solutions.',
     answer:
       'NGD Solutions develops cross-platform mobile apps for iOS and Android, including product design, backend APIs, authentication, push notifications and store-release preparation. The scope is shaped around the smallest useful version first.',
     icon: 'mobile',
@@ -63,6 +69,8 @@ export const services: Service[] = [
     shortTitle: 'AI & automation',
     eyebrow: 'Less repetitive work. Better response times.',
     description: 'Practical AI assistants and connected workflows that reduce manual follow-ups, data entry and operational bottlenecks.',
+    seoTitle: 'AI Workflow Automation in India',
+    seoDescription: 'Automate lead capture, CRM updates, document search and routine support with practical AI workflows, human handoffs and monitoring.',
     answer:
       'NGD Solutions builds AI-enabled workflows for lead capture, document search, customer support, CRM updates, WhatsApp or email alerts and internal operations. Each automation has clear inputs, human fallback rules and measurable success criteria.',
     icon: 'ai',
@@ -85,6 +93,8 @@ export const services: Service[] = [
     shortTitle: 'Brand & UI/UX',
     eyebrow: 'Look credible. Feel easy to use.',
     description: 'Positioning, visual identity and product interfaces that make your offer easier to understand and trust.',
+    seoTitle: 'Brand Identity & UI/UX Design',
+    seoDescription: 'Create a consistent brand identity and user-friendly website or app interface with positioning, visual direction, wireframes and reusable UI design.',
     answer:
       'NGD Solutions creates brand identities, website designs and product UI systems. Work can include positioning, logo refinement, typography, colour, reusable components, wireframes and high-fidelity prototypes ready for development.',
     icon: 'design',
@@ -107,6 +117,8 @@ export const services: Service[] = [
     shortTitle: 'SEO & content',
     eyebrow: 'Be easier to find and easier to understand',
     description: 'Technical SEO, useful content and clear entity signals built around what customers actually ask.',
+    seoTitle: 'SEO Services & Content Strategy',
+    seoDescription: 'Improve technical SEO, service pages, search intent and useful content. Track organic visibility with a practical, no-ranking-guarantees approach.',
     answer:
       'NGD Solutions improves technical SEO, service-page structure, search intent mapping and content workflows. We also prepare clear answer blocks and structured data for answer and generative engines, without promising rankings or using keyword-stuffed pages.',
     icon: 'search',
@@ -129,6 +141,8 @@ export const services: Service[] = [
     shortTitle: 'Digital marketing',
     eyebrow: 'Campaigns connected to the whole journey',
     description: 'Offers, landing pages, campaign creative and follow-up systems designed as one measurable funnel.',
+    seoTitle: 'Digital Marketing & Conversion Funnels',
+    seoDescription: 'Connect offer planning, landing pages, campaign creative and lead follow-up into a measurable digital marketing funnel for your business.',
     answer:
       'NGD Solutions supports digital campaigns with offer planning, landing pages, paid-social or search creative, email follow-ups and conversion tracking. The goal is a coherent customer journey rather than isolated ads or vanity metrics.',
     icon: 'growth',

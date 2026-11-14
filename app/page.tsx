@@ -13,9 +13,14 @@ import { faqs, pricing, processSteps, useCases } from '@/lib/content/site-conten
 import { absoluteUrl, site, whatsappUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'NGD Solutions (NextGenDev Solutions) | Websites, Apps & AI',
-  description: 'NGD Solutions builds fast websites, web and mobile apps, AI automations and digital growth systems for businesses. Clear scope, honest pricing and student mentorship.',
+  title: 'Web Development, Apps & AI Automation in India',
+  description: 'NGD Solutions builds fast business websites, web and mobile apps, and practical AI automations for teams in India and worldwide. Get a clear project plan.',
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Web Development, Apps & AI Automation | NGD Solutions',
+    description: 'Business websites, mobile apps and practical AI automations, planned and built by NGD Solutions for teams in India and worldwide.',
+    url: '/',
+  },
 };
 
 const homeSchema = {
@@ -25,7 +30,7 @@ const homeSchema = {
       '@type': 'WebPage',
       '@id': absoluteUrl('/#webpage'),
       url: absoluteUrl('/'),
-      name: 'NGD Solutions (NextGenDev Solutions) | Websites, Apps & AI',
+      name: 'Web Development, Apps & AI Automation in India | NGD Solutions',
       isPartOf: { '@id': absoluteUrl('/#website') },
       about: { '@id': absoluteUrl('/#organization') },
       description: 'Digital product design and development for businesses, plus practical mentorship for students.',

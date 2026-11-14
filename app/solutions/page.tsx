@@ -10,9 +10,14 @@ import { services } from '@/lib/content/services';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Digital Solutions for Startups & Growing Businesses',
-  description: 'Explore connected website, app, brand, SEO, marketing and AI automation solutions from NGD Solutions (NextGenDev Solutions).',
+  title: 'Digital Solutions for Businesses in India',
+  description: 'Explore website development, mobile apps, AI automation, branding, SEO and digital marketing from NGD Solutions. Combine the services your business needs.',
   alternates: { canonical: '/solutions' },
+  openGraph: {
+    title: 'Digital Solutions for Businesses | NGD Solutions',
+    description: 'Explore connected website, app, branding, SEO, marketing and AI automation services from NGD Solutions.',
+    url: '/solutions',
+  },
 };
 
 const audiences = [
