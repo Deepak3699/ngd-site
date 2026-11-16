@@ -21,7 +21,7 @@ function renderInline(value: string): ReactNode[] {
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
       const href = link[2];
-      const safeHref = href.startsWith('/') || href.startsWith('https://') || href.startsWith('mailto:');
+      const safeHref = (href.startsWith('/') && !href.startsWith('//')) || href.startsWith('https://') || href.startsWith('mailto:');
       return safeHref
         ? <a key={index} href={href} target={href.startsWith('https://') ? '_blank' : undefined} rel={href.startsWith('https://') ? 'noreferrer' : undefined}>{link[1]}</a>
         : link[1];
