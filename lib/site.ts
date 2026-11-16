@@ -42,6 +42,7 @@ export const socialLinks = [
 export const primaryNav = [
   { label: 'Services', href: '/#services' },
   { label: 'Solutions', href: '/solutions' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Process', href: '/#process' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Students', href: '/students' },

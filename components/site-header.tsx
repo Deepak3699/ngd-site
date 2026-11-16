@@ -31,7 +31,12 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const isActive = (href: string) => href !== '/#' && href.startsWith('/solutions') ? pathname.startsWith('/solutions') : href.startsWith('/students') ? pathname.startsWith('/students') : false;
+  const isActive = (href: string) => {
+    if (href === '/blog') return pathname.startsWith('/blog');
+    if (href.startsWith('/solutions')) return pathname.startsWith('/solutions');
+    if (href.startsWith('/students')) return pathname.startsWith('/students');
+    return false;
+  };
 
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
@@ -67,7 +72,7 @@ export function SiteHeader() {
           <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
             <p className="eyebrow">Explore NGD</p>
             {primaryNav.map((item, index) => (
-              <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>
+              <Link key={item.label} href={item.href} onClick={() => setOpen(false)} aria-current={isActive(item.href) ? 'page' : undefined}>
                 <span>0{index + 1}</span>{item.label}<ArrowUpRight size={18} />
               </Link>
             ))}
