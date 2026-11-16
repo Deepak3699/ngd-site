@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Clock3 } from 'lucide-react';
 import { getPublishedPosts } from '@/lib/content/blog';
-import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Technology Insights, AI Guides & Business Tips',
