@@ -6,7 +6,7 @@ updatedAt: ""
 category: "AI & Automation"
 tags: ["AI automation", "small business India", "business automation", "AI agents"]
 author: "NGD Solutions Editorial Team"
-status: "draft"
+status: "published"
 coverImage: ""
 ---
 
