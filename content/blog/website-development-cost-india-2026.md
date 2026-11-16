@@ -6,7 +6,7 @@ updatedAt: ""
 category: "Web Development"
 tags: ["website development cost", "business website", "web development India", "small business"]
 author: "NGD Solutions Editorial Team"
-status: "draft"
+status: "published"
 coverImage: ""
 ---
 
