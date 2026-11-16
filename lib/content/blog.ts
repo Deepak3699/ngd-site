@@ -1,5 +1,3 @@
-import 'server-only';
-
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -60,18 +58,23 @@ function readPost(filename: string): BlogPost | null {
   const title = String(data.title || '').trim();
   const description = String(data.description || '').trim();
   const date = String(data.date || '').trim();
-  if (!title || !description || !date || !content) return null;
+  if (!title || !description || !date || !content || Number.isNaN(new Date(date).getTime())) return null;
+
+  const updatedAt = typeof data.updatedAt === 'string' && data.updatedAt
+    ? data.updatedAt
+    : undefined;
+  if (updatedAt && Number.isNaN(new Date(updatedAt).getTime())) return null;
 
   return {
     slug,
     title,
     description,
     date,
-    updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : undefined,
+    updatedAt,
     category: String(data.category || 'Technology'),
     tags: Array.isArray(data.tags) ? data.tags : [],
     author: String(data.author || 'NGD Solutions Editorial Team'),
-    coverImage: typeof data.coverImage === 'string' ? data.coverImage : undefined,
+    coverImage: typeof data.coverImage === 'string' && data.coverImage ? data.coverImage : undefined,
     content,
     readingTime: estimateReadingTime(content),
   };
