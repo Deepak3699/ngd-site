@@ -36,6 +36,16 @@ function renderParagraph(lines: string[], key: number) {
 
 export function MarkdownContent({ content }: { content: string }) {
   const lines = content.replace(/\r\n/g, '\n').split('\n');
+  // Keep heading anchors unique — duplicate slugs would break in-page links.
+  const usedIds = new Set<string>();
+  const uniqueId = (value: string) => {
+    const base = slugify(value) || 'section';
+    let id = base;
+    let n = 2;
+    while (usedIds.has(id)) id = `${base}-${n++}`;
+    usedIds.add(id);
+    return id;
+  };
   const blocks: ReactNode[] = [];
   let paragraph: string[] = [];
   let list: string[] = [];
@@ -66,7 +76,7 @@ export function MarkdownContent({ content }: { content: string }) {
       flushParagraph();
       flushList();
       const text = heading[2].replace(/\*\*/g, '').replace(/\*/g, '');
-      const id = slugify(text);
+      const id = uniqueId(text);
       blocks.push(heading[1].length === 2
         ? <h2 id={id} key={blocks.length}>{renderInline(heading[2])}</h2>
         : <h3 id={id} key={blocks.length}>{renderInline(heading[2])}</h3>);

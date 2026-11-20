@@ -17,6 +17,7 @@
  *
  * If neither is set, the dashboard stays locked until an owner configures credentials.
  */
+import crypto from 'node:crypto';
 import {
   ADMIN_COOKIE,
   buildCookie,
@@ -79,8 +80,19 @@ export function publicTeam() {
 
 export const authEnabled = () => team().length > 0;
 
+/**
+ * Constant-time comparison of two hex digests. A plain `===` returns early on
+ * the first mismatching byte, which is the classic oracle for password-guessing
+ * timing attacks; `timingSafeEqual` runs to completion either way.
+ */
+function hashEqual(a, b) {
+  const x = Buffer.from(String(a), 'utf8');
+  const y = Buffer.from(String(b), 'utf8');
+  return x.length === y.length && crypto.timingSafeEqual(x, y);
+}
+
 /* ------------------------------------------------------------------ */
-/* Login                                                               */
+/* Login                                                              */
 /* ------------------------------------------------------------------ */
 
 export function findMember(username, password) {
@@ -98,7 +110,7 @@ export function findMember(username, password) {
   );
 
   for (const member of candidates) {
-    if (sha256(member.password) === given) {
+    if (hashEqual(sha256(member.password), given)) {
       return { ok: true, member, open: false };
     }
   }

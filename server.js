@@ -2,14 +2,14 @@
  * server.js — zero-dependency local dev server.
  *
  * It emulates what Vercel does in production:
- *   • /api/<name>   →  api/<name>.js  (default-exported handler)
+ *   • /api/<name>   →  server/api/<name>.js  (default-exported handler)
  *   • everything else → static file from /public
- *   • /admin        →  public/admin/index.html
+ *   • /admin        → public/admin/index.html (intentionally 404s)
  *
  * Run:  npm run dev   (http://localhost:3000)
  *
- * Nothing here is used on Vercel — there the same api/*.js files are deployed as
- * serverless functions automatically.
+ * Business logic lives in server/api/ and is shared with the Next.js Route
+ * Handlers the App Router exposes under the app/api tree.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -35,7 +35,7 @@ for (const file of ['.env.local', '.env']) {
 }
 
 const PUBLIC_DIR = path.join(ROOT, 'public');
-const API_DIR = path.join(ROOT, 'api');
+const API_DIR = path.join(ROOT, 'server', 'api');
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || '0.0.0.0';
 
@@ -44,11 +44,12 @@ const HOST = process.env.HOST || '0.0.0.0';
  * click locally is exactly what Vercel serves.
  */
 const ADMIN_PATH = (() => {
-  const raw = (process.env.ADMIN_PATH || '/admin').trim();
+  const raw = (process.env.ADMIN_PATH || '/ngd-control-8421').trim();
   let p = raw.startsWith('/') ? raw : '/' + raw;
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
   return p;
 })();
+// /admin always 404s (see proxy.ts); the real admin app lives at ADMIN_PATH.
 const adminIsHidden = ADMIN_PATH !== '/admin';
 
 /* --------------------------- .env.local loading --------------------------- */

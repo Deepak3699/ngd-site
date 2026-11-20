@@ -45,7 +45,12 @@ export async function readBody(req) {
   try {
     for await (const chunk of req) {
       size += chunk.length;
-      if (size > MAX_BODY_BYTES) return {};
+      if (size > MAX_BODY_BYTES) {
+        // Flag the request so handlers can answer 413 instead of silently
+        // falling through to a confusing validation error with an empty body.
+        req.bodyTooLarge = true;
+        return {};
+      }
       chunks.push(chunk);
     }
   } catch {
@@ -201,6 +206,23 @@ setInterval(() => {
   const now = Date.now();
   for (const [k, v] of buckets) if (now - v.start > 10 * 60_000) buckets.delete(k);
 }, 5 * 60_000).unref?.();
+
+/**
+ * Spoof-proof rate limit.
+ *
+ * The per-client bucket uses `clientIp()` (X-Forwarded-For), which clients can
+ * forge, so we also enforce a global "peer" bucket keyed on the socket address.
+ * Both buckets must allow the request — rotating X-Forwarded-For just exhausts
+ * the global budget and the request is rejected, so the per-client limit can
+ * only ever be tightened, never bypassed.
+ */
+export function rateLimitClient(req, key, limit = 8, windowMs = 60_000, globalLimit = 200, globalWindowMs = 60_000) {
+  const client = rateLimit(`${key}:client:${clientIp(req)}`, limit, windowMs);
+  if (!client.allowed) return { allowed: false, retryAfter: client.retryAfter, scope: 'client' };
+  const peer = rateLimit(`${key}:peer:${req.socket?.remoteAddress || 'unknown'}`, globalLimit, globalWindowMs);
+  if (!peer.allowed) return { allowed: false, retryAfter: peer.retryAfter, scope: 'peer' };
+  return { allowed: true, remaining: client.remaining, scope: 'client' };
+}
 
 /* ------------------------------------------------------------------ */
 /* Validation                                                          */
