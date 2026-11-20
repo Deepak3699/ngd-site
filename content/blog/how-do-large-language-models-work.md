@@ -6,7 +6,7 @@ updatedAt: ""
 category: "Artificial Intelligence"
 tags: ["how do LLMs work", "large language models", "LLM architecture", "transformers", "generative AI", "AI explained"]
 author: "NGD Solutions Editorial Team"
-status: "draft"
+status: "published"
 coverImage: ""
 ---
 
