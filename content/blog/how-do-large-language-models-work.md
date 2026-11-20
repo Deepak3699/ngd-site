@@ -7,7 +7,7 @@ category: "Artificial Intelligence"
 tags: ["how do LLMs work", "large language models", "LLM architecture", "transformers", "generative AI", "AI explained"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/llm-cover.jpg"
 ---
 
 # How Do Large Language Models (LLMs) Work? A Beginner-to-Technical Guide
