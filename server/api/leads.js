@@ -6,7 +6,6 @@
  */
 import {
   clean,
-  clientIp,
   fail,
   getQuery,
   hashIp,
@@ -17,7 +16,7 @@ import {
   methodNotAllowed,
   normalizeEmail,
   ok,
-  rateLimit,
+  rateLimitClient,
   readBody,
   referenceId,
   userAgent,
@@ -40,6 +39,14 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return methodNotAllowed(res, ['POST']);
 
   const body = await readBody(req);
+  if (req.bodyTooLarge) {
+    return json(
+      res,
+      413,
+      { ok: false, error: { code: 'payload_too_large', message: 'The request is too large.' } },
+      { 'Cache-Control': 'no-store' }
+    );
+  }
 
   /* ---------- spam gates ---------- */
   // 1. honeypot field hidden in the markup — real users never fill it.
@@ -52,7 +59,10 @@ export default async function handler(req, res) {
     return ok(res, { ref: referenceId(), spam: true });
   }
 
-  const limit = rateLimit(`lead:${clientIp(req)}`, 8, 60_000);
+  // Rate limit: per client (XFF) AND a global peer bucket — rotating the
+  // X-Forwarded-For header to dodge the per-client limit just exhausts the
+  // global one (see rateLimitClient in _http.js).
+  const limit = rateLimitClient(req, 'lead', 8, 60_000);
   if (!limit.allowed) {
     return json(
       res,

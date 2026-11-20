@@ -3,7 +3,7 @@
  * Body: { username?, password }
  * With a single owner login configured, username may be omitted.
  */
-import { clean, fail, json, methodNotAllowed, ok, rateLimit, clientIp, readBody } from '../_http.js';
+import { clean, fail, json, methodNotAllowed, ok, rateLimitClient, readBody } from '../_http.js';
 import { authEnabled, findMember, startSession, publicTeam } from '../_auth.js';
 
 export default async function handler(req, res) {
@@ -13,7 +13,9 @@ export default async function handler(req, res) {
     return fail(res, 503, 'auth_not_configured', 'Admin sign-in is not configured. Set ADMIN_PASSWORD or TEAM_MEMBERS, then refresh this page.');
   }
 
-  const limit = rateLimit(`login:${clientIp(req)}`, 8, 5 * 60_000);
+  // Global peer bucket as well: admin logins rotate X-Forwarded-For easily,
+  // so the per-client limit alone is easy to exhaust or dodge.
+  const limit = rateLimitClient(req, 'login', 8, 5 * 60_000, 100, 5 * 60_000);
   if (!limit.allowed) {
     return json(
       res,

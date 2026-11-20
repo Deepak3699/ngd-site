@@ -14,9 +14,12 @@ const HEADERS = [
   'message', 'source_section', 'admin_note',
 ];
 
-const csvCell = (value) => {
+export const csvCell = (value) => {
   if (value === null || value === undefined) return '';
-  const str = String(value).replace(/\r?\n/g, ' ').trim();
+  let str = String(value).replace(/\r?\n/g, ' ').trim();
+  // Spreadsheet-formula injection: a leading = + - or @ would run commands when
+  // the file is opened in Excel/Sheets, so neutralise it with a leading apostrophe.
+  if (/^[=+\-@]/.test(str)) str = `'${str}`;
   return /[",;]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
 };
 
@@ -29,15 +32,22 @@ export default async function handler(req, res) {
   const statuses = ['new', 'contacted', 'won', 'lost', 'archived'];
 
   try {
-    const { items } = await listLeads({
-      category,
-      status: statuses.includes(q.status) ? q.status : 'all',
-      source: clean(q.source, 60) || 'all',
-      q: clean(q.q, 120),
-      page: 1,
-      limit: 100,
-      sort: 'newest',
-    });
+    // Fetch every matching row. listLeads paginates internally (100 rows/page),
+    // so an export with more than 100 responses is no longer silently truncated.
+    const items = [];
+    for (let page = 1; ; page += 1) {
+      const chunk = await listLeads({
+        category,
+        status: statuses.includes(q.status) ? q.status : 'all',
+        source: clean(q.source, 60) || 'all',
+        q: clean(q.q, 120),
+        page,
+        limit: 100,
+        sort: 'newest',
+      });
+      items.push(...chunk.items);
+      if (chunk.items.length < 100) break;
+    }
 
     const rows = items.map((l) => HEADERS.map((h) => csvCell(l[h])).join(','));
     const csv = '\uFEFF' + [HEADERS.join(','), ...rows].join('\r\n');

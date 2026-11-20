@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Check, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react';
-import { whatsappUrl } from '@/lib/site';
+import { site, whatsappUrl } from '@/lib/site';
 
 type Category = 'client' | 'student';
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
@@ -102,6 +102,11 @@ export function LeadForm({ defaultCategory = 'client' }: { defaultCategory?: Cat
 
   return (
     <form ref={formRef} className="lead-form" onSubmit={handleSubmit} action="/api/leads" method="post">
+      <noscript>
+        <div className="form-error" role="alert">
+          JavaScript is required to submit this enquiry — email us at <a href={`mailto:${site.email}`}>{site.email}</a> instead.
+        </div>
+      </noscript>
       <input type="hidden" name="category" value={category} />
       <div className="form-category" role="group" aria-label="I am enquiring as">
         <button type="button" className={category === 'client' ? 'active' : ''} aria-pressed={category === 'client'} onClick={() => switchCategory('client')}>

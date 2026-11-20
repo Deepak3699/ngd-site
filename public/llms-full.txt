@@ -53,7 +53,7 @@ Third-party costs such as domains, app-store accounts, media spend and paid APIs
 ## Contact
 - Enquiry form: https://ngdsolutions.vercel.app/#contact
 - Student enquiry: https://ngdsolutions.vercel.app/students#student-contact
-- Email: hello@ngdsolutions.com
+- Email: nextgendevsolution@gmail.com
 - Phone / WhatsApp: +91 94659 38126
 - Hours: Monday–Friday, 9am–6pm IST
 - Expected first reply: within one business day

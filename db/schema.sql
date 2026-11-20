@@ -1,7 +1,7 @@
 -- ─────────────────────────────────────────────────────────────
 --  NGD — Neon / Postgres schema
 --  You normally do NOT need to run this by hand: the API creates
---  these tables automatically on first request (api/_db.js).
+--  these tables automatically on first request (server/api/_db.js).
 --  It is here so you can run it manually from the Neon SQL editor
 --  or with `npm run init-db`.
 -- ─────────────────────────────────────────────────────────────
@@ -53,3 +53,20 @@ CREATE TABLE IF NOT EXISTS admin_sessions (
   last_seen  TIMESTAMPTZ NOT NULL DEFAULT now(),
   expires_at TIMESTAMPTZ NOT NULL
 );
+
+-- Team assignment + activity log (matches server/api/_db.js — the API also
+-- adds/creates these with IF NOT EXISTS on first request; here for manual init).
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS assigned_to TEXT;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS assigned_at TIMESTAMPTZ;
+CREATE INDEX IF NOT EXISTS leads_assigned_idx ON leads (assigned_to);
+
+CREATE TABLE IF NOT EXISTS lead_events (
+  id         BIGSERIAL PRIMARY KEY,
+  lead_id    BIGINT,
+  actor      TEXT,
+  actor_name TEXT,
+  action     TEXT NOT NULL,
+  detail     TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS lead_events_lead_idx ON lead_events (lead_id, created_at DESC);
