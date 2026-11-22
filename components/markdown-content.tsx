@@ -30,6 +30,55 @@ function renderInline(value: string): ReactNode[] {
   });
 }
 
+function splitRow(line: string): string[] {
+  const trimmed = line.trim().replace(/^\|/, '').replace(/\|$/, '');
+  return trimmed.split('|').map((cell) => cell.trim());
+}
+
+function isTableRow(line: string) {
+  const trimmed = line.trim();
+  return trimmed.startsWith('|') && trimmed.endsWith('|') && trimmed.length > 2 && trimmed.indexOf('|', 1) > 0;
+}
+
+function isSeparatorRow(line: string) {
+  const trimmed = line.trim().replace(/^\|/, '').replace(/\|$/, '');
+  return trimmed.split('|').every((cell) => /^\s*:?-{2,}:?\s*$/.test(cell));
+}
+
+function renderTable(tableLines: string[], key: number) {
+  const headerRow = splitRow(tableLines[0]);
+  const separatorRow = tableLines.length > 1 && isSeparatorRow(tableLines[1]) ? splitRow(tableLines[1]) : [];
+  const bodyRows = tableLines.slice(separatorRow.length ? 2 : 1).map(splitRow);
+  if (headerRow.length < 2) return null;
+  const alignments = separatorRow.map((cell) => {
+    const c = cell.trim();
+    if (c.startsWith(':') && c.endsWith(':')) return 'center';
+    if (c.endsWith(':')) return 'right';
+    if (c.startsWith(':')) return 'left';
+    return undefined;
+  });
+  const thStyle = (i: number) => (alignments[i] ? { textAlign: alignments[i] as 'left' | 'center' | 'right' } : undefined);
+  const tdStyle = (i: number) => (alignments[i] ? { textAlign: alignments[i] as 'left' | 'center' | 'right' } : undefined);
+  return (
+    <div className="prose-table-wrap" key={key}>
+      <table className="prose-table">
+        <thead>
+          <tr>{headerRow.map((cell, i) => <th key={i} style={thStyle(i)}>{renderInline(cell)}</th>)}</tr>
+        </thead>
+        {bodyRows.length ? (
+          <tbody>
+            {bodyRows.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {headerRow.map((_cell, colIndex) => <td key={colIndex} style={tdStyle(colIndex)}>{renderInline(row[colIndex] ?? '')}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        ) : null}
+      </table>
+    </div>
+  );
+}
+
 function renderParagraph(lines: string[], key: number) {
   return <p key={key}>{renderInline(lines.join(' '))}</p>;
 }
@@ -63,11 +112,30 @@ export function MarkdownContent({ content }: { content: string }) {
     listType = null;
   };
 
-  for (const rawLine of lines) {
+  for (let rawIndex = 0; rawIndex < lines.length; rawIndex++) {
+    const rawLine = lines[rawIndex];
     const line = rawLine.trim();
     if (!line) {
       flushParagraph();
       flushList();
+      continue;
+    }
+
+    if (isTableRow(line)) {
+      flushParagraph();
+      flushList();
+      const tableLines: string[] = [line];
+      let nextIndex = rawIndex + 1;
+      while (nextIndex < lines.length && isTableRow(lines[nextIndex].trim())) {
+        tableLines.push(lines[nextIndex].trim());
+        nextIndex++;
+      }
+      rawIndex = nextIndex - 1;
+      const tableBlock = renderTable(tableLines, blocks.length);
+      if (tableBlock) blocks.push(tableBlock);
+      else {
+        for (const tableLine of tableLines) paragraph.push(tableLine);
+      }
       continue;
     }
 
