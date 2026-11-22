@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Clock3 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { MarkdownContent } from '@/components/markdown-content';
+import { ShareButton } from '@/components/share-button';
 import { getBlogPost, getPublishedPosts } from '@/lib/content/blog';
 import { absoluteUrl } from '@/lib/site';
 
@@ -71,6 +72,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
           {post.tags.length > 0 && <div className="blog-article-tags">{post.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}
         </header>
         <article className="blog-article-body"><MarkdownContent content={post.content} /></article>
+        <div className="blog-share">
+          <div className="blog-share-copy">
+            <span className="blog-share-label">Share this article</span>
+            <span className="blog-share-hint">Help someone find it — WhatsApp, Facebook, X and more, or copy the link.</span>
+          </div>
+          <ShareButton title={post.title} url={articleUrl} />
+        </div>
         <aside className="blog-article-cta"><p className="eyebrow"><span />Build with clarity</p><h2>Have a technology challenge?</h2><p>Tell NGD what you’re trying to achieve. We’ll help you identify a practical next step.</p><Link className="button button-primary" href="/#contact">Discuss your project <ArrowUpRight size={16} /></Link></aside>
       </div>
     </main>
