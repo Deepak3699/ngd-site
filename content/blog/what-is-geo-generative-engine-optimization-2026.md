@@ -7,7 +7,7 @@ category: "Artificial Intelligence"
 tags: ["GEO", "AEO", "AI search", "SEO", "llms.txt", "AI Overviews"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/geo-ai-search-cover.jpg"
 ---
 
 Search is changing from "ten blue links" to synthesized answers. When a user asks an AI search product a question, the system generates a response and may cite one or more pages as sources. The question for a business is no longer only **"how do I rank?"** — it is also **"will AI answer engines quote my site?"**

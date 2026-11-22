@@ -7,7 +7,7 @@ category: "Cybersecurity"
 tags: ["cybersecurity", "small business India", "DPDP Act", "CERT-In", "data protection", "business security"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/cybersecurity-small-business-india-cover.jpg"
 ---
 
 Cybersecurity is no longer a concern only for banks, IT companies and large corporations. In 2026, Indian small businesses — salons, clinics, shops, schools, hotels and D2C brands — are among the most common targets of cybercriminals, not because they hold the most valuable data, but because they are the most exposed.
