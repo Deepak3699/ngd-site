@@ -7,7 +7,7 @@ category: "AI & Automation"
 tags: ["AI automation", "small business India", "business automation", "AI agents"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/ai-automation-small-business-india-cover.jpg"
 ---
 
 # AI Automation for Small Businesses in India: 8 Practical Use Cases
