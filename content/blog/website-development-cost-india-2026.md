@@ -7,7 +7,7 @@ category: "Web Development"
 tags: ["website development cost", "business website", "web development India", "small business"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/website-development-cost-india-2026-cover.jpg"
 ---
 
 # How Much Does a Website Cost in India in 2026?

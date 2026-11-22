@@ -7,7 +7,7 @@ category: "Artificial Intelligence"
 tags: ["AI vs LLM", "AI agents explained", "chatbot vs AI agent", "generative AI", "genetic algorithm", "agentic AI", "large language models"]
 author: "NGD Solutions Editorial Team"
 status: "published"
-coverImage: ""
+coverImage: "/images/blog/ai-vs-llm-cover.jpg"
 ---
 
 # AI vs LLM vs AI Agents vs Bots: Generative, Genetic and Agentic AI Explained
