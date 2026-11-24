@@ -1,5 +1,6 @@
 ---
 title: "AI Automation for Small Businesses in India: 8 Practical Use Cases"
+seoTitle: "AI Automation for Small Businesses"
 description: "Explore practical AI automation ideas for Indian small businesses, from enquiry handling and lead follow-ups to appointments, documents and customer support."
 date: "2026-11-16"
 updatedAt: ""
