@@ -1,5 +1,6 @@
 ---
 title: "AI vs LLM vs AI Agents vs Bots: Generative, Genetic and Agentic AI Explained"
+seoTitle: "AI vs LLMs vs AI Agents: Explained"
 description: "Understand the difference between Artificial Intelligence, LLMs, chatbots, AI agents, Generative AI, Genetic Algorithms and Agentic AI with simple examples and comparison tables."
 date: "2026-11-21"
 updatedAt: ""
