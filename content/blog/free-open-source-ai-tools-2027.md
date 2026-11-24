@@ -1,5 +1,6 @@
 ---
 title: "Best Free & Open-Source AI Tools in 2027: 17 Creative Apps, Local AI and Developer Tools"
+seoTitle: "Free & Open-Source AI Tools in 2027"
 description: "Discover genuinely free and open-source AI tools in 2027, including 17 ArtCraft creative apps, local LLMs, coding agents, image workflows, automation platforms and useful GitHub directories."
 date: "2026-11-21"
 updatedAt: ""
