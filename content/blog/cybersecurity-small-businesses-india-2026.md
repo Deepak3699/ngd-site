@@ -1,5 +1,6 @@
 ---
 title: "Cybersecurity for Small Businesses in India: A Practical 2026 Checklist"
+seoTitle: "Cybersecurity Checklist for Indian SMEs"
 description: "A practical cybersecurity checklist for Indian small businesses in 2026 — from phishing defence and backup routines to MFA, CERT-In reporting and DPDP Act readiness."
 date: "2026-11-22"
 updatedAt: ""
