@@ -1,5 +1,6 @@
 ---
 title: "How Do Large Language Models (LLMs) Work? A Beginner-to-Technical Guide"
+seoTitle: "How Large Language Models Work"
 description: "Learn how large language models work, from tokens and embeddings to Transformers, attention, pretraining, fine-tuning, inference and hallucinations—with practical examples."
 date: "2026-11-20"
 updatedAt: ""
