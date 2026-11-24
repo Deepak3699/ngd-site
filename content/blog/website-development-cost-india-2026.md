@@ -1,5 +1,6 @@
 ---
 title: "How Much Does a Website Cost in India in 2026?"
+seoTitle: "Website Development Cost in India"
 description: "A practical 2026 guide to website costs in India, from landing pages and business websites to ecommerce stores and custom web apps."
 date: "2026-11-16"
 updatedAt: ""
