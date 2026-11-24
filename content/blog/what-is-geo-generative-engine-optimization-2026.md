@@ -1,5 +1,6 @@
 ---
 title: "What Is GEO (Generative Engine Optimization)? A Practical 2026 Guide"
+seoTitle: "What Is GEO? A Guide to AI Search"
 description: "What is Generative Engine Optimization (GEO)? How AI search engines cite sources, what actually helps your site appear in ChatGPT, Perplexity, Claude and Google AI Overviews, and a simple 2026 checklist."
 date: "2026-11-22"
 updatedAt: ""
