@@ -21,13 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: 'Article not found' };
 
   return {
-    title: post.title,
+    title: post.seoTitle || post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: 'article',
       url: `/blog/${post.slug}`,
-      title: post.title,
+      title: post.seoTitle || post.title,
       description: post.description,
       publishedTime: new Date(post.date).toISOString(),
       modifiedTime: new Date(post.updatedAt || post.date).toISOString(),
