@@ -1,5 +1,6 @@
 ---
 title: "Next.js vs WordPress for Small Businesses in India: Which Should You Choose in 2026?"
+seoTitle: "Next.js vs WordPress for Small Businesses"
 description: "A practical 2026 comparison of Next.js and WordPress for Indian small businesses — cost, performance, maintenance, SEO and a decision framework for when each wins."
 date: "2026-11-22"
 updatedAt: ""
