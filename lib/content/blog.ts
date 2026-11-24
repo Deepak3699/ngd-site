@@ -4,6 +4,7 @@ import path from 'node:path';
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
   updatedAt?: string;
@@ -68,6 +69,7 @@ function readPost(filename: string): BlogPost | null {
   return {
     slug,
     title,
+    seoTitle: typeof data.seoTitle === 'string' && data.seoTitle.trim() ? data.seoTitle.trim() : undefined,
     description,
     date,
     updatedAt,
