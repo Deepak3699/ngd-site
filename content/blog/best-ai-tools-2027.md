@@ -1,5 +1,6 @@
 ---
 title: "15 Best AI Tools in 2027 for Work, Research and Creativity"
+seoTitle: "Best AI Tools for Work & Creativity"
 description: "Explore 15 useful AI tools for writing, research, design, video, voice generation and workflow automation, including free plans and practical use cases."
 date: "2026-11-21"
 updatedAt: ""
