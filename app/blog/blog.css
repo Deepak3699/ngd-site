@@ -25,6 +25,9 @@
 .blog-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
 .blog-card { overflow: hidden; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
 .blog-card-visual { min-height: 140px; align-items: flex-start; justify-content: flex-end; padding: 18px; }
+.blog-card-visual.has-cover { padding: 0; }
+.blog-cover-image { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+.blog-article-cover { display: block; width: 100%; height: auto; margin: 36px auto 0; border-radius: 16px; }
 .blog-card-visual span { color: #dce7fb; font-family: var(--font-display); font-size: 23px; }
 .blog-card-body { padding: 20px; }
 .blog-card-body h3 { margin-top: 9px; font-size: 19px; line-height: 1.25; }

@@ -17,7 +17,7 @@ If you run a business in Hoshiarpur — a furniture showroom, a coaching centre,
 
 Both quotes can be honest. They usually describe **different products**.
 
-Hoshiarpur sits in Punjab's Doaba region, between the Sutlej and Beas rivers. The district has around 17.9 lakh people (2026 estimate), and the city itself is roughly 2.5 lakh. It is known for its GI-tagged wood inlay craft, furniture trade, educational institutions and a strong small-business economy. When a business here goes online, the question is rarely "should we have a website?" — it is "what will it cost, and what do we actually get?"
+Hoshiarpur sits in Punjab's Doaba region, between the Sutlej and Beas rivers. The area is known for its GI-tagged wood inlay craft, furniture trade, educational institutions and a strong small-business economy. When a business here goes online, the question is rarely "should we have a website?" — it is "what will it cost, and what do we actually get?"
 
 This guide explains realistic 2026 price ranges for Hoshiarpur and Punjab, what changes the quote, and how to compare proposals before you pay.
 
@@ -33,7 +33,7 @@ The ranges below are broad planning estimates for 2026, not fixed market rates o
 | Ecommerce store (with UPI payments) | ₹60,000–₹3,00,000+ |
 | Custom web application or portal | ₹3,00,000+ |
 
-These ranges align with our [India-wide website cost guide](/blog/website-development-cost-india-2026). Quotes in Hoshiarpur and smaller Punjab cities often run **10–20% below metro prices** (Delhi, Mumbai, Bengaluru) for the same scope — but scope differences between two quotes matter far more than city differences. A ₹20,000 "website" and a ₹60,000 "website" are usually not the same product at all.
+These ranges align with our [India-wide website cost guide](/blog/website-development-cost-india-2026). Prices vary by provider and location, but scope differences between two quotes often matter more than city differences. A ₹20,000 "website" and a ₹60,000 "website" are usually not the same product at all.
 
 ## Why two quotes for the same website differ so much
 

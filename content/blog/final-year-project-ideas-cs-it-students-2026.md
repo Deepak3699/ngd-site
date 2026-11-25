@@ -15,7 +15,7 @@ coverImage: "/images/blog/final-year-projects-cover.jpg"
 
 Recruiters do not hire degrees. They hire proof — proof that you can build something real, finish it, and explain your decisions. Your final-year project is the best proof you will have in 2026, but only if it is **deployed, documented and explainable**. A project that exists only on your laptop helps nobody.
 
-This guide gives 12 project ideas for CS/IT students in 2026, each with a tech stack and what to showcase, plus the portfolio practices that turn a college project into a job offer.
+This guide gives 12 project ideas for CS/IT students in 2026, each with a tech stack and what to showcase, plus portfolio practices that can help you show your skills to employers.
 
 ## What makes a project stand out in 2026
 
@@ -29,7 +29,7 @@ This guide gives 12 project ideas for CS/IT students in 2026, each with a tech s
 
 ### 1. AI customer support chatbot (RAG)
 
-A chatbot that answers questions from your own documents instead of making things up. **Stack:** Next.js + FastAPI + PostgreSQL with pgvector. **Showcase:** a small knowledge base (college FAQs, a local business's services), source citations in answers, and an evaluation sheet showing accuracy.
+A chatbot that retrieves relevant passages from your own documents to help answer questions. It can still make mistakes, so evaluate its answers and citations. **Stack:** Next.js + FastAPI + PostgreSQL with pgvector. **Showcase:** a small knowledge base (college FAQs, a local business's services), source citations in answers, and an evaluation sheet showing accuracy.
 
 ### 2. WhatsApp enquiry automation for a local business
 
@@ -106,7 +106,7 @@ The gap between "I have an idea" and "I have a deployed project I can explain" i
 
 ## Final thoughts
 
-In 2026, the students who get hired are the ones with deployed projects, clear READMEs and the ability to explain their decisions. Pick a real problem, scope it to finish, deploy early, and document everything. Your final-year project can be the strongest page in your portfolio — if you treat it like a product, not an assignment.
+Deployed projects, clear READMEs and the ability to explain your decisions can help you show employers what you can do. Pick a real problem, scope it to finish, deploy early, and document everything. Your final-year project can be the strongest page in your portfolio — if you treat it like a product, not an assignment.
 
 **Stuck on your final-year project or portfolio?** [Talk to NGD Solutions](https://ngdsolutions.vercel.app/#contact) about student mentorship. We can help you choose a project, review your architecture and get it deployed.
 

@@ -27,32 +27,15 @@ This guide breaks down real 2026 costs: setup fees, monthly running costs, Meta'
 | Full system (web + WhatsApp + CRM) | ₹85,000+ | ₹10,000–₹25,000 | End-to-end enquiry handling |
 | Custom commerce bot (payments + CRM) | ₹1.5–15 lakh | Tokens + hosting extra | High-volume sales automation |
 
-The most popular tier for Indian small businesses is **₹3,000–₹5,000 per month** (42% of SMBs), with ₹8,000–₹15,000 per month the fastest-growing segment as businesses upgrade from starter plans.
+These are illustrative planning ranges, not verified market rates or a quote. Subscription products may cost less to start, while custom integrations can cost substantially more. Ask providers what setup, support and usage the price includes.
 
-## The per-message layer: Meta's WhatsApp rates
+## The per-message layer: WhatsApp costs
 
-If your chatbot runs on WhatsApp, Meta charges per delivered template message. On the India rate card effective 1 October 2026:
+WhatsApp Business Platform charges depend on message category, destination, applicable service windows and current pricing rules. Your provider may also add subscription fees or markups. Rates and tax treatment can change, so check [Meta's current pricing](https://business.whatsapp.com/products/platform-pricing) and get an itemised provider quote before budgeting.
 
-| Message type | Meta rate (India) | Used for |
-| --- | --- | --- |
-| Marketing template | ₹0.8631 | Offers, launches, re-engagement |
-| Utility template | ₹0.1150 | Order updates, appointment and payment reminders |
-| Authentication template | ₹0.1150 | OTPs and login codes |
-| Service replies | Free for first 1,000 per number per month, then ₹0.1150 | Replies inside the 24-hour window |
+## Worked monthly budget
 
-Two things matter here. First, a marketing message costs about **7.5 times** a utility message — so keep transactional templates purely transactional (adding "use code SAVE10" to an order update can get it reclassified as marketing). Second, replies inside the 24-hour window are free, which is why a fast-answering bot keeps most traffic out of billing altogether.
-
-Your platform adds its own fee on top. As of September–October 2026, listed marketing rates per message were roughly ₹0.958 (Interakt), ₹1.09 (AiSensy) and ₹0.9926 (Gallabox) — before 18% GST. Entry platform plans typically start around ₹999–₹2,999 per month.
-
-## Worked monthly budgets
-
-**Micro business (under 500 conversations a month):** platform ₹1,000–₹3,000 + a few hundred rupees of Meta charges = **~₹3,000–₹5,000 per month**.
-
-**Small business (500–2,000 conversations):** platform ₹3,000–₹8,000 + Meta charges of roughly ₹500–₹1,500 = **~₹5,000–₹10,000 per month**.
-
-**Growing business (10,000 messages):** 2,000 marketing + 3,000 utility messages cost Meta about ₹2,129; add a ₹2,999 platform plan and GST, and the total lands around **₹8,000–₹12,000 per month**.
-
-**A worked example:** a business sends 3,000 marketing templates and 1,500 order updates a month. Meta charges about ₹2,589 for marketing plus about ₹230 for utility. With 18% GST that is roughly ₹3,330. Add a ₹5,000 platform fee and the whole bill is about ₹8,330 a month.
+Suppose a provider quotes ₹3,000 per month for its platform, ₹1,000 for message usage and ₹500 for AI usage. The estimated total is **₹4,500 per month before any applicable taxes and other charges**, plus any setup fee. This is an example, not a market quote: actual costs depend on volume and contract terms. Confirm whether platform fees already include message charges to avoid double-counting.
 
 ## Hidden costs people miss
 
@@ -69,7 +52,7 @@ Your platform adds its own fee on top. As of September–October 2026, listed ma
 
 ## The ROI check
 
-A WhatsApp AI agent answers **70–90% of enquiries instantly**, works at 2 am and never forgets a follow-up. If your average customer is worth ₹5,000 and the bot converts just 10 extra enquiries a month, that is **₹50,000 of revenue against a ₹10,000 cost**. That is the math to test against your own numbers before you buy anything.
+A well-designed chatbot can answer some enquiries outside business hours and help schedule follow-ups, but its accuracy and reliability must be monitored. If your average customer is worth ₹5,000 and the bot converts just 10 extra enquiries a month, that is **₹50,000 of additional revenue against a ₹10,000 cost** before fulfilment costs and other expenses. Revenue is not profit, and extra conversions are not guaranteed. That is the math to test against your own numbers before you buy anything.
 
 ## Final thoughts
 
