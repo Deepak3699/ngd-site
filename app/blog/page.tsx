@@ -38,7 +38,7 @@ export default function BlogIndexPage() {
             <>
               <div className="blog-section-heading"><div><p className="eyebrow"><span />Latest thinking</p><h2>Fresh from NGD</h2></div><span className="blog-post-count">{posts.length} {posts.length === 1 ? 'article' : 'articles'}</span></div>
               <article className="blog-featured-card">
-                <div className="blog-featured-visual" aria-hidden="true"><span>NGD</span><i>Ideas into impact.</i></div>
+                <div className="blog-featured-visual" aria-hidden="true">{featured.coverImage ? <img className="blog-cover-image" src={featured.coverImage} alt="" /> : <><span>NGD</span><i>Ideas into impact.</i></>}</div>
                 <div className="blog-featured-copy">
                   <span className="blog-category">{featured.category}</span>
                   <h2><Link href={`/blog/${featured.slug}`}>{featured.title}</Link></h2>
@@ -49,7 +49,7 @@ export default function BlogIndexPage() {
               </article>
               {rest.length > 0 && <div className="blog-card-grid">{rest.map((post) => (
                 <article className="blog-card" key={post.slug}>
-                  <div className="blog-card-visual" aria-hidden="true"><span>{post.category}</span></div>
+                  <div className={`blog-card-visual${post.coverImage ? ' has-cover' : ''}`} aria-hidden="true">{post.coverImage ? <img className="blog-cover-image" src={post.coverImage} alt="" loading="lazy" /> : <span>{post.category}</span>}</div>
                   <div className="blog-card-body"><span className="blog-category">{post.category}</span><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3><p>{post.description}</p><div className="blog-card-meta"><span>{new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span><span><Clock3 size={14} />{post.readingTime} min</span></div></div>
                 </article>
               ))}</div>}

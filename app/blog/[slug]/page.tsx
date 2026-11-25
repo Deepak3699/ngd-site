@@ -71,6 +71,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           <div className="blog-article-meta"><span>By {post.author}</span><span>{new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span><span><Clock3 size={15} />{post.readingTime} min read</span></div>
           {post.tags.length > 0 && <div className="blog-article-tags">{post.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}
         </header>
+        {post.coverImage && <img className="blog-article-cover" src={post.coverImage} alt="" />}
         <article className="blog-article-body"><MarkdownContent content={post.content} /></article>
         <div className="blog-share">
           <div className="blog-share-copy">
